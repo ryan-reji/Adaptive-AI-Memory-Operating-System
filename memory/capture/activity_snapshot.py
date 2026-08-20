@@ -1,4 +1,4 @@
-from database.db import get_connection
+from memory.database.db import get_connection
 
 
 def create_snapshot(activity):
