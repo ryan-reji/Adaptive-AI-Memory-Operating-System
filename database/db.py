@@ -21,6 +21,16 @@ def create_tables():
             captured_at TEXT NOT NULL
         )
     """)
+    cursor.execute("""
+     CREATE TABLE IF NOT EXISTS memories (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        content TEXT NOT NULL,
+        context TEXT,
+        importance_score REAL,
+        status TEXT DEFAULT 'active',
+        created_at TEXT NOT NULL
+     )
+    """)
 
     connection.commit()
     connection.close()

@@ -4,11 +4,17 @@ from database.db import get_connection
 connection = get_connection()
 cursor = connection.cursor()
 
-cursor.execute("SELECT id, source_type, title, captured_at FROM activities")
+cursor.execute("""
+    SELECT name
+    FROM sqlite_master
+    WHERE type='table'
+""")
 
-rows = cursor.fetchall()
+tables = cursor.fetchall()
 
-for row in rows:
-    print(row)
+print("Tables:")
+
+for table in tables:
+    print(table[0])
 
 connection.close()
