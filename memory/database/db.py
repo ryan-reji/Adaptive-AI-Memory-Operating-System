@@ -1,6 +1,6 @@
 import sqlite3
 
-DB_PATH = "database/memory.db"
+DB_PATH = "memory/database/memory.db"
 
 
 def get_connection():

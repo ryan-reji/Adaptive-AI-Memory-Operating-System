@@ -1,6 +1,6 @@
 import pymupdf
 from datetime import datetime
-from database.db import get_connection
+from memory.database.db import get_connection
 
 
 def extract_pdf(pdf_path):
@@ -42,7 +42,7 @@ def save_activity(pdf_path, result):
 
 
 if __name__ == "__main__":
-    pdf_path = "test.pdf"
+    pdf_path = "memory/tests/test_data/test.pdf"
 
     result = extract_pdf(pdf_path)
 

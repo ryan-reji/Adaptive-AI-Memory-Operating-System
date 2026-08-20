@@ -1,5 +1,5 @@
-from database.db import get_connection
-from capture.activity_snapshot import create_snapshot
+from memory.database.db import get_connection
+from memory.capture.activity_snapshot import create_snapshot
 
 
 def get_recent_activities(limit=5):
