@@ -1,49 +1,51 @@
-from memory.database.db import get_connection
+from datetime import datetime
 
 
-def create_snapshot(activity):
+def create_snapshot(activity, extraction_result):
+    metadata = extraction_result.get("metadata", {})
+
     return {
         "source_type": activity["source_type"],
-        "source_path": activity["source_path"],
-        "title": activity["title"],
-        "text_preview": activity["content"][:1000],
-        "captured_at": activity["captured_at"]
-    }
+        "action": activity["action"],
+        "source_path": activity["path"],
+        "timestamp": activity["timestamp"],
 
+        "file_name": metadata.get("file_name"),
+        "file_type": metadata.get("extension"),
+        "file_size": metadata.get("file_size"),
 
-def get_latest_activity():
-    connection = get_connection()
-    cursor = connection.cursor()
+        "content": extraction_result.get("content"),
+        "extraction_type": extraction_result.get("extraction_type"),
+        "chunk_number": extraction_result.get("chunk_number", 0),
 
-    cursor.execute("""
-        SELECT source_type, source_path, title, content, captured_at
-        FROM activities
-        ORDER BY id DESC
-        LIMIT 1
-    """)
-
-    row = cursor.fetchone()
-    connection.close()
-
-    if row is None:
-        return None
-
-    return {
-        "source_type": row[0],
-        "source_path": row[1],
-        "title": row[2],
-        "content": row[3],
-        "captured_at": row[4]
+        "created_at": datetime.now().isoformat()
     }
 
 
 if __name__ == "__main__":
-    activity = get_latest_activity()
 
-    if activity:
-        snapshot = create_snapshot(activity)
+    activity = {
+        "source_type": "file",
+        "action": "modified",
+        "path": "memory/tests/test_data/test.py",
+        "timestamp": datetime.now().isoformat()
+    }
 
-        print("Activity Snapshot:")
-        print(snapshot)
-    else:
-        print("No activities found.")
+    extraction_result = {
+        "content": 'print("hello world")',
+        "metadata": {
+            "file_name": "test.py",
+            "extension": ".py",
+            "file_size": 20
+        },
+        "extraction_type": "text",
+        "chunk_number": 0
+    }
+
+    snapshot = create_snapshot(
+        activity,
+        extraction_result
+    )
+
+    print("Activity Snapshot:")
+    print(snapshot)
