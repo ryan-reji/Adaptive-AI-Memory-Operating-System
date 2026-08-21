@@ -6,27 +6,34 @@ from watchdog.events import FileSystemEventHandler
 from memory.capture.activity_event import create_activity_event
 from memory.capture.permissions import is_allowed
 from memory.capture.deduplicator import ActivityDeduplicator
-from memory.capture.pdf_capture import is_pdf, extract_pdf, save_activity
+from memory.capture.universal_extractor import extract_file
 
 
 class FileActivityHandler(FileSystemEventHandler):
 
     def process_activity(self, activity):
-        if deduplicator.is_duplicate(activity):
-            return
+     if deduplicator.is_duplicate(activity):
+        return
 
-        print(activity)
+     print(activity)
 
-        # Only process PDFs that still exist
-        if (
-            is_pdf(activity["path"])
-            and activity["action"] in ["created", "modified", "moved"]
-            and Path(activity["path"]).exists()
-        ):
-            result = extract_pdf(activity["path"])
-            save_activity(activity["path"], result)
+    # Deleted files are not sent for extraction
+     if activity["action"] == "deleted":
+        return
 
-            print("PDF extracted and saved to database.")
+     file_path = Path(activity["path"])
+
+     if not file_path.exists():
+        return
+
+     result = extract_file(activity["path"])
+
+     print("Extraction level:", result["extraction_level"])
+     print("Metadata:", result["metadata"])
+
+     if result["content"]:
+        print("Content preview:")
+        print(result["content"][:500])
 
     def on_created(self, event):
         if event.is_directory:
