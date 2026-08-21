@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  /* Ground: deep teal-ink, not pure black — a study-at-night feel, not a generic dark-mode default */
+  --color-ink-950: #0f1614;
+  --color-ink-900: #141d1a;
+  --color-ink-800: #1b2622;
+  --color-ink-700: #24322d;
+  --color-ink-600: #34443d;
+  --color-ink-500: #4c6058;
+
+  --color-paper-100: #f3f1ea; /* used sparingly, e.g. inside memory cards */
+  --color-mist-300: #9fb0a8;
+  --color-mist-200: #c3cfc9;
+
+  /* Signature accent: warm amber "recall glow" — the color of a highlighted memory */
+  --color-glow-500: #e0a458;
+  --color-glow-400: #eab876;
+  --color-glow-300: #f3d3a3;
+
+  /* Secondary: sage = kept/retained, rust = fading/forgotten */
+  --color-kept-500: #7fae8f;
+  --color-fade-500: #b06a52;
+
+  --font-display: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body: -apple-system, "Segoe UI", "Inter", system-ui, sans-serif;
+  --font-mono: "SF Mono", "IBM Plex Mono", ui-monospace, monospace;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: var(--color-ink-950);
+  color: var(--color-mist-200);
+  font-family: var(--font-body);
+}
+
+/* Signature element: the memory thread — a vertical line whose opacity encodes importance */
+.memory-thread {
+  position: relative;
+}
+.memory-thread::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 0;
+  bottom: 0;
+  width: 1.5px;
+  background: linear-gradient(to bottom, var(--color-glow-500), var(--color-ink-600));
+}
+
+::selection {
+  background: var(--color-glow-500);
+  color: var(--color-ink-950);
+}
+
+/* visible keyboard focus everywhere, per accessibility floor */
+:focus-visible {
+  outline: 2px solid var(--color-glow-400);
+  outline-offset: 2px;
+}
+
+@keyframes contour-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+.contour-scroll {
+  animation: contour-scroll 90s linear infinite;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .contour-scroll {
+    animation: none;
+  }
+}
