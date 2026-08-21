@@ -6,7 +6,9 @@ from watchdog.events import FileSystemEventHandler
 from memory.capture.activity_event import create_activity_event
 from memory.capture.permissions import is_allowed
 from memory.capture.deduplicator import ActivityDeduplicator
-from memory.capture.universal_extractor import extract_file
+#from memory.capture.universal_extractor import extract_file
+from memory.capture.universal_extractor import get_chunk
+from memory.capture.activity_snapshot import create_snapshot
 
 
 class FileActivityHandler(FileSystemEventHandler):
@@ -26,14 +28,12 @@ class FileActivityHandler(FileSystemEventHandler):
      if not file_path.exists():
         return
 
-     result = extract_file(activity["path"])
+     result = get_chunk(activity["path"], chunk_number=0)
 
-     print("Extraction level:", result["extraction_level"])
-     print("Metadata:", result["metadata"])
+     snapshot = create_snapshot(activity, result)
 
-     if result["content"]:
-        print("Content preview:")
-        print(result["content"][:500])
+     print("Activity Snapshot:")
+     print(snapshot)
 
     def on_created(self, event):
         if event.is_directory:
