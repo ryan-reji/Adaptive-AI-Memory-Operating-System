@@ -3,13 +3,12 @@ from pathlib import Path
 from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
-from memory.capture.activity_event import create_activity_event
-from memory.capture.permissions import is_allowed
-from memory.capture.deduplicator import ActivityDeduplicator
+from memory.capture.common.activity_event import create_activity_event
+from memory.capture.common.permissions import is_allowed
+from memory.capture.common.deduplicator import ActivityDeduplicator
 #from memory.capture.universal_extractor import extract_file
-from memory.capture.universal_extractor import get_chunk
-from memory.capture.activity_snapshot import create_snapshot
-
+from memory.capture.file.universal_extractor import get_chunk
+from memory.capture.file.file_snapshot import create_snapshot
 
 class FileActivityHandler(FileSystemEventHandler):
 
