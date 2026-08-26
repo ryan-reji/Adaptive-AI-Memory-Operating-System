@@ -1,8 +1,8 @@
 from pathlib import Path
 
-from memory.capture.text_extractor import extract_text_chunk
-from memory.capture.specialized_extractors import extract_specialized
-from memory.capture.metadata_extractor import extract_metadata
+from memory.capture.file.text_extractor import extract_text_chunk
+from memory.capture.file.specialized_extractors import extract_specialized
+from memory.capture.file.metadata_extractor import extract_metadata
 
 
 TEXT_EXTENSIONS = {
