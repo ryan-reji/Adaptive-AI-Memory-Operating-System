@@ -1,5 +1,8 @@
 import time
 from datetime import datetime
+from memory.capture.browser.browser_event import create_browser_event
+from memory.capture.browser.browser_aggregator import aggregate_browser_events
+from memory.capture.browser.browser_snapshot import create_browser_snapshot
 
 import win32gui
 import win32process
@@ -52,6 +55,21 @@ def get_active_window():
     }
 
 
+def is_private_window(title):
+    title = title.lower()
+
+    private_keywords = [
+    "incognito",
+    "private",
+    "private browsing",
+    "private window",
+    "new private tab",
+    "private new tab"
+    ]
+
+    return any(keyword in title for keyword in private_keywords)
+
+
 def monitor_browser(interval=1):
     previous_activity = None
     start_time = None
@@ -66,6 +84,7 @@ def monitor_browser(interval=1):
 
             # No supported browser currently active
             if current_activity is None:
+
                 if previous_activity is not None:
                     finish_activity(
                         previous_activity,
@@ -82,7 +101,25 @@ def monitor_browser(interval=1):
             browser = current_activity["browser"]
 
             if not is_browser_allowed(browser):
-                current_activity = None
+
+                if previous_activity is not None:
+                    finish_activity(
+                        previous_activity,
+                        start_time
+                    )
+
+                    previous_activity = None
+                    start_time = None
+
+                time.sleep(interval)
+                continue
+
+            # Check for private/incognito window
+            is_private = is_private_window(
+                current_activity["title"]
+            )
+
+            if is_private and not is_private_capture_allowed(browser):
 
                 if previous_activity is not None:
                     finish_activity(
@@ -102,7 +139,7 @@ def monitor_browser(interval=1):
                 previous_activity = current_activity
                 start_time = time.time()
 
-            # Browser/window title changed
+            # Browser or window title changed
             elif (
                 current_activity["browser"]
                 != previous_activity["browser"]
@@ -134,7 +171,7 @@ def monitor_browser(interval=1):
 def finish_activity(activity, start_time):
     duration = time.time() - start_time
 
-    print({
+    raw_activity = {
         "browser": activity["browser"],
         "title": activity["title"],
         "started_at": datetime.fromtimestamp(
@@ -142,7 +179,20 @@ def finish_activity(activity, start_time):
         ).isoformat(),
         "ended_at": datetime.now().isoformat(),
         "duration_seconds": round(duration, 2)
-    })
+    }
+
+    # Raw activity → Browser Event
+    event = create_browser_event(raw_activity)
+
+    # Event → Aggregator
+    aggregated = aggregate_browser_events([event])
+
+    # Aggregated activity → Snapshot
+    for activity in aggregated:
+        snapshot = create_browser_snapshot(activity)
+
+        print("\nBrowser Snapshot:")
+        print(snapshot)
 
 
 if __name__ == "__main__":
