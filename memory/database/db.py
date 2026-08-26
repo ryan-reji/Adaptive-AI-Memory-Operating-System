@@ -57,6 +57,18 @@ def create_tables():
             created_at TEXT NOT NULL
         )
     """)
+    cursor.execute("""
+     CREATE TABLE IF NOT EXISTS browser_activity (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        activity_key TEXT NOT NULL UNIQUE,
+        browser TEXT NOT NULL,
+        title TEXT NOT NULL,
+        total_duration_seconds REAL NOT NULL DEFAULT 0,
+        session_count INTEGER NOT NULL DEFAULT 0,
+        first_seen TEXT NOT NULL,
+        last_seen TEXT NOT NULL
+     )
+    """)
 
     # Default browser permissions
     browsers = ["Chrome", "Brave", "Edge", "Firefox"]

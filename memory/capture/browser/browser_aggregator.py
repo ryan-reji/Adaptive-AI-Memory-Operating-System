@@ -1,4 +1,4 @@
-from collections import defaultdict
+from memory.database.db import get_connection
 
 
 def create_activity_key(event):
@@ -8,75 +8,110 @@ def create_activity_key(event):
     return f"{browser}:{title}"
 
 
-def aggregate_browser_events(events):
-    aggregated = defaultdict(lambda: {
-        "browser": None,
-        "title": None,
-        "total_duration_seconds": 0,
-        "sessions": 0,
-        "first_seen": None,
-        "last_seen": None
-    })
+def aggregate_browser_event(event):
+    activity_key = create_activity_key(event)
 
-    for event in events:
+    connection = get_connection()
+    cursor = connection.cursor()
 
-        key = create_activity_key(event)
+    cursor.execute("""
+        SELECT
+            id,
+            total_duration_seconds,
+            session_count,
+            first_seen,
+            last_seen
+        FROM browser_activity
+        WHERE activity_key = ?
+    """, (activity_key,))
 
-        activity = aggregated[key]
+    row = cursor.fetchone()
 
-        activity["browser"] = event["browser"]
-        activity["title"] = event["title"]
+    if row is None:
+        cursor.execute("""
+            INSERT INTO browser_activity (
+                activity_key,
+                browser,
+                title,
+                total_duration_seconds,
+                session_count,
+                first_seen,
+                last_seen
+            )
+            VALUES (?, ?, ?, ?, ?, ?, ?)
+        """, (
+            activity_key,
+            event["browser"],
+            event["title"],
+            event["duration_seconds"],
+            1,
+            event["started_at"],
+            event["ended_at"]
+        ))
 
-        activity["total_duration_seconds"] += (
+    else:
+        activity_id = row[0]
+        current_duration = row[1]
+        current_sessions = row[2]
+        first_seen = row[3]
+        last_seen = row[4]
+
+        new_duration = (
+            current_duration +
             event["duration_seconds"]
         )
 
-        activity["sessions"] += 1
+        new_sessions = current_sessions + 1
 
-        if (
-            activity["first_seen"] is None
-            or event["started_at"] < activity["first_seen"]
-        ):
-            activity["first_seen"] = event["started_at"]
+        new_first_seen = min(
+            first_seen,
+            event["started_at"]
+        )
 
-        if (
-            activity["last_seen"] is None
-            or event["ended_at"] > activity["last_seen"]
-        ):
-            activity["last_seen"] = event["ended_at"]
+        new_last_seen = max(
+            last_seen,
+            event["ended_at"]
+        )
 
-    return list(aggregated.values())
+        cursor.execute("""
+            UPDATE browser_activity
+            SET
+                total_duration_seconds = ?,
+                session_count = ?,
+                first_seen = ?,
+                last_seen = ?
+            WHERE id = ?
+        """, (
+            new_duration,
+            new_sessions,
+            new_first_seen,
+            new_last_seen,
+            activity_id
+        ))
 
+    connection.commit()
 
-if __name__ == "__main__":
+    cursor.execute("""
+        SELECT
+            browser,
+            title,
+            total_duration_seconds,
+            session_count,
+            first_seen,
+            last_seen
+        FROM browser_activity
+        WHERE activity_key = ?
+    """, (activity_key,))
 
-    test_events = [
-        {
-            "browser": "Brave",
-            "title": "GitHub - Project",
-            "started_at": "2026-08-26T10:00:00",
-            "ended_at": "2026-08-26T10:08:00",
-            "duration_seconds": 480
-        },
-        {
-            "browser": "Brave",
-            "title": "YouTube",
-            "started_at": "2026-08-26T10:08:00",
-            "ended_at": "2026-08-26T10:13:00",
-            "duration_seconds": 300
-        },
-        {
-            "browser": "Brave",
-            "title": "GitHub - Project",
-            "started_at": "2026-08-26T10:13:00",
-            "ended_at": "2026-08-26T10:25:00",
-            "duration_seconds": 720
-        }
-    ]
+    result = cursor.fetchone()
 
-    result = aggregate_browser_events(test_events)
+    connection.close()
 
-    print("Aggregated Browser Activity:")
-
-    for activity in result:
-        print(activity)
+    return {
+        "browser": result[0],
+        "title": result[1],
+        "total_duration_seconds": result[2],
+        "sessions": result[3],
+        "first_seen": result[4],
+        "last_seen": result[5]
+    }

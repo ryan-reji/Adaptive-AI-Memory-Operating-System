@@ -1,7 +1,7 @@
 import time
 from datetime import datetime
 from memory.capture.browser.browser_event import create_browser_event
-from memory.capture.browser.browser_aggregator import aggregate_browser_events
+from memory.capture.browser.browser_aggregator import aggregate_browser_event
 from memory.capture.browser.browser_snapshot import create_browser_snapshot
 
 import win32gui
@@ -185,14 +185,11 @@ def finish_activity(activity, start_time):
     event = create_browser_event(raw_activity)
 
     # Event → Aggregator
-    aggregated = aggregate_browser_events([event])
+    aggregated = aggregate_browser_event(event)
 
-    # Aggregated activity → Snapshot
-    for activity in aggregated:
-        snapshot = create_browser_snapshot(activity)
-
-        print("\nBrowser Snapshot:")
-        print(snapshot)
+    snapshot = create_browser_snapshot(aggregated)
+    print("\nBrowser Snapshot:")
+    print(snapshot)
 
 
 if __name__ == "__main__":
