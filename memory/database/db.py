@@ -5,8 +5,9 @@ DB_PATH = "memory/database/memory.db"
 
 
 def get_connection():
-    return sqlite3.connect(DB_PATH)
-
+    connection = sqlite3.connect(DB_PATH)
+    connection.execute("PRAGMA foreign_keys = ON")
+    return connection
 
 def create_tables():
     connection = get_connection()
@@ -68,6 +69,59 @@ def create_tables():
         first_seen TEXT NOT NULL,
         last_seen TEXT NOT NULL
      )
+    """)
+    cursor.execute("""
+     CREATE TABLE IF NOT EXISTS vscode_activity (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        activity_key TEXT NOT NULL UNIQUE,
+        project TEXT NOT NULL,
+        file TEXT,
+        total_duration_seconds REAL NOT NULL DEFAULT 0,
+        session_count INTEGER NOT NULL DEFAULT 0,
+        first_seen TEXT NOT NULL,
+        last_seen TEXT NOT NULL
+     )
+    """)
+        # File daily activity history
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS file_daily_activity (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            activity_id INTEGER NOT NULL,
+            activity_date TEXT NOT NULL,
+            first_seen TEXT NOT NULL,
+            last_seen TEXT NOT NULL,
+            duration_seconds REAL NOT NULL DEFAULT 0,
+            FOREIGN KEY (activity_id) REFERENCES activities(id),
+            UNIQUE(activity_id, activity_date)
+        )
+    """)
+
+    # Browser daily activity history
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS browser_daily_activity (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            activity_id INTEGER NOT NULL,
+            activity_date TEXT NOT NULL,
+            first_seen TEXT NOT NULL,
+            last_seen TEXT NOT NULL,
+            duration_seconds REAL NOT NULL DEFAULT 0,
+            FOREIGN KEY (activity_id) REFERENCES browser_activity(id),
+            UNIQUE(activity_id, activity_date)
+        )
+    """)
+
+    # VS Code daily activity history
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS vscode_daily_activity (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            activity_id INTEGER NOT NULL,
+            activity_date TEXT NOT NULL,
+            first_seen TEXT NOT NULL,
+            last_seen TEXT NOT NULL,
+            duration_seconds REAL NOT NULL DEFAULT 0,
+            FOREIGN KEY (activity_id) REFERENCES vscode_activity(id),
+            UNIQUE(activity_id, activity_date)
+        )
     """)
 
     # Default browser permissions
