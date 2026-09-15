@@ -9,11 +9,18 @@ def create_activity_key(event):
 
 
 def aggregate_browser_event(event):
+    """
+    Add a browser event to:
+    1. The persistent lifetime activity aggregate.
+    2. The daily activity history.
+    """
+
     activity_key = create_activity_key(event)
 
     connection = get_connection()
     cursor = connection.cursor()
 
+    # 1. Find existing lifetime activity
     cursor.execute("""
         SELECT
             id,
@@ -48,6 +55,8 @@ def aggregate_browser_event(event):
             event["started_at"],
             event["ended_at"]
         ))
+
+        activity_id = cursor.lastrowid
 
     else:
         activity_id = row[0]
@@ -89,8 +98,59 @@ def aggregate_browser_event(event):
             activity_id
         ))
 
+    # 2. Determine activity date
+    activity_date = event["started_at"][:10]
+
+    # 3. Find daily activity for this activity + date
+    cursor.execute("""
+        SELECT id
+        FROM browser_daily_activity
+        WHERE activity_id = ?
+          AND activity_date = ?
+    """, (
+        activity_id,
+        activity_date
+    ))
+
+    daily_row = cursor.fetchone()
+
+    if daily_row is None:
+        cursor.execute("""
+            INSERT INTO browser_daily_activity (
+                activity_id,
+                activity_date,
+                first_seen,
+                last_seen,
+                duration_seconds
+            )
+            VALUES (?, ?, ?, ?, ?)
+        """, (
+            activity_id,
+            activity_date,
+            event["started_at"],
+            event["ended_at"],
+            event["duration_seconds"]
+        ))
+
+    else:
+        cursor.execute("""
+            UPDATE browser_daily_activity
+            SET
+                duration_seconds =
+                    duration_seconds + ?,
+                last_seen = ?
+            WHERE activity_id = ?
+              AND activity_date = ?
+        """, (
+            event["duration_seconds"],
+            event["ended_at"],
+            activity_id,
+            activity_date
+        ))
+
     connection.commit()
 
+    # 4. Get updated lifetime aggregate
     cursor.execute("""
         SELECT
             browser,
