@@ -1,5 +1,7 @@
 from datetime import datetime
 
+#This is a part of file activity for now so do not delete!!
+
 
 def create_activity_event(source_type, action, path, metadata=None):
     return {

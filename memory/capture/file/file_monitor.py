@@ -9,6 +9,7 @@ from memory.capture.common.deduplicator import ActivityDeduplicator
 #from memory.capture.universal_extractor import extract_file
 from memory.capture.file.universal_extractor import get_chunk
 from memory.capture.file.file_snapshot import create_snapshot
+from memory.capture.file.file_evidence import create_file_evidence
 
 class FileActivityHandler(FileSystemEventHandler):
 
@@ -33,6 +34,11 @@ class FileActivityHandler(FileSystemEventHandler):
 
      print("Activity Snapshot:")
      print(snapshot)
+
+     evidence = create_file_evidence(snapshot)
+
+     print("Activity Evidence:")
+     print(evidence)
 
     def on_created(self, event):
         if event.is_directory:
