@@ -123,6 +123,49 @@ def create_tables():
             UNIQUE(activity_id, activity_date)
         )
     """)
+    # User file exclusions
+    cursor.execute("""
+         CREATE TABLE IF NOT EXISTS file_exclusions (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          path TEXT NOT NULL UNIQUE,
+          created_at TEXT NOT NULL
+        )
+    """)
+    # User-approved file folders
+    cursor.execute("""
+         CREATE TABLE IF NOT EXISTS file_allowed_folders (
+          id INTEGER PRIMARY KEY AUTOINCREMENT,
+          path TEXT NOT NULL UNIQUE,
+          created_at TEXT NOT NULL
+        )
+    """)
+    # File permission settings
+    cursor.execute("""
+     CREATE TABLE IF NOT EXISTS file_permission_settings (
+        id INTEGER PRIMARY KEY CHECK (id = 1),
+        permission_mode TEXT NOT NULL DEFAULT 'allow_all',
+        updated_at TEXT NOT NULL
+    )
+    """)
+
+    cursor.execute("""
+     INSERT OR IGNORE INTO file_permission_settings (
+        id,
+        permission_mode,
+        updated_at
+    )
+    VALUES (1, 'allow_all', ?)
+    """, (datetime.now().isoformat(),))
+
+# Active project folders
+    cursor.execute("""
+     CREATE TABLE IF NOT EXISTS project_folders (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        path TEXT NOT NULL UNIQUE,
+        project_name TEXT,
+        created_at TEXT NOT NULL
+    )
+    """)
 
     # Default browser permissions
     browsers = ["Chrome", "Brave", "Edge", "Firefox"]
