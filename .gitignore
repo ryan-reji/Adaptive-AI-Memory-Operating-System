@@ -1,5 +1,5 @@
-.venv/
 venv/
 __pycache__/
 *.pyc
-*.db
+memory/ai_engine/chroma_db/
+.env
