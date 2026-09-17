@@ -3,7 +3,7 @@ from memory.ai_engine.rag.rag_pipeline import RAGPipeline
 
 rag = RAGPipeline()
 
-query = "How does RAG reduce hallucinations?"
+query = "What files was I editing in the Adaptive-AI-Memory-Operating-System project?"
 
 result = rag.answer(
     query=query,

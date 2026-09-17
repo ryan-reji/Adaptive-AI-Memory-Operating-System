@@ -3,7 +3,7 @@ from memory.ai_engine.retrieval.retriever import Retriever
 
 retriever = Retriever()
 
-query = "What did I work on with the RAG pipeline and Ollama?"
+query = "What file did I recently edit called incremental_test.py?"
 
 result = retriever.search(
     query=query,
