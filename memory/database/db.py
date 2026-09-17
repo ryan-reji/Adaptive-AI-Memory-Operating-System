@@ -177,6 +177,16 @@ def create_tables():
             created_at TEXT NOT NULL
         )
     """)
+        # Phase 4 relevance decisions
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS relevance_decisions (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            evidence_id INTEGER NOT NULL UNIQUE,
+            decision TEXT NOT NULL,
+            processed_at TEXT NOT NULL,
+            FOREIGN KEY (evidence_id) REFERENCES activity_evidence(id)
+        )
+    """)
 
     # Default browser permissions
     browsers = ["Chrome", "Brave", "Edge", "Firefox"]

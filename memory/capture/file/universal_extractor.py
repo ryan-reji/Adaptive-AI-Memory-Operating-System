@@ -62,7 +62,7 @@ def get_chunk(file_path, chunk_number=0, chunk_size=1000):
         result = extract_specialized(
             file_path,
             start_chunk=chunk_number,
-            chunk_size=5
+            chunk_size=1
         )
 
         if result is not None:
