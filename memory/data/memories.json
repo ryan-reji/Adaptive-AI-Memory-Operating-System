@@ -1,0 +1,417 @@
+{
+  "date": "2026-09-17",
+  "memories": [
+    {
+      "memory_id": 1,
+      "evidence_id": 1,
+      "source_type": "browser",
+      "timestamp": "2026-09-17T11:30:00",
+      "action": "viewed",
+      "duration_seconds": 120.0,
+      "details": {
+        "browser": "Brave",
+        "title": "GitHub",
+        "sessions": 2
+      },
+      "created_at": "2026-09-17T11:30:00",
+      "status": "active"
+    },
+    {
+      "memory_id": 2,
+      "evidence_id": 2,
+      "source_type": "browser",
+      "timestamp": "2026-09-17T11:49:48.790691",
+      "action": "viewed",
+      "duration_seconds": 2.0,
+      "details": {
+        "browser": "Brave",
+        "title": "MTYS 2026-27 - Google Sheets - Brave",
+        "sessions": 2,
+        "first_seen": "2026-09-17T11:25:13.325734",
+        "last_seen": "2026-09-17T11:49:48.790691"
+      },
+      "created_at": "2026-09-17T11:49:48.797040",
+      "status": "active"
+    },
+    {
+      "memory_id": 3,
+      "evidence_id": 3,
+      "source_type": "browser",
+      "timestamp": "2026-09-17T11:49:49.805252",
+      "action": "viewed",
+      "duration_seconds": 10.01,
+      "details": {
+        "browser": "Brave",
+        "title": "AI-Assistant(RAG,LLM) iwth smart forgetting - Continue VS Code Pipeline - Brave",
+        "sessions": 5,
+        "first_seen": "2026-09-15T20:42:03.906749",
+        "last_seen": "2026-09-17T11:49:49.805252"
+      },
+      "created_at": "2026-09-17T11:49:49.822135",
+      "status": "active"
+    },
+    {
+      "memory_id": 4,
+      "evidence_id": 4,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T11:51:52.984076",
+      "action": "editing",
+      "duration_seconds": 40.86,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "vscode_monitor.py",
+        "sessions": 9,
+        "first_seen": "2026-09-15T19:00:45.705399",
+        "last_seen": "2026-09-17T11:51:52.984076"
+      },
+      "created_at": "2026-09-17T11:51:52.994398",
+      "status": "active"
+    },
+    {
+      "memory_id": 5,
+      "evidence_id": 5,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T11:51:54.004097",
+      "action": "editing",
+      "duration_seconds": 41.86,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "vscode_monitor.py",
+        "sessions": 10,
+        "first_seen": "2026-09-15T19:00:45.705399",
+        "last_seen": "2026-09-17T11:51:54.004097"
+      },
+      "created_at": "2026-09-17T11:51:54.011099",
+      "status": "active"
+    },
+    {
+      "memory_id": 6,
+      "evidence_id": 6,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T11:51:56.019405",
+      "action": "editing",
+      "duration_seconds": 43.86,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "vscode_monitor.py",
+        "sessions": 11,
+        "first_seen": "2026-09-15T19:00:45.705399",
+        "last_seen": "2026-09-17T11:51:56.019405"
+      },
+      "created_at": "2026-09-17T11:51:56.026190",
+      "status": "active"
+    },
+    {
+      "memory_id": 7,
+      "evidence_id": 7,
+      "source_type": "file",
+      "timestamp": "2026-09-17T11:56:36.776044",
+      "action": "created",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.py",
+        "file_name": "test.py",
+        "file_type": ".py",
+        "file_size": 32,
+        "content": "print(\"hello world from ryan!!\")",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-09-17T11:56:36.955132",
+      "status": "active"
+    },
+    {
+      "memory_id": 8,
+      "evidence_id": 8,
+      "source_type": "file",
+      "timestamp": "2026-09-17T11:56:37.620027",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.py",
+        "file_name": "test.py",
+        "file_type": ".py",
+        "file_size": 32,
+        "content": "print(\"hello world from ryan!!\")",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-09-17T11:56:37.675629",
+      "status": "active"
+    },
+    {
+      "memory_id": 9,
+      "evidence_id": 9,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T12:01:57.437250",
+      "action": "editing",
+      "duration_seconds": 4.17,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "activity_manager.py",
+        "sessions": 1,
+        "first_seen": "2026-09-17T12:01:53.270997",
+        "last_seen": "2026-09-17T12:01:57.437250"
+      },
+      "created_at": "2026-09-17T12:01:57.972572",
+      "status": "active"
+    },
+    {
+      "memory_id": 10,
+      "evidence_id": 10,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T12:02:00.272374",
+      "action": "editing",
+      "duration_seconds": 6.21,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "activity_manager.py",
+        "sessions": 2,
+        "first_seen": "2026-09-17T12:01:53.270997",
+        "last_seen": "2026-09-17T12:02:00.272374"
+      },
+      "created_at": "2026-09-17T12:02:00.796200",
+      "status": "active"
+    },
+    {
+      "memory_id": 11,
+      "evidence_id": 11,
+      "source_type": "browser",
+      "timestamp": "2026-09-17T12:02:03.878619",
+      "action": "viewed",
+      "duration_seconds": 4.26,
+      "details": {
+        "browser": "Brave",
+        "title": "MTYS 2026-27 - Google Sheets - Brave",
+        "sessions": 3,
+        "first_seen": "2026-09-17T11:25:13.325734",
+        "last_seen": "2026-09-17T12:02:03.878619"
+      },
+      "created_at": "2026-09-17T12:02:04.320496",
+      "status": "active"
+    },
+    {
+      "memory_id": 12,
+      "evidence_id": 12,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T12:02:06.182191",
+      "action": "editing",
+      "duration_seconds": 8.25,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "activity_manager.py",
+        "sessions": 3,
+        "first_seen": "2026-09-17T12:01:53.270997",
+        "last_seen": "2026-09-17T12:02:06.182191"
+      },
+      "created_at": "2026-09-17T12:02:06.820505",
+      "status": "active"
+    },
+    {
+      "memory_id": 13,
+      "evidence_id": 13,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T12:04:35.392872",
+      "action": "editing",
+      "duration_seconds": 1.01,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 1,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-09-17T12:04:35.392872"
+      },
+      "created_at": "2026-09-17T12:04:36.180627",
+      "status": "active"
+    },
+    {
+      "memory_id": 14,
+      "evidence_id": 14,
+      "source_type": "file",
+      "timestamp": "2026-09-17T12:04:41.559213",
+      "action": "created",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.py",
+        "file_name": "test.py",
+        "file_type": ".py",
+        "file_size": 32,
+        "content": "print(\"hello world from ryan!!\")",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-09-17T12:04:41.760710",
+      "status": "active"
+    },
+    {
+      "memory_id": 15,
+      "evidence_id": 15,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T18:03:22.783089",
+      "action": "editing",
+      "duration_seconds": 5.16,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "relevance_processor.py",
+        "sessions": 1,
+        "first_seen": "2026-09-17T18:03:17.625601",
+        "last_seen": "2026-09-17T18:03:22.783089"
+      },
+      "created_at": "2026-09-17T18:03:23.523556",
+      "status": "active"
+    },
+    {
+      "memory_id": 16,
+      "evidence_id": 16,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T18:04:25.708580",
+      "action": "editing",
+      "duration_seconds": 7.24,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "relevance_processor.py",
+        "sessions": 2,
+        "first_seen": "2026-09-17T18:03:17.625601",
+        "last_seen": "2026-09-17T18:04:25.708580"
+      },
+      "created_at": "2026-09-17T18:04:26.295825",
+      "status": "active"
+    },
+    {
+      "memory_id": 17,
+      "evidence_id": 18,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T22:58:49.667821",
+      "action": "editing",
+      "duration_seconds": 11.3,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "activity_manager.py",
+        "sessions": 4,
+        "first_seen": "2026-09-17T12:01:53.270997",
+        "last_seen": "2026-09-17T22:58:49.667821"
+      },
+      "created_at": "2026-09-17T22:58:50.252017",
+      "status": "active"
+    },
+    {
+      "memory_id": 18,
+      "evidence_id": 19,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T23:13:14.981276",
+      "action": "editing",
+      "duration_seconds": 10.01,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "orchestrator.py",
+        "sessions": 1,
+        "first_seen": "2026-09-17T23:13:04.975898",
+        "last_seen": "2026-09-17T23:13:14.981276"
+      },
+      "created_at": "2026-09-17T23:13:14.989195",
+      "status": "active"
+    },
+    {
+      "memory_id": 19,
+      "evidence_id": 20,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T23:13:15.997756",
+      "action": "editing",
+      "duration_seconds": 11.01,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "orchestrator.py",
+        "sessions": 2,
+        "first_seen": "2026-09-17T23:13:04.975898",
+        "last_seen": "2026-09-17T23:13:15.997756"
+      },
+      "created_at": "2026-09-17T23:13:16.026226",
+      "status": "active"
+    },
+    {
+      "memory_id": 20,
+      "evidence_id": 21,
+      "source_type": "browser",
+      "timestamp": "2026-09-17T23:13:19.990304",
+      "action": "viewed",
+      "duration_seconds": 3.01,
+      "details": {
+        "browser": "Brave",
+        "title": "AI-Assistant(RAG,LLM) iwth smart forgetting - Phase 4 Pipeline Design - Brave",
+        "sessions": 1,
+        "first_seen": "2026-09-17T23:13:16.984803",
+        "last_seen": "2026-09-17T23:13:19.990304"
+      },
+      "created_at": "2026-09-17T23:13:19.996569",
+      "status": "active"
+    },
+    {
+      "memory_id": 21,
+      "evidence_id": 22,
+      "source_type": "vscode",
+      "timestamp": "2026-09-17T23:13:22.043978",
+      "action": "editing",
+      "duration_seconds": 13.01,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "orchestrator.py",
+        "sessions": 3,
+        "first_seen": "2026-09-17T23:13:04.975898",
+        "last_seen": "2026-09-17T23:13:22.043978"
+      },
+      "created_at": "2026-09-17T23:13:22.052124",
+      "status": "active"
+    },
+    {
+      "memory_id": 22,
+      "evidence_id": 23,
+      "source_type": "file",
+      "timestamp": "2026-09-17T23:13:28.447009",
+      "action": "created",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test_1.pdf",
+        "file_name": "test_1.pdf",
+        "file_type": ".pdf",
+        "file_size": 5144670,
+        "content": "arXiv:2507.03724v1  [cs.CL]  4 Jul 2025\nMemOS: A Memory OS for AI System\nZhiyu Li1,3, Shichao Song1,8, Chenyang Xi1, Hanyu Wang1,8, Chen Tang1, Simin Niu1,8,\nDing Chen10, Jiawei Yang1,8, Chunyu Li1, Qingchen Yu1,9, Jihao Zhao1,8, Yezhaohui\nWang1, Peng Liu8, Zehao Lin1,3, Pengyuan Wang1, Jiahao Huo1, Tianyi Chen1,2, Kai\nChen1,3, Kehang Li1,2, Zhen Tao8, Junpeng Ren1, Huayi Lai1, Hao Wu1, Bo Tang1,\nZhenren Wang7,3, Zhaoxin Fan9, Ningyu Zhang5, Linfeng Zhang2, Junchi Yan2,\nMingchuan Yang10, Tong Xu6, Wei Xu8, Huajun Chen5, Haofeng Wang4, Hongkang\nYang1,3, Wentao Zhang7,\u2020, Zhi-Qin John Xu2,\u2020, Siheng Chen2,\u2020, Feiyu Xiong1,3,\u2020\n1MemTensor (Shanghai) Technology Co., Ltd., 2Shanghai Jiao Tong University, 3Institute for\nAdvanced Algorithms Research, Shanghai, 4Tongji University, 5Zhejiang University,\n6University of Science and Technology of China, 7Peking University, 8Renmin University of\nChina, 9Beihang University, 10Research Institute of China Telecom\nAbstract\nLarge Language Models (LLMs) have become an essential infrastructure for Artificial General\nIntelligence (AGI), yet their lack of well-defined memory management systems hinders the devel-\nopment of long-context reasoning, continual personalization, and knowledge consistency.Existing\nmodels mainly rely on static parameters and short-lived contextual states, limiting their ability to\ntrack user preferences or update knowledge over extended periods.While Retrieval-Augmented\nGeneration (RAG) introduces external knowledge in plain text, it remains a stateless workaround\nwithout lifecycle control or integration with persistent representations.Recent work has modeled the\ntraining and inference cost of LLMs from a memory hierarchy perspective, showing that introducing\nan explicit memory layer between parameter memory and external retrieval can substantially\nreduce these costs by externalizing specific knowledge [1]. Beyond computational efficiency, LLMs\nface broader challenges arising from how information is distributed over time and context, requiring\nsystems capable of managing heterogeneous knowledge spanning different temporal scales and\nsources. To address this challenge, we propose MemOS, a memory operating system that treats\nmemory as a manageable system resource. It unifies the representation, scheduling, and evolution\nof plaintext, activation-based, and parameter-level memories, enabling cost-efficient storage and\nretrieval. As the basic unit, a MemCube encapsulates both memory content and metadata such as\nprovenance and versioning. MemCubes can be composed, migrated, and fused over time, enabling\nflexible transitions between memory types and bridging retrieval with parameter-based learning.\nMemOS establishes a memory-centric system framework that brings controllability, plasticity, and\nevolvability to LLMs, laying the foundation for continual learning and personalized modeling.\nAuthor Legend: \u2020Correspondence\nProject Website: https://memos.openmem.net/\nCode: https://github.com/MemTensor/MemOS\n1\n",
+        "extraction_type": "specialized",
+        "chunk_number": 0
+      },
+      "created_at": "2026-09-17T23:13:28.575434",
+      "status": "active"
+    },
+    {
+      "memory_id": 23,
+      "evidence_id": 24,
+      "source_type": "file",
+      "timestamp": "2026-09-17T23:13:28.591641",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test_1.pdf",
+        "file_name": "test_1.pdf",
+        "file_type": ".pdf",
+        "file_size": 5144670,
+        "content": "arXiv:2507.03724v1  [cs.CL]  4 Jul 2025\nMemOS: A Memory OS for AI System\nZhiyu Li1,3, Shichao Song1,8, Chenyang Xi1, Hanyu Wang1,8, Chen Tang1, Simin Niu1,8,\nDing Chen10, Jiawei Yang1,8, Chunyu Li1, Qingchen Yu1,9, Jihao Zhao1,8, Yezhaohui\nWang1, Peng Liu8, Zehao Lin1,3, Pengyuan Wang1, Jiahao Huo1, Tianyi Chen1,2, Kai\nChen1,3, Kehang Li1,2, Zhen Tao8, Junpeng Ren1, Huayi Lai1, Hao Wu1, Bo Tang1,\nZhenren Wang7,3, Zhaoxin Fan9, Ningyu Zhang5, Linfeng Zhang2, Junchi Yan2,\nMingchuan Yang10, Tong Xu6, Wei Xu8, Huajun Chen5, Haofeng Wang4, Hongkang\nYang1,3, Wentao Zhang7,\u2020, Zhi-Qin John Xu2,\u2020, Siheng Chen2,\u2020, Feiyu Xiong1,3,\u2020\n1MemTensor (Shanghai) Technology Co., Ltd., 2Shanghai Jiao Tong University, 3Institute for\nAdvanced Algorithms Research, Shanghai, 4Tongji University, 5Zhejiang University,\n6University of Science and Technology of China, 7Peking University, 8Renmin University of\nChina, 9Beihang University, 10Research Institute of China Telecom\nAbstract\nLarge Language Models (LLMs) have become an essential infrastructure for Artificial General\nIntelligence (AGI), yet their lack of well-defined memory management systems hinders the devel-\nopment of long-context reasoning, continual personalization, and knowledge consistency.Existing\nmodels mainly rely on static parameters and short-lived contextual states, limiting their ability to\ntrack user preferences or update knowledge over extended periods.While Retrieval-Augmented\nGeneration (RAG) introduces external knowledge in plain text, it remains a stateless workaround\nwithout lifecycle control or integration with persistent representations.Recent work has modeled the\ntraining and inference cost of LLMs from a memory hierarchy perspective, showing that introducing\nan explicit memory layer between parameter memory and external retrieval can substantially\nreduce these costs by externalizing specific knowledge [1]. Beyond computational efficiency, LLMs\nface broader challenges arising from how information is distributed over time and context, requiring\nsystems capable of managing heterogeneous knowledge spanning different temporal scales and\nsources. To address this challenge, we propose MemOS, a memory operating system that treats\nmemory as a manageable system resource. It unifies the representation, scheduling, and evolution\nof plaintext, activation-based, and parameter-level memories, enabling cost-efficient storage and\nretrieval. As the basic unit, a MemCube encapsulates both memory content and metadata such as\nprovenance and versioning. MemCubes can be composed, migrated, and fused over time, enabling\nflexible transitions between memory types and bridging retrieval with parameter-based learning.\nMemOS establishes a memory-centric system framework that brings controllability, plasticity, and\nevolvability to LLMs, laying the foundation for continual learning and personalized modeling.\nAuthor Legend: \u2020Correspondence\nProject Website: https://memos.openmem.net/\nCode: https://github.com/MemTensor/MemOS\n1\n",
+        "extraction_type": "specialized",
+        "chunk_number": 0
+      },
+      "created_at": "2026-09-17T23:13:28.643830",
+      "status": "active"
+    }
+  ]
+}

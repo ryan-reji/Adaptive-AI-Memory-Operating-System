@@ -187,6 +187,21 @@ def create_tables():
             FOREIGN KEY (evidence_id) REFERENCES activity_evidence(id)
         )
     """)
+        # Phase 5 memories
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS memory_records (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            evidence_id INTEGER NOT NULL UNIQUE,
+            source_type TEXT NOT NULL,
+            timestamp TEXT NOT NULL,
+            action TEXT,
+            duration_seconds REAL,
+            details TEXT,
+            created_at TEXT NOT NULL,
+            status TEXT NOT NULL DEFAULT 'active',
+            FOREIGN KEY (evidence_id) REFERENCES activity_evidence(id)
+        )
+    """)
 
     # Default browser permissions
     browsers = ["Chrome", "Brave", "Edge", "Firefox"]
