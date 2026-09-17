@@ -1,4 +1,5 @@
 import threading
+import time
 
 from memory.capture.file.file_monitor import FileActivityHandler
 from memory.capture.browser.browser_monitor import monitor_browser
@@ -30,7 +31,7 @@ def start_file_monitor():
 
     try:
         while True:
-            pass
+            time.sleep(1)
     except KeyboardInterrupt:
         observer.stop()
 
@@ -82,7 +83,7 @@ def start_all_monitors():
 
     try:
         while True:
-            pass
+            time.sleep(1)
 
     except KeyboardInterrupt:
         print("\nActivity manager stopped.")
