@@ -3,6 +3,8 @@ from datetime import datetime
 from memory.capture.browser.browser_event import create_browser_event
 from memory.capture.browser.browser_aggregator import aggregate_browser_event
 from memory.capture.browser.browser_snapshot import create_browser_snapshot
+from memory.capture.browser.browser_evidence import create_browser_evidence
+from memory.database.activity_evidence_db import save_activity_evidence
 
 import win32gui
 import win32process
@@ -187,9 +189,22 @@ def finish_activity(activity, start_time):
     # Event → Aggregator
     aggregated = aggregate_browser_event(event)
 
+    # Aggregated activity → Browser Snapshot
     snapshot = create_browser_snapshot(aggregated)
+
     print("\nBrowser Snapshot:")
     print(snapshot)
+
+    # Browser Snapshot → Common Activity Evidence
+    evidence = create_browser_evidence(snapshot)
+    evidence_id = save_activity_evidence(evidence)
+
+    print("\nBrowser Activity Evidence:")
+    print(evidence)
+    print("Saved Evidence ID:", evidence_id)
+
+    print("\nBrowser Activity Evidence:")
+    print(evidence)
 
 
 if __name__ == "__main__":

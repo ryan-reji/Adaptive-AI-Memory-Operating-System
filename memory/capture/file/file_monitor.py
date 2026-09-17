@@ -9,30 +9,45 @@ from memory.capture.common.deduplicator import ActivityDeduplicator
 #from memory.capture.universal_extractor import extract_file
 from memory.capture.file.universal_extractor import get_chunk
 from memory.capture.file.file_snapshot import create_snapshot
+from memory.capture.file.file_evidence import create_file_evidence
+from memory.database.activity_evidence_db import save_activity_evidence
 
 class FileActivityHandler(FileSystemEventHandler):
 
+    def __init__(self):
+        super().__init__()
+        self.deduplicator = ActivityDeduplicator()
+
     def process_activity(self, activity):
-     if deduplicator.is_duplicate(activity):
-        return
+        if self.deduplicator.is_duplicate(activity):
+            return
 
-     print(activity)
+        print(activity)
 
-    # Deleted files are not sent for extraction
-     if activity["action"] == "deleted":
-        return
+        # Deleted files are not sent for extraction
+        if activity["action"] == "deleted":
+            return
 
-     file_path = Path(activity["path"])
+        file_path = Path(activity["path"])
 
-     if not file_path.exists():
-        return
+        if not file_path.exists():
+            return
 
-     result = get_chunk(activity["path"], chunk_number=0)
+        result = get_chunk(activity["path"], chunk_number=0)
 
-     snapshot = create_snapshot(activity, result)
+        snapshot = create_snapshot(activity, result)
 
-     print("Activity Snapshot:")
-     print(snapshot)
+        print("Activity Snapshot:")
+        print(snapshot)
+
+        evidence = create_file_evidence(snapshot)
+
+        print("Activity Evidence:")
+        print(evidence)
+
+        evidence_id = save_activity_evidence(evidence)
+
+        print("Saved Evidence ID:", evidence_id)
 
     def on_created(self, event):
         if event.is_directory:

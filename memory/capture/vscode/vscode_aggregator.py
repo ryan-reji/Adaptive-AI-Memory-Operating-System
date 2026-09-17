@@ -51,7 +51,7 @@ def aggregate_vscode_event(event):
             VALUES (?, ?, ?, ?, ?, ?, ?)
         """, (
             activity_key,
-            event.get("project"),
+            event.get("project") or "Unknown",
             event.get("file"),
             event["duration_seconds"],
             1,
