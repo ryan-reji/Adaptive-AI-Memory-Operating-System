@@ -3,6 +3,8 @@ from datetime import datetime
 from memory.capture.vscode.vscode_event import create_vscode_event
 from memory.capture.vscode.vscode_aggregator import aggregate_vscode_event
 from memory.capture.vscode.vscode_snapshot import create_vscode_snapshot
+from memory.capture.vscode.vscode_evidence import create_vscode_evidence
+from memory.database.activity_evidence_db import save_activity_evidence
 
 import psutil
 import win32gui
@@ -113,7 +115,7 @@ def monitor():
 def finish_activity(activity, start_time):
     """
     Finish raw VS Code activity and run it through
-    the complete event → aggregation → snapshot pipeline.
+    the complete event → aggregation → snapshot → evidence pipeline.
     """
 
     end_time = datetime.now()
@@ -128,16 +130,28 @@ def finish_activity(activity, start_time):
         "duration_seconds": round(duration, 2)
     }
 
-    # Create standardized event
+    # Raw activity → VS Code Event
     event = create_vscode_event(raw_activity)
 
-    # Aggregate and persist in SQLite
+    # Event → Aggregator
     aggregated = aggregate_vscode_event(event)
 
-    # Create compact snapshot
+    # Aggregated activity → VS Code Snapshot
     snapshot = create_vscode_snapshot(aggregated)
 
+    print("\nVS Code Snapshot:")
     print(snapshot)
+
+    # VS Code Snapshot → Common Activity Evidence
+    evidence = create_vscode_evidence(snapshot)
+    evidence_id = save_activity_evidence(evidence)
+
+    print("\nVS Code Activity Evidence:")
+    print(evidence)
+    print("Saved Evidence ID:", evidence_id)
+
+    print("\nVS Code Activity Evidence:")
+    print(evidence)
 
 
 if __name__ == "__main__":

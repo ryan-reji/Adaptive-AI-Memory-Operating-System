@@ -166,6 +166,17 @@ def create_tables():
         created_at TEXT NOT NULL
     )
     """)
+    cursor.execute("""
+        CREATE TABLE IF NOT EXISTS activity_evidence (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            source_type TEXT NOT NULL,
+            timestamp TEXT NOT NULL,
+            action TEXT,
+            duration_seconds REAL,
+            details TEXT,
+            created_at TEXT NOT NULL
+        )
+    """)
 
     # Default browser permissions
     browsers = ["Chrome", "Brave", "Edge", "Firefox"]
