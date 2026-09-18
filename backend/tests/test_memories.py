@@ -222,7 +222,7 @@ def test_get_memory_returns_active_memory(test_database):
         evidence_id=1,
         source_type="file",
         timestamp="2026-09-18T10:00:00",
-        details='{"path": "project/test.py"}',
+        details='{"path": "project/test.py", "action": "modified"}',
     )
 
     memory = memory_service.get_memory(1)
@@ -230,7 +230,12 @@ def test_get_memory_returns_active_memory(test_database):
     assert memory is not None
     assert memory["id"] == 1
     assert memory["evidence_id"] == 1
-    assert memory["details"]["path"] == "project/test.py"
+
+    # Safe metadata should remain available.
+    assert memory["details"]["action"] == "modified"
+
+    # Sensitive filesystem information must not be exposed.
+    assert "path" not in memory["details"]
 
 
 def test_get_memory_returns_none_for_missing_memory(test_database):
@@ -248,3 +253,62 @@ def test_get_memory_does_not_return_inactive_memory(test_database):
     )
 
     assert memory_service.get_memory(1) is None
+
+
+def test_memory_response_does_not_expose_sensitive_details(test_database):
+    add_memory(
+        test_database,
+        evidence_id=1,
+        source_type="file",
+        timestamp="2026-09-18T10:00:00",
+        details=(
+            '{'
+            '"source_path": "C:/Users/Miguel/project/test.py", '
+            '"old_path": "C:/Users/Miguel/project/old.py", '
+            '"content": "secret file content", '
+            '"path": "C:/Users/Miguel/project/test.py", '
+            '"raw": "raw sensitive data", '
+            '"file_name": "test.py", '
+            '"file_type": "python", '
+            '"file_size": 1234, '
+            '"action": "modified", '
+            '"description": "Test file changed"'
+            '}'
+        ),
+    )
+
+    memory = memory_service.get_memory(1)
+
+    assert memory is not None
+
+    details = memory["details"]
+
+    # Sensitive values must not be exposed.
+    assert "source_path" not in details
+    assert "old_path" not in details
+    assert "path" not in details
+    assert "content" not in details
+    assert "raw" not in details
+
+    # Safe metadata should still be returned.
+    assert details["file_name"] == "test.py"
+    assert details["file_type"] == "python"
+    assert details["file_size"] == 1234
+    assert details["action"] == "modified"
+    assert details["description"] == "Test file changed"
+
+
+def test_memory_response_does_not_expose_malformed_raw_details(test_database):
+    add_memory(
+        test_database,
+        evidence_id=1,
+        source_type="file",
+        timestamp="2026-09-18T10:00:00",
+        details='{"invalid_json": ',
+    )
+
+    memory = memory_service.get_memory(1)
+
+    assert memory is not None
+    assert memory["details"] == {}
+    assert "raw" not in memory["details"]

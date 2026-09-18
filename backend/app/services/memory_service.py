@@ -4,6 +4,43 @@ from json import JSONDecodeError
 from memory.database.db import get_connection
 
 
+SENSITIVE_DETAIL_KEYS = {
+    "content",
+    "path",
+    "source_path",
+    "old_path",
+    "raw",
+}
+
+
+def _sanitize_details(value):
+    """
+    Recursively remove sensitive or internal fields before
+    memory data is returned through the API.
+    """
+
+    if isinstance(value, dict):
+        sanitized = {}
+
+        for key, item in value.items():
+            normalized_key = str(key).lower()
+
+            if (
+                normalized_key in SENSITIVE_DETAIL_KEYS
+                or normalized_key.endswith("_path")
+            ):
+                continue
+
+            sanitized[key] = _sanitize_details(item)
+
+        return sanitized
+
+    if isinstance(value, list):
+        return [_sanitize_details(item) for item in value]
+
+    return value
+
+
 def _row_to_memory(row):
     raw_details = row[6]
 
@@ -11,7 +48,7 @@ def _row_to_memory(row):
         try:
             details = json.loads(raw_details)
         except JSONDecodeError:
-            details = {"raw": raw_details}
+            details = {}
     else:
         details = {}
 
@@ -22,7 +59,7 @@ def _row_to_memory(row):
         "timestamp": row[3],
         "action": row[4],
         "duration_seconds": row[5],
-        "details": details,
+        "details": _sanitize_details(details),
         "created_at": row[7],
         "status": row[8],
         "ai_processed": bool(row[9]),
