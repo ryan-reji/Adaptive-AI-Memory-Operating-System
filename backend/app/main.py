@@ -2,6 +2,7 @@ from fastapi import FastAPI
 
 from backend.app.api.routes import health
 from backend.app.api.routes import memories
+from backend.app.api.routes import query
 
 
 app = FastAPI(
@@ -13,6 +14,7 @@ app = FastAPI(
 
 app.include_router(health.router)
 app.include_router(memories.router)
+app.include_router(query.router)
 
 
 @app.get("/")
