@@ -113,7 +113,7 @@ def test_memory_ingestor_is_created_only_once(monkeypatch):
 
     assert first is second
     assert len(created) == 1
-    
+
 def test_earlier_stage_failure_does_not_block_later_stages(
     monkeypatch,
 ):
