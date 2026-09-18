@@ -35,15 +35,26 @@ class Retriever:
         )
 
         final_results = []
+        seen = set()
 
-        for ranked in ranked_results[:top_k]:
+        for ranked in ranked_results:
             index = ranked["index"]
             metadata = metadatas[index]
+            content = documents[index]
+
+            # Avoid duplicate memories with identical content.
+            # Since results are already ranked, the first occurrence
+            # is the highest-scoring one.
+            duplicate_key = content.strip()
+
+            if duplicate_key in seen:
+                continue
+
+            seen.add(duplicate_key)
 
             final_results.append({
-                "content": documents[index],
+                "content": content,
 
-                # Works for both PDFs and generic memories
                 "source": (
                     metadata.get("source")
                     or metadata.get("source_name")
@@ -75,6 +86,9 @@ class Retriever:
                 "keyword_score": ranked["keyword_score"],
                 "combined_score": ranked["combined_score"]
             })
+
+            if len(final_results) >= top_k:
+                break
 
         retrieval_time_ms = (
             time.perf_counter() - start_time
