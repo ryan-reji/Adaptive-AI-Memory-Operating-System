@@ -1,40 +1,63 @@
-from datetime import datetime
+import json
+from json import JSONDecodeError
 
 from memory.database.db import get_connection
 
 
-def create_memory(content, context=None, importance_score=None):
+def _row_to_memory(row):
+    raw_details = row[6]
+
+    if raw_details:
+        try:
+            details = json.loads(raw_details)
+        except JSONDecodeError:
+            details = {"raw": raw_details}
+    else:
+        details = {}
+
+    return {
+        "id": row[0],
+        "evidence_id": row[1],
+        "source_type": row[2],
+        "timestamp": row[3],
+        "action": row[4],
+        "duration_seconds": row[5],
+        "details": details,
+        "created_at": row[7],
+        "status": row[8],
+        "ai_processed": bool(row[9]),
+    }
+
+
+def get_memories(limit=50, offset=0):
     connection = get_connection()
     cursor = connection.cursor()
 
-    created_at = datetime.now().isoformat()
-
     cursor.execute(
         """
-        INSERT INTO memories (
-            content,
-            context,
-            importance_score,
+        SELECT
+            id,
+            evidence_id,
+            source_type,
+            timestamp,
+            action,
+            duration_seconds,
+            details,
+            created_at,
             status,
-            created_at
-        )
-        VALUES (?, ?, ?, ?, ?)
+            ai_processed
+        FROM memory_records
+        WHERE status = 'active'
+        ORDER BY timestamp DESC
+        LIMIT ? OFFSET ?
         """,
-        (
-            content,
-            context,
-            importance_score,
-            "active",
-            created_at
-        )
+        (limit, offset),
     )
 
-    memory_id = cursor.lastrowid
-
-    connection.commit()
+    rows = cursor.fetchall()
     connection.close()
 
-    return get_memory(memory_id)
+    return [_row_to_memory(row) for row in rows]
 
 
 def get_memory(memory_id):
@@ -45,150 +68,26 @@ def get_memory(memory_id):
         """
         SELECT
             id,
-            content,
-            context,
-            importance_score,
+            evidence_id,
+            source_type,
+            timestamp,
+            action,
+            duration_seconds,
+            details,
+            created_at,
             status,
-            created_at
-        FROM memories
+            ai_processed
+        FROM memory_records
         WHERE id = ?
+          AND status = 'active'
         """,
-        (memory_id,)
+        (memory_id,),
     )
 
     row = cursor.fetchone()
-
     connection.close()
 
     if row is None:
         return None
 
-    return {
-        "id": row[0],
-        "content": row[1],
-        "context": row[2],
-        "importance_score": row[3],
-        "status": row[4],
-        "created_at": row[5]
-    }
-
-
-def get_memories():
-    connection = get_connection()
-    cursor = connection.cursor()
-
-    cursor.execute(
-        """
-        SELECT
-            id,
-            content,
-            context,
-            importance_score,
-            status,
-            created_at
-        FROM memories
-        ORDER BY id DESC
-        """
-    )
-
-    rows = cursor.fetchall()
-
-    connection.close()
-
-    memories = []
-
-    for row in rows:
-        memories.append({
-            "id": row[0],
-            "content": row[1],
-            "context": row[2],
-            "importance_score": row[3],
-            "status": row[4],
-            "created_at": row[5]
-        })
-
-    return memories
-
-
-def update_memory(
-    memory_id,
-    content=None,
-    context=None,
-    importance_score=None,
-    status=None
-):
-    existing_memory = get_memory(memory_id)
-
-    if existing_memory is None:
-        return None
-
-    new_content = (
-        content
-        if content is not None
-        else existing_memory["content"]
-    )
-
-    new_context = (
-        context
-        if context is not None
-        else existing_memory["context"]
-    )
-
-    new_importance_score = (
-        importance_score
-        if importance_score is not None
-        else existing_memory["importance_score"]
-    )
-
-    new_status = (
-        status
-        if status is not None
-        else existing_memory["status"]
-    )
-
-    connection = get_connection()
-    cursor = connection.cursor()
-
-    cursor.execute(
-        """
-        UPDATE memories
-        SET
-            content = ?,
-            context = ?,
-            importance_score = ?,
-            status = ?
-        WHERE id = ?
-        """,
-        (
-            new_content,
-            new_context,
-            new_importance_score,
-            new_status,
-            memory_id
-        )
-    )
-
-    connection.commit()
-    connection.close()
-
-    return get_memory(memory_id)
-
-
-def delete_memory(memory_id):
-    connection = get_connection()
-    cursor = connection.cursor()
-
-    cursor.execute(
-        """
-        DELETE FROM memories
-        WHERE id = ?
-        """,
-        (memory_id,)
-    )
-
-    deleted = cursor.rowcount > 0
-
-    connection.commit()
-    connection.close()
-
-    return deleted
+    return _row_to_memory(row)
