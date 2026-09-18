@@ -199,9 +199,20 @@ def create_tables():
             details TEXT,
             created_at TEXT NOT NULL,
             status TEXT NOT NULL DEFAULT 'active',
+            ai_processed INTEGER NOT NULL DEFAULT 0,
             FOREIGN KEY (evidence_id) REFERENCES activity_evidence(id)
         )
     """)
+
+    # Ensure older databases also have the AI processing flag.
+    cursor.execute("PRAGMA table_info(memory_records)")
+    memory_columns = {row[1] for row in cursor.fetchall()}
+
+    if "ai_processed" not in memory_columns:
+        cursor.execute("""
+            ALTER TABLE memory_records
+            ADD COLUMN ai_processed INTEGER NOT NULL DEFAULT 0
+        """)
 
     # Default browser permissions
     browsers = ["Chrome", "Brave", "Edge", "Firefox"]
