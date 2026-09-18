@@ -1,0 +1,14 @@
+fastapi==0.141.1
+uvicorn==0.52.4
+
+sentence-transformers
+chromadb
+ollama
+rank-bm25
+
+pypdf
+pymupdf
+
+watchdog
+psutil
+pywin32
