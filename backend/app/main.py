@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 
+from backend.app.api.routes import evidence
 from backend.app.api.routes import health
 from backend.app.api.routes import memories
 from backend.app.api.routes import query
@@ -15,8 +16,7 @@ app = FastAPI(
 app.include_router(health.router)
 app.include_router(memories.router)
 app.include_router(query.router)
-
-
+app.include_router(evidence.router)
 @app.get("/")
 def home():
     return {
