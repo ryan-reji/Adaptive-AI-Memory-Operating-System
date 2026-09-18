@@ -4,6 +4,7 @@ from backend.app.api.routes import evidence
 from backend.app.api.routes import health
 from backend.app.api.routes import memories
 from backend.app.api.routes import query
+from backend.app.api.routes import permissions
 
 
 app = FastAPI(
@@ -17,6 +18,8 @@ app.include_router(health.router)
 app.include_router(memories.router)
 app.include_router(query.router)
 app.include_router(evidence.router)
+app.include_router(permissions.router)
+
 @app.get("/")
 def home():
     return {
