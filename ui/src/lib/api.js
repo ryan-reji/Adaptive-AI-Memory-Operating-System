@@ -1,93 +1,195 @@
-// Central place that talks to Member 4's FastAPI backend.
-// While the backend is being built, USE_MOCK keeps the whole app fully working
-// on fake data. Flip it to false (or set VITE_USE_MOCK=false in a .env file)
-// once the real endpoints exist — nothing else in the app needs to change,
-// as long as the response shapes match what's mocked in mockData.js.
-
 import {
   mockMemories,
-  mockTimeline,
-  mockProjects,
-  mockSettings,
-  mockSearch,
-  mockForget,
+  mockAnswer,
+  mockPermissionMode,
+  mockAllowedFolders,
+  mockExclusions,
 } from "./mockData";
 
 const USE_MOCK = import.meta.env.VITE_USE_MOCK !== "false";
-const API_BASE = import.meta.env.VITE_API_BASE || "http://localhost:8000";
+const API_BASE = import.meta.env.VITE_API_BASE || "/api";
 
-// Small helper to simulate real network latency in mock mode so loading
-// states are actually visible and tested during development.
 function delay(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
 
+class BackendError extends Error {
+  constructor(status, message) {
+    super(message);
+    this.status = status;
+  }
+}
+
 async function realFetch(path, options) {
   const res = await fetch(`${API_BASE}${path}`, options);
+  if (res.status === 204) return null; // deletes return no body — never call .json() on these
   if (!res.ok) {
-    throw new Error(`Request to ${path} failed: ${res.status}`);
+    // Never surface raw backend exception details to the user.
+    if (res.status === 503) throw new BackendError(503, "AI engine is unavailable right now.");
+    if (res.status === 404) throw new BackendError(404, "Not found.");
+    throw new BackendError(res.status, "Something went wrong talking to the backend.");
   }
   return res.json();
 }
 
-export async function searchMemories(query) {
-  if (USE_MOCK) {
-    await delay(400);
-    return mockSearch(query);
-  }
-  return realFetch(`/memories/search?q=${encodeURIComponent(query)}`);
-}
-
-export async function getRecentMemories() {
+// ---- Memories ----
+export async function getMemories(limit = 50, offset = 0) {
   if (USE_MOCK) {
     await delay(300);
-    return mockMemories;
+    return mockMemories.slice(offset, offset + limit);
   }
-  return realFetch("/memories/recent");
+  return realFetch(`/memories/?limit=${limit}&offset=${offset}`);
 }
 
-export async function getTimeline() {
+export async function getMemory(id) {
+  if (USE_MOCK) {
+    await delay(150);
+    return mockMemories.find((m) => m.id === id) || null;
+  }
+  return realFetch(`/memories/${id}`);
+}
+
+// ---- Evidence (not yet wired to any screen, available if needed) ----
+export async function getEvidence(limit = 50, offset = 0) {
   if (USE_MOCK) {
     await delay(300);
-    return mockTimeline;
+    return [];
   }
-  return realFetch("/timeline");
+  return realFetch(`/evidence/?limit=${limit}&offset=${offset}`);
 }
 
-export async function getProjects() {
+// ---- AI / RAG query ----
+export async function askQuery(query, topK = 3) {
   if (USE_MOCK) {
-    await delay(300);
-    return mockProjects;
+    await delay(500);
+    return mockAnswer(query);
   }
-  return realFetch("/projects");
-}
-
-export async function getSettings() {
-  if (USE_MOCK) {
-    await delay(200);
-    return mockSettings;
-  }
-  return realFetch("/settings");
-}
-
-export async function updateSettings(newSettings) {
-  if (USE_MOCK) {
-    await delay(300);
-    return { ...mockSettings, ...newSettings };
-  }
-  return realFetch("/settings", {
+  return realFetch(`/query/`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(newSettings),
+    body: JSON.stringify({ query, top_k: topK }),
   });
 }
 
-export async function forgetMemory(id) {
+// ---- Permission mode ----
+export async function getPermissionMode() {
   if (USE_MOCK) {
-    await delay(250);
-    return mockForget(id);
+    await delay(150);
+    return mockPermissionMode;
   }
-  return realFetch(`/memories/${id}`, { method: "DELETE" });
+  return realFetch(`/permissions/mode`);
+}
+
+export async function setPermissionMode(mode) {
+  if (USE_MOCK) {
+    await delay(200);
+    mockPermissionMode.mode = mode;
+    return mockPermissionMode;
+  }
+  return realFetch(`/permissions/mode`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ mode }),
+  });
+}
+
+// ---- Allowed folders ----
+export async function getAllowedFolders() {
+  if (USE_MOCK) {
+    await delay(150);
+    return mockAllowedFolders.map((path) => ({ path }));
+  }
+  return realFetch(`/permissions/allowed-folders`);
+}
+
+export async function addAllowedFolder(path) {
+  if (USE_MOCK) {
+    await delay(200);
+    mockAllowedFolders.push(path);
+    return { path };
+  }
+  return realFetch(`/permissions/allowed-folders`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ path }),
+  });
+}
+
+export async function removeAllowedFolder(path) {
+  if (USE_MOCK) {
+    await delay(200);
+    const idx = mockAllowedFolders.indexOf(path);
+    if (idx !== -1) mockAllowedFolders.splice(idx, 1);
+    return null;
+  }
+  return realFetch(`/permissions/allowed-folders?path=${encodeURIComponent(path)}`, {
+    method: "DELETE",
+  });
+}
+
+// ---- Exclusions ----
+export async function getExclusions() {
+  if (USE_MOCK) {
+    await delay(150);
+    return mockExclusions.map((path) => ({ path }));
+  }
+  return realFetch(`/permissions/exclusions`);
+}
+
+export async function addExclusion(path) {
+  if (USE_MOCK) {
+    await delay(200);
+    mockExclusions.push(path);
+    return { path };
+  }
+  return realFetch(`/permissions/exclusions`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ path }),
+  });
+}
+
+export async function removeExclusion(path) {
+  if (USE_MOCK) {
+    await delay(200);
+    const idx = mockExclusions.indexOf(path);
+    if (idx !== -1) mockExclusions.splice(idx, 1);
+    return null;
+  }
+  return realFetch(`/permissions/exclusions?path=${encodeURIComponent(path)}`, {
+    method: "DELETE",
+  });
+}
+
+// ---- Project folders (API wired, no UI yet) ----
+export async function getProjectFolders() {
+  if (USE_MOCK) {
+    await delay(150);
+    return [];
+  }
+  return realFetch(`/permissions/project-folders`);
+}
+
+export async function addProjectFolder(path, projectName) {
+  if (USE_MOCK) {
+    await delay(200);
+    return { path, project_name: projectName };
+  }
+  return realFetch(`/permissions/project-folders`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ path, project_name: projectName }),
+  });
+}
+
+export async function removeProjectFolder(path) {
+  if (USE_MOCK) {
+    await delay(200);
+    return null;
+  }
+  return realFetch(`/permissions/project-folders?path=${encodeURIComponent(path)}`, {
+    method: "DELETE",
+  });
 }
 
 export const isMockMode = USE_MOCK;
