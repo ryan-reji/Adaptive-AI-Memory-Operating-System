@@ -1,14 +1,12 @@
 import json
 from json import JSONDecodeError
 
+from backend.app.services.privacy_service import sanitize_details
 from memory.database.db import get_connection
 
 
-from backend.app.services.privacy_service import sanitize_details
-
-
-def _row_to_memory(row):
-    raw_details = row[6]
+def _row_to_evidence(row):
+    raw_details = row[5]
 
     if raw_details:
         try:
@@ -20,19 +18,16 @@ def _row_to_memory(row):
 
     return {
         "id": row[0],
-        "evidence_id": row[1],
-        "source_type": row[2],
-        "timestamp": row[3],
-        "action": row[4],
-       "duration_seconds": row[5],
-       "details": sanitize_details(details),
-        "created_at": row[7],
-        "status": row[8],
-        "ai_processed": bool(row[9]),
+        "source_type": row[1],
+        "timestamp": row[2],
+        "action": row[3],
+        "duration_seconds": row[4],
+        "details": sanitize_details(details),
+        "created_at": row[6],
     }
 
 
-def get_memories(limit=50, offset=0):
+def get_evidence(limit=50, offset=0):
     connection = get_connection()
     cursor = connection.cursor()
 
@@ -40,18 +35,14 @@ def get_memories(limit=50, offset=0):
         """
         SELECT
             id,
-            evidence_id,
             source_type,
             timestamp,
             action,
             duration_seconds,
             details,
-            created_at,
-            status,
-            ai_processed
-        FROM memory_records
-        WHERE status = 'active'
-        ORDER BY timestamp DESC
+            created_at
+        FROM activity_evidence
+        ORDER BY timestamp DESC, id DESC
         LIMIT ? OFFSET ?
         """,
         (limit, offset),
@@ -60,10 +51,10 @@ def get_memories(limit=50, offset=0):
     rows = cursor.fetchall()
     connection.close()
 
-    return [_row_to_memory(row) for row in rows]
+    return [_row_to_evidence(row) for row in rows]
 
 
-def get_memory(memory_id):
+def get_evidence_by_id(evidence_id):
     connection = get_connection()
     cursor = connection.cursor()
 
@@ -71,20 +62,16 @@ def get_memory(memory_id):
         """
         SELECT
             id,
-            evidence_id,
             source_type,
             timestamp,
             action,
             duration_seconds,
             details,
-            created_at,
-            status,
-            ai_processed
-        FROM memory_records
+            created_at
+        FROM activity_evidence
         WHERE id = ?
-          AND status = 'active'
         """,
-        (memory_id,),
+        (evidence_id,),
     )
 
     row = cursor.fetchone()
@@ -93,4 +80,4 @@ def get_memory(memory_id):
     if row is None:
         return None
 
-    return _row_to_memory(row)
+    return _row_to_evidence(row)
