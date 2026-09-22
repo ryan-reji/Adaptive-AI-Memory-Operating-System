@@ -12,6 +12,31 @@ const SOURCE_LABELS = {
   file: "File",
 };
 
+// Browser titles are typically "Page Title - Site - Browser Name"
+// (e.g. "Major project excellence strategy - Claude - Google Chrome")
+// or just "Page Title - Browser Name" for pages with no distinct site
+// segment (e.g. "New Tab - Google Chrome"). We strip the trailing
+// browser segment and, if anything meaningful remains, use the last
+// remaining segment as a rough "site" grouping key. This is a
+// heuristic over an unstructured string — not a real domain — so it
+// can misfire on titles that happen to contain " - " naturally.
+function extractSiteName(title, browserName) {
+  if (!title) return null;
+  const parts = title.split(" - ").map((p) => p.trim()).filter(Boolean);
+  if (parts.length < 2) return null;
+
+  // Drop the trailing segment if it looks like the browser chrome
+  // (matches the known browser name, e.g. "Google Chrome").
+  const last = parts[parts.length - 1];
+  const withoutBrowser =
+    browserName && last.toLowerCase().includes(browserName.toLowerCase())
+      ? parts.slice(0, -1)
+      : parts;
+
+  if (withoutBrowser.length < 2) return null; // nothing left to call a "site"
+  return withoutBrowser[withoutBrowser.length - 1];
+}
+
 export function toDisplayMemory(record) {
   const { source_type, details = {}, timestamp, ai_processed, status } = record;
 
@@ -22,12 +47,17 @@ export function toDisplayMemory(record) {
   if (source_type === "browser") {
     text = details.title || "Browsing activity";
     sourceLabel = details.browser || "Browser";
+    project =
+      extractSiteName(details.title, details.browser) ||
+      details.browser ||
+      "Browsing";
   } else if (source_type === "vscode") {
     text = details.file ? `Worked on ${details.file}` : "VS Code activity";
     project = details.project || "General";
     sourceLabel = "VS Code";
   } else if (source_type === "file") {
     text = details.file_name ? `File activity: ${details.file_name}` : "File activity";
+    project = details.file_type ? `Files (.${details.file_type})` : "Files";
   } else {
     text = "Activity captured";
   }

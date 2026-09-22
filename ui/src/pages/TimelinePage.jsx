@@ -27,7 +27,11 @@ export default function TimelinePage() {
       });
   }
 
-  useEffect(load, []);
+  useEffect(() => {
+  load();
+  const interval = setInterval(() => load(true), 15000);
+  return () => clearInterval(interval);
+}, []);
 
   if (error) {
     return (

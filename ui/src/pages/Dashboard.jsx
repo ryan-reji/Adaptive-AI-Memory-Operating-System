@@ -5,6 +5,7 @@ import { toDisplayMemory, groupByProject } from "../lib/memoryAdapter";
 import SearchBar from "../components/SearchBar";
 import MemoryCard from "../components/MemoryCard";
 import ErrorState from "../components/ErrorState";
+import { RotateCw } from "lucide-react";
 
 function StatCard({ label, value, sub }) {
   return (
@@ -23,8 +24,8 @@ export default function Dashboard() {
   const [query, setQuery] = useState("");
   const navigate = useNavigate();
 
-  function load() {
-    setLoading(true);
+  function load(silent = false) {
+    if (!silent) setLoading(true);
     setError(null);
     getMemories(50, 0)
       .then((data) => {
@@ -37,7 +38,13 @@ export default function Dashboard() {
       });
   }
 
-  useEffect(load, []);
+  useEffect(() => {
+    load();
+    // Poll every 15s so newly created memories show up without a manual reload —
+    // "silent" so it doesn't flash the loading state on every refresh.
+    const interval = setInterval(() => load(true), 15000);
+    return () => clearInterval(interval);
+  }, []);
 
   const memories = records.map(toDisplayMemory);
   const projects = groupByProject(records);
@@ -49,15 +56,24 @@ export default function Dashboard() {
 
   return (
     <div className="p-8 max-w-4xl mx-auto space-y-8">
-      <div>
-        <h2 className="font-[family-name:var(--font-display)] text-2xl text-paper-100">Good to see you.</h2>
-        <p className="text-sm text-mist-300 mt-1">Everything below stays on this device.</p>
+      <div className="flex items-start justify-between">
+        <div>
+          <h2 className="font-[family-name:var(--font-display)] text-2xl text-paper-100">Good to see you.</h2>
+          <p className="text-sm text-mist-300 mt-1">Everything below stays on this device.</p>
+        </div>
+        <button
+          onClick={() => load()}
+          className="text-mist-300 hover:text-glow-400 transition-colors p-1"
+          title="Refresh now"
+        >
+          <RotateCw size={14} />
+        </button>
       </div>
 
       <SearchBar value={query} onChange={setQuery} onSubmit={handleSubmit} placeholder="Ask about anything you've worked on…" />
 
       {error ? (
-        <ErrorState message={error} onRetry={load} />
+        <ErrorState message={error} onRetry={() => load()} />
       ) : (
         <>
           <div className="flex gap-4">
