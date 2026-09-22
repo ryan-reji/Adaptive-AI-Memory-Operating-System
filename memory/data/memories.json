@@ -126,6 +126,184 @@
       },
       "created_at": "2026-09-22T14:09:51.415265",
       "status": "active"
+    },
+    {
+      "memory_id": 306,
+      "evidence_id": 340,
+      "source_type": "vscode",
+      "timestamp": "2026-09-22T15:38:36.012414",
+      "action": "editing",
+      "duration_seconds": 7.0,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "index.html",
+        "sessions": 1,
+        "first_seen": "2026-09-22T15:38:29.008202",
+        "last_seen": "2026-09-22T15:38:36.012414"
+      },
+      "created_at": "2026-09-22T15:38:36.022249",
+      "status": "active"
+    },
+    {
+      "memory_id": 307,
+      "evidence_id": 341,
+      "source_type": "vscode",
+      "timestamp": "2026-09-22T15:38:38.032299",
+      "action": "editing",
+      "duration_seconds": 9.0,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "index.html",
+        "sessions": 2,
+        "first_seen": "2026-09-22T15:38:29.008202",
+        "last_seen": "2026-09-22T15:38:38.032299"
+      },
+      "created_at": "2026-09-22T15:38:38.052970",
+      "status": "active"
+    },
+    {
+      "memory_id": 308,
+      "evidence_id": 342,
+      "source_type": "vscode",
+      "timestamp": "2026-09-22T15:38:41.074080",
+      "action": "editing",
+      "duration_seconds": 12.0,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "index.html",
+        "sessions": 3,
+        "first_seen": "2026-09-22T15:38:29.008202",
+        "last_seen": "2026-09-22T15:38:41.074080"
+      },
+      "created_at": "2026-09-22T15:38:41.083244",
+      "status": "active"
+    },
+    {
+      "memory_id": 309,
+      "evidence_id": 343,
+      "source_type": "vscode",
+      "timestamp": "2026-09-22T15:39:14.144813",
+      "action": "editing",
+      "duration_seconds": 41.04,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "index.html",
+        "sessions": 4,
+        "first_seen": "2026-09-22T15:38:29.008202",
+        "last_seen": "2026-09-22T15:39:14.144813"
+      },
+      "created_at": "2026-09-22T15:39:14.151247",
+      "status": "active"
+    },
+    {
+      "memory_id": 310,
+      "evidence_id": 344,
+      "source_type": "vscode",
+      "timestamp": "2026-09-22T15:39:20.164000",
+      "action": "editing",
+      "duration_seconds": 42.04,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "index.html",
+        "sessions": 5,
+        "first_seen": "2026-09-22T15:38:29.008202",
+        "last_seen": "2026-09-22T15:39:20.164000"
+      },
+      "created_at": "2026-09-22T15:39:20.173137",
+      "status": "active"
+    },
+    {
+      "memory_id": 311,
+      "evidence_id": 345,
+      "source_type": "vscode",
+      "timestamp": "2026-09-22T15:48:34.921574",
+      "action": "editing",
+      "duration_seconds": 2.0,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "memory_loader.py",
+        "sessions": 1,
+        "first_seen": "2026-09-22T15:48:32.919185",
+        "last_seen": "2026-09-22T15:48:34.921574"
+      },
+      "created_at": "2026-09-22T15:48:34.929736",
+      "status": "active"
+    },
+    {
+      "memory_id": 312,
+      "evidence_id": 346,
+      "source_type": "browser",
+      "timestamp": "2026-09-22T15:48:40.935581",
+      "action": "viewed",
+      "duration_seconds": 3.01,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 1,
+        "first_seen": "2026-09-22T15:48:37.927596",
+        "last_seen": "2026-09-22T15:48:40.935581"
+      },
+      "created_at": "2026-09-22T15:48:40.949318",
+      "status": "active"
+    },
+    {
+      "memory_id": 313,
+      "evidence_id": 347,
+      "source_type": "vscode",
+      "timestamp": "2026-09-22T15:48:54.965455",
+      "action": "editing",
+      "duration_seconds": 16.02,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "memory_loader.py",
+        "sessions": 2,
+        "first_seen": "2026-09-22T15:48:32.919185",
+        "last_seen": "2026-09-22T15:48:54.965455"
+      },
+      "created_at": "2026-09-22T15:48:54.971484",
+      "status": "active"
+    },
+    {
+      "memory_id": 314,
+      "evidence_id": 348,
+      "source_type": "vscode",
+      "timestamp": "2026-09-22T16:16:59.373908",
+      "action": "editing",
+      "duration_seconds": 3.0,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "rag_service.py",
+        "sessions": 1,
+        "first_seen": "2026-09-22T16:16:56.372207",
+        "last_seen": "2026-09-22T16:16:59.373908"
+      },
+      "created_at": "2026-09-22T16:16:59.384271",
+      "status": "active"
+    },
+    {
+      "memory_id": 315,
+      "evidence_id": 349,
+      "source_type": "browser",
+      "timestamp": "2026-09-22T16:17:05.482513",
+      "action": "viewed",
+      "duration_seconds": 6.07,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 2,
+        "first_seen": "2026-09-22T15:48:37.927596",
+        "last_seen": "2026-09-22T16:17:05.482513"
+      },
+      "created_at": "2026-09-22T16:17:05.495434",
+      "status": "active"
     }
   ]
 }
