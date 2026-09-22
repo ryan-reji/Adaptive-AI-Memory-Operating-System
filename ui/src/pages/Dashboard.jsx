@@ -47,6 +47,19 @@ export default function Dashboard() {
   }, []);
 
   const memories = records.map(toDisplayMemory);
+
+  // Dedupe for the "Recent activity" preview only — repeat visits to the
+  // same tab/page fire a new evidence snapshot each time, which otherwise
+  // shows as several identical cards. Stats below still use the full
+  // `records`/`memories` arrays so counts stay accurate to real capture volume.
+  const seenKeys = new Set();
+  const uniqueMemories = memories.filter((m) => {
+    const key = `${m.text}|${m.project}`;
+    if (seenKeys.has(key)) return false;
+    seenKeys.add(key);
+    return true;
+  });
+
   const projects = groupByProject(records);
   const processedCount = records.filter((r) => r.ai_processed).length;
 
@@ -92,12 +105,12 @@ export default function Dashboard() {
             <div className="space-y-2.5">
               {loading ? (
                 <div className="text-sm text-mist-300 py-6 text-center">Loading memories…</div>
-              ) : memories.length === 0 ? (
+              ) : uniqueMemories.length === 0 ? (
                 <div className="text-sm text-mist-300 py-6 text-center border border-dashed border-ink-700 rounded-lg">
                   Nothing captured yet. Run the orchestrator to start capturing activity.
                 </div>
               ) : (
-                memories.slice(0, 4).map((m) => <MemoryCard key={m.id} memory={m} />)
+                uniqueMemories.slice(0, 4).map((m) => <MemoryCard key={m.id} memory={m} />)
               )}
             </div>
           </div>
