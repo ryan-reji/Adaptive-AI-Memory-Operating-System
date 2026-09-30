@@ -5,6 +5,7 @@ import { toDisplayMemory } from "../lib/memoryAdapter";
 import SearchBar from "../components/SearchBar";
 import MemoryCard from "../components/MemoryCard";
 import ErrorState from "../components/ErrorState";
+import ReactMarkdown from "react-markdown";
 
 export default function SearchPage() {
   const [params, setParams] = useSearchParams();
@@ -66,13 +67,23 @@ export default function SearchPage() {
       {!loading && error && <ErrorState message={error} onRetry={() => runQuery(query)} />}
 
       {!loading && !error && answer && (
-        <div className="bg-ink-900 border border-ink-700 rounded-lg p-5">
-          <div className="text-[11px] text-glow-400 mb-2 font-[family-name:var(--font-mono)]">
-            {answer.retrieval_time_ms?.toFixed(1)}ms
-          </div>
-          <p className="text-sm text-mist-200 leading-relaxed">{answer.answer}</p>
-        </div>
+  <div className="bg-ink-900 border border-ink-700 rounded-lg p-5">
+    <div className="flex items-center justify-between mb-3">
+      <span className="text-[11px] text-glow-400 font-[family-name:var(--font-mono)]">
+        {answer.retrieval_time_ms?.toFixed(1)}ms
+      </span>
+      {answer.sources?.length > 0 && (
+        <span className="text-[11px] text-mist-300">
+          {answer.sources.length} source{answer.sources.length !== 1 ? "s" : ""}
+        </span>
       )}
+    </div>
+
+    <div className="text-sm text-mist-200 leading-relaxed space-y-3 [&_strong]:text-paper-100 [&_strong]:font-semibold [&_ol]:list-decimal [&_ol]:pl-5 [&_ul]:list-disc [&_ul]:pl-5 [&_li]:mb-1 [&_code]:bg-ink-800 [&_code]:px-1 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-glow-400 [&_code]:text-xs [&_a]:text-glow-400 [&_a]:underline">
+      <ReactMarkdown>{answer.answer}</ReactMarkdown>
+    </div>
+  </div>
+)}
 
       {relatedMemories.length > 0 && (
         <div>
