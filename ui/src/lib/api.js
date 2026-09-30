@@ -59,7 +59,7 @@ export async function getEvidence(limit = 50, offset = 0) {
 }
 
 // ---- AI / RAG query ----
-export async function askQuery(query, topK = 3) {
+export async function askQuery(query, topK = 5) {
   if (USE_MOCK) {
     await delay(500);
     return mockAnswer(query);

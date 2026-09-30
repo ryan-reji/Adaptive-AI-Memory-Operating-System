@@ -1,1325 +1,1066 @@
 {
-  "date": "2026-09-22",
+  "date": "2026-09-30",
   "memories": [
     {
-      "memory_id": 299,
-      "evidence_id": 333,
-      "source_type": "vscode",
-      "timestamp": "2026-09-21T20:06:31.871490",
-      "action": "editing",
-      "duration_seconds": 3.0,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "Welcome",
-        "sessions": 1,
-        "first_seen": "2026-09-21T20:06:28.870558",
-        "last_seen": "2026-09-21T20:06:31.871490"
-      },
-      "created_at": "2026-09-21T20:06:31.876798",
-      "status": "active"
-    },
-    {
-      "memory_id": 300,
-      "evidence_id": 334,
+      "memory_id": 412,
+      "evidence_id": 447,
       "source_type": "browser",
-      "timestamp": "2026-09-21T20:06:35.875652",
+      "timestamp": "2026-09-30T13:22:34.893357",
       "action": "viewed",
-      "duration_seconds": 3192.1400000000012,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 195,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-21T20:06:35.875652"
-      },
-      "created_at": "2026-09-21T20:06:35.880456",
-      "status": "active"
-    },
-    {
-      "memory_id": 301,
-      "evidence_id": 335,
-      "source_type": "vscode",
-      "timestamp": "2026-09-21T20:06:51.889154",
-      "action": "editing",
-      "duration_seconds": 19.01,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "Welcome",
-        "sessions": 2,
-        "first_seen": "2026-09-21T20:06:28.870558",
-        "last_seen": "2026-09-21T20:06:51.889154"
-      },
-      "created_at": "2026-09-21T20:06:51.893551",
-      "status": "active"
-    },
-    {
-      "memory_id": 302,
-      "evidence_id": 336,
-      "source_type": "vscode",
-      "timestamp": "2026-09-21T20:07:04.903266",
-      "action": "editing",
-      "duration_seconds": 13.01,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Unknown",
-        "file": "Adaptive-AI-Memory-Operating-System",
-        "sessions": 1,
-        "first_seen": "2026-09-21T20:06:51.897644",
-        "last_seen": "2026-09-21T20:07:04.903266"
-      },
-      "created_at": "2026-09-21T20:07:04.909667",
-      "status": "active"
-    },
-    {
-      "memory_id": 303,
-      "evidence_id": 337,
-      "source_type": "browser",
-      "timestamp": "2026-09-21T20:07:08.909553",
-      "action": "viewed",
-      "duration_seconds": 3195.1500000000015,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 196,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-21T20:07:08.909553"
-      },
-      "created_at": "2026-09-21T20:07:08.913890",
-      "status": "active"
-    },
-    {
-      "memory_id": 304,
-      "evidence_id": 338,
-      "source_type": "vscode",
-      "timestamp": "2026-09-21T20:07:41.932654",
-      "action": "editing",
-      "duration_seconds": 46.03,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Unknown",
-        "file": "Adaptive-AI-Memory-Operating-System",
-        "sessions": 2,
-        "first_seen": "2026-09-21T20:06:51.897644",
-        "last_seen": "2026-09-21T20:07:41.932654"
-      },
-      "created_at": "2026-09-21T20:07:41.942092",
-      "status": "active"
-    },
-    {
-      "memory_id": 305,
-      "evidence_id": 339,
-      "source_type": "vscode",
-      "timestamp": "2026-09-21T20:08:00.960220",
-      "action": "editing",
-      "duration_seconds": 58.04,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Unknown",
-        "file": "Adaptive-AI-Memory-Operating-System",
-        "sessions": 3,
-        "first_seen": "2026-09-21T20:06:51.897644",
-        "last_seen": "2026-09-21T20:08:00.960220"
-      },
-      "created_at": "2026-09-21T20:08:00.964837",
-      "status": "active"
-    },
-    {
-      "memory_id": 306,
-      "evidence_id": 340,
-      "source_type": "vscode",
-      "timestamp": "2026-09-21T20:08:08.973862",
-      "action": "editing",
-      "duration_seconds": 63.04,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Unknown",
-        "file": "Adaptive-AI-Memory-Operating-System",
-        "sessions": 4,
-        "first_seen": "2026-09-21T20:06:51.897644",
-        "last_seen": "2026-09-21T20:08:08.973862"
-      },
-      "created_at": "2026-09-21T20:08:08.979572",
-      "status": "active"
-    },
-    {
-      "memory_id": 307,
-      "evidence_id": 341,
-      "source_type": "vscode",
-      "timestamp": "2026-09-21T20:08:23.990630",
-      "action": "editing",
-      "duration_seconds": 71.03999999999999,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Unknown",
-        "file": "Adaptive-AI-Memory-Operating-System",
-        "sessions": 5,
-        "first_seen": "2026-09-21T20:06:51.897644",
-        "last_seen": "2026-09-21T20:08:23.990630"
-      },
-      "created_at": "2026-09-21T20:08:23.994741",
-      "status": "active"
-    },
-    {
-      "memory_id": 308,
-      "evidence_id": 342,
-      "source_type": "vscode",
-      "timestamp": "2026-09-21T20:08:51.013679",
-      "action": "editing",
-      "duration_seconds": 92.05,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Unknown",
-        "file": "Adaptive-AI-Memory-Operating-System",
-        "sessions": 6,
-        "first_seen": "2026-09-21T20:06:51.897644",
-        "last_seen": "2026-09-21T20:08:51.013679"
-      },
-      "created_at": "2026-09-21T20:08:51.020017",
-      "status": "active"
-    },
-    {
-      "memory_id": 309,
-      "evidence_id": 343,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:38:03.762207",
-      "action": "viewed",
-      "duration_seconds": 2.02,
-      "details": {
-        "browser": "Chrome",
-        "title": "MARLON GET ARRESTED IN LONDON - YouTube - Google Chrome",
-        "sessions": 1,
-        "first_seen": "2026-09-22T19:38:01.741030",
-        "last_seen": "2026-09-22T19:38:03.762207"
-      },
-      "created_at": "2026-09-22T19:38:03.825768",
-      "status": "active"
-    },
-    {
-      "memory_id": 310,
-      "evidence_id": 344,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:38:12.059418",
-      "action": "viewed",
-      "duration_seconds": 8.12,
-      "details": {
-        "browser": "Chrome",
-        "title": "bubbles - YouTube - Google Chrome",
-        "sessions": 1,
-        "first_seen": "2026-09-22T19:38:03.941137",
-        "last_seen": "2026-09-22T19:38:12.059418"
-      },
-      "created_at": "2026-09-22T19:38:12.124242",
-      "status": "active"
-    },
-    {
-      "memory_id": 311,
-      "evidence_id": 345,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:38:23.318072",
-      "action": "viewed",
-      "duration_seconds": 9.129999999999999,
-      "details": {
-        "browser": "Chrome",
-        "title": "bubbles - YouTube - Google Chrome",
-        "sessions": 2,
-        "first_seen": "2026-09-22T19:38:03.941137",
-        "last_seen": "2026-09-22T19:38:23.318072"
-      },
-      "created_at": "2026-09-22T19:38:23.346550",
-      "status": "active"
-    },
-    {
-      "memory_id": 312,
-      "evidence_id": 346,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:38:25.463490",
-      "action": "viewed",
-      "duration_seconds": 20.1,
-      "details": {
-        "browser": "Chrome",
-        "title": "New Tab - Google Chrome",
-        "sessions": 5,
-        "first_seen": "2026-09-19T13:31:26.347791",
-        "last_seen": "2026-09-22T19:38:25.463490"
-      },
-      "created_at": "2026-09-22T19:38:25.525432",
-      "status": "active"
-    },
-    {
-      "memory_id": 313,
-      "evidence_id": 347,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:38:26.648772",
-      "action": "viewed",
-      "duration_seconds": 1.01,
-      "details": {
-        "browser": "Chrome",
-        "title": "Claude - Google Chrome",
-        "sessions": 1,
-        "first_seen": "2026-09-22T19:38:25.632212",
-        "last_seen": "2026-09-22T19:38:26.648772"
-      },
-      "created_at": "2026-09-22T19:38:26.705748",
-      "status": "active"
-    },
-    {
-      "memory_id": 314,
-      "evidence_id": 348,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:38:28.862751",
-      "action": "viewed",
-      "duration_seconds": 2.04,
-      "details": {
-        "browser": "Chrome",
-        "title": "New chat - Claude - Google Chrome",
-        "sessions": 1,
-        "first_seen": "2026-09-22T19:38:26.819213",
-        "last_seen": "2026-09-22T19:38:28.862751"
-      },
-      "created_at": "2026-09-22T19:38:28.910591",
-      "status": "active"
-    },
-    {
-      "memory_id": 315,
-      "evidence_id": 349,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:38:30.052668",
-      "action": "viewed",
-      "duration_seconds": 3196.1600000000017,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 197,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:38:30.052668"
-      },
-      "created_at": "2026-09-22T19:38:30.081054",
-      "status": "active"
-    },
-    {
-      "memory_id": 316,
-      "evidence_id": 350,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:38:31.126415",
-      "action": "viewed",
-      "duration_seconds": 1.01,
-      "details": {
-        "browser": "Chrome",
-        "title": "\" I ain't Scared of you \"\u2620\ufe0f #ironman #tony - YouTube - Google Chrome",
-        "sessions": 1,
-        "first_seen": "2026-09-22T19:38:30.118385",
-        "last_seen": "2026-09-22T19:38:31.126415"
-      },
-      "created_at": "2026-09-22T19:38:31.229105",
-      "status": "active"
-    },
-    {
-      "memory_id": 317,
-      "evidence_id": 351,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:39:06.480618",
-      "action": "viewed",
-      "duration_seconds": 3197.170000000002,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 198,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:39:06.480618"
-      },
-      "created_at": "2026-09-22T19:39:06.516818",
-      "status": "active"
-    },
-    {
-      "memory_id": 318,
-      "evidence_id": 352,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:39:08.616962",
-      "action": "viewed",
-      "duration_seconds": 3.0300000000000002,
-      "details": {
-        "browser": "Chrome",
-        "title": "\" I ain't Scared of you \"\u2620\ufe0f #ironman #tony - YouTube - Google Chrome",
-        "sessions": 2,
-        "first_seen": "2026-09-22T19:38:30.118385",
-        "last_seen": "2026-09-22T19:39:08.616962"
-      },
-      "created_at": "2026-09-22T19:39:08.660398",
-      "status": "active"
-    },
-    {
-      "memory_id": 319,
-      "evidence_id": 353,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:39:21.531068",
-      "action": "viewed",
-      "duration_seconds": 12.8,
-      "details": {
-        "browser": "Chrome",
-        "title": "She saved the day - YouTube - Google Chrome",
-        "sessions": 1,
-        "first_seen": "2026-09-22T19:39:08.733863",
-        "last_seen": "2026-09-22T19:39:21.531068"
-      },
-      "created_at": "2026-09-22T19:39:21.571368",
-      "status": "active"
-    },
-    {
-      "memory_id": 320,
-      "evidence_id": 354,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:39:31.007597",
-      "action": "viewed",
-      "duration_seconds": 9.31,
-      "details": {
-        "browser": "Chrome",
-        "title": "Kobe LOVED Steph \u2764\ufe0f\ud83e\udd79 #shorts - YouTube - Google Chrome",
-        "sessions": 1,
-        "first_seen": "2026-09-22T19:39:21.699988",
-        "last_seen": "2026-09-22T19:39:31.007597"
-      },
-      "created_at": "2026-09-22T19:39:31.035030",
-      "status": "active"
-    },
-    {
-      "memory_id": 321,
-      "evidence_id": 355,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:39:45.515411",
-      "action": "viewed",
-      "duration_seconds": 20.58,
-      "details": {
-        "browser": "Chrome",
-        "title": "Kobe LOVED Steph \u2764\ufe0f\ud83e\udd79 #shorts - YouTube - Google Chrome",
-        "sessions": 2,
-        "first_seen": "2026-09-22T19:39:21.699988",
-        "last_seen": "2026-09-22T19:39:45.515411"
-      },
-      "created_at": "2026-09-22T19:39:45.526639",
-      "status": "active"
-    },
-    {
-      "memory_id": 322,
-      "evidence_id": 356,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:39:48.547303",
-      "action": "viewed",
-      "duration_seconds": 3.01,
-      "details": {
-        "browser": "Chrome",
-        "title": "\"Why Can't I Save Anyone?\"\u2620\ufe0f\ud83d\udd25 | David Makes Man | #Trending #Shorts - YouTube - Google Chrome",
-        "sessions": 1,
-        "first_seen": "2026-09-22T19:39:45.538535",
-        "last_seen": "2026-09-22T19:39:48.547303"
-      },
-      "created_at": "2026-09-22T19:39:48.560564",
-      "status": "active"
-    },
-    {
-      "memory_id": 323,
-      "evidence_id": 357,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:41:56.773815",
-      "action": "viewed",
-      "duration_seconds": 128.2,
-      "details": {
-        "browser": "Chrome",
-        "title": "\"Why Can't I Save Anyone?\"\u2620\ufe0f\ud83d\udd25 | David Makes Man | #Trending #Shorts - YouTube - Google Chrome",
-        "sessions": 2,
-        "first_seen": "2026-09-22T19:39:45.538535",
-        "last_seen": "2026-09-22T19:41:56.773815"
-      },
-      "created_at": "2026-09-22T19:41:56.782655",
-      "status": "active"
-    },
-    {
-      "memory_id": 324,
-      "evidence_id": 358,
-      "source_type": "vscode",
-      "timestamp": "2026-09-22T19:43:05.709983",
-      "action": "editing",
-      "duration_seconds": 30.020000000000003,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "Welcome",
-        "sessions": 3,
-        "first_seen": "2026-09-21T20:06:28.870558",
-        "last_seen": "2026-09-22T19:43:05.709983"
-      },
-      "created_at": "2026-09-22T19:43:05.721249",
-      "status": "active"
-    },
-    {
-      "memory_id": 325,
-      "evidence_id": 359,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:43:36.846543",
-      "action": "viewed",
-      "duration_seconds": 130.2,
-      "details": {
-        "browser": "Chrome",
-        "title": "\"Why Can't I Save Anyone?\"\u2620\ufe0f\ud83d\udd25 | David Makes Man | #Trending #Shorts - YouTube - Google Chrome",
-        "sessions": 3,
-        "first_seen": "2026-09-22T19:39:45.538535",
-        "last_seen": "2026-09-22T19:43:36.846543"
-      },
-      "created_at": "2026-09-22T19:43:36.862413",
-      "status": "active"
-    },
-    {
-      "memory_id": 326,
-      "evidence_id": 360,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:43:38.873640",
-      "action": "viewed",
-      "duration_seconds": 3199.170000000002,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 199,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:43:38.873640"
-      },
-      "created_at": "2026-09-22T19:43:38.881323",
-      "status": "active"
-    },
-    {
-      "memory_id": 327,
-      "evidence_id": 361,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:44:49.982666",
-      "action": "viewed",
-      "duration_seconds": 3243.250000000002,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 200,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:44:49.982666"
-      },
-      "created_at": "2026-09-22T19:44:49.990962",
-      "status": "active"
-    },
-    {
-      "memory_id": 328,
-      "evidence_id": 362,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:45:03.015911",
-      "action": "viewed",
-      "duration_seconds": 3253.260000000002,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 201,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:45:03.015911"
-      },
-      "created_at": "2026-09-22T19:45:03.022667",
-      "status": "active"
-    },
-    {
-      "memory_id": 329,
-      "evidence_id": 363,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:45:13.039116",
-      "action": "viewed",
-      "duration_seconds": 3256.260000000002,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 202,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:45:13.039116"
-      },
-      "created_at": "2026-09-22T19:45:13.045462",
-      "status": "active"
-    },
-    {
-      "memory_id": 330,
-      "evidence_id": 364,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:45:32.079557",
-      "action": "viewed",
-      "duration_seconds": 149.23,
-      "details": {
-        "browser": "Chrome",
-        "title": "\"Why Can't I Save Anyone?\"\u2620\ufe0f\ud83d\udd25 | David Makes Man | #Trending #Shorts - YouTube - Google Chrome",
-        "sessions": 4,
-        "first_seen": "2026-09-22T19:39:45.538535",
-        "last_seen": "2026-09-22T19:45:32.079557"
-      },
-      "created_at": "2026-09-22T19:45:32.088941",
-      "status": "active"
-    },
-    {
-      "memory_id": 331,
-      "evidence_id": 365,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:45:35.101133",
-      "action": "viewed",
-      "duration_seconds": 3.01,
-      "details": {
-        "browser": "Chrome",
-        "title": "Showing IShowSpeed The Backwards Truck \ud83e\udd2f @WestenChamplin - YouTube - Google Chrome",
-        "sessions": 1,
-        "first_seen": "2026-09-22T19:45:32.095876",
-        "last_seen": "2026-09-22T19:45:35.101133"
-      },
-      "created_at": "2026-09-22T19:45:35.107635",
-      "status": "active"
-    },
-    {
-      "memory_id": 332,
-      "evidence_id": 366,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:45:38.117053",
-      "action": "viewed",
-      "duration_seconds": 4.01,
-      "details": {
-        "browser": "Chrome",
-        "title": "Showing IShowSpeed The Backwards Truck \ud83e\udd2f @WestenChamplin - YouTube - Google Chrome",
-        "sessions": 2,
-        "first_seen": "2026-09-22T19:45:32.095876",
-        "last_seen": "2026-09-22T19:45:38.117053"
-      },
-      "created_at": "2026-09-22T19:45:38.122241",
-      "status": "active"
-    },
-    {
-      "memory_id": 333,
-      "evidence_id": 367,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:46:10.176381",
-      "action": "viewed",
-      "duration_seconds": 3288.310000000002,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 203,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:46:10.176381"
-      },
-      "created_at": "2026-09-22T19:46:10.181233",
-      "status": "active"
-    },
-    {
-      "memory_id": 334,
-      "evidence_id": 368,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:46:18.197725",
-      "action": "viewed",
-      "duration_seconds": 2.0,
-      "details": {
-        "browser": "Edge",
-        "title": "olamovies - Search - Personal - Microsoft\u200b Edge",
-        "sessions": 1,
-        "first_seen": "2026-09-22T19:46:16.195051",
-        "last_seen": "2026-09-22T19:46:18.197725"
-      },
-      "created_at": "2026-09-22T19:46:18.203752",
-      "status": "active"
-    },
-    {
-      "memory_id": 335,
-      "evidence_id": 369,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:46:20.212971",
-      "action": "viewed",
-      "duration_seconds": 3290.310000000002,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 204,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:46:20.212971"
-      },
-      "created_at": "2026-09-22T19:46:20.219968",
-      "status": "active"
-    },
-    {
-      "memory_id": 336,
-      "evidence_id": 370,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:46:51.265472",
-      "action": "viewed",
-      "duration_seconds": 3313.3400000000024,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 205,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:46:51.265472"
-      },
-      "created_at": "2026-09-22T19:46:51.270597",
-      "status": "active"
-    },
-    {
-      "memory_id": 337,
-      "evidence_id": 371,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:47:18.301205",
-      "action": "viewed",
-      "duration_seconds": 3328.3600000000024,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 206,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:47:18.301205"
-      },
-      "created_at": "2026-09-22T19:47:18.311291",
-      "status": "active"
-    },
-    {
-      "memory_id": 338,
-      "evidence_id": 372,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:47:47.346895",
-      "action": "viewed",
-      "duration_seconds": 3343.3800000000024,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 207,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:47:47.346895"
-      },
-      "created_at": "2026-09-22T19:47:47.354093",
-      "status": "active"
-    },
-    {
-      "memory_id": 339,
-      "evidence_id": 373,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:48:00.373946",
-      "action": "viewed",
-      "duration_seconds": 3351.3900000000026,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 208,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:48:00.373946"
-      },
-      "created_at": "2026-09-22T19:48:00.380079",
-      "status": "active"
-    },
-    {
-      "memory_id": 340,
-      "evidence_id": 374,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:48:22.407296",
-      "action": "viewed",
-      "duration_seconds": 3359.400000000003,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 209,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:48:22.407296"
-      },
-      "created_at": "2026-09-22T19:48:22.414375",
-      "status": "active"
-    },
-    {
-      "memory_id": 341,
-      "evidence_id": 375,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:48:33.445261",
-      "action": "viewed",
-      "duration_seconds": 3367.410000000003,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 210,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:48:33.445261"
-      },
-      "created_at": "2026-09-22T19:48:33.452274",
-      "status": "active"
-    },
-    {
-      "memory_id": 342,
-      "evidence_id": 376,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:48:42.464839",
-      "action": "viewed",
-      "duration_seconds": 3369.410000000003,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 211,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:48:42.464839"
-      },
-      "created_at": "2026-09-22T19:48:42.468033",
-      "status": "active"
-    },
-    {
-      "memory_id": 343,
-      "evidence_id": 377,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:48:50.484251",
-      "action": "viewed",
-      "duration_seconds": 3375.4200000000033,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 212,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:48:50.484251"
-      },
-      "created_at": "2026-09-22T19:48:50.490152",
-      "status": "active"
-    },
-    {
-      "memory_id": 344,
-      "evidence_id": 378,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:50:30.574586",
-      "action": "viewed",
-      "duration_seconds": 3413.4700000000034,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 213,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:50:30.574586"
-      },
-      "created_at": "2026-09-22T19:50:30.582429",
-      "status": "active"
-    },
-    {
-      "memory_id": 345,
-      "evidence_id": 379,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:50:41.594558",
-      "action": "viewed",
-      "duration_seconds": 3414.4700000000034,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 214,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:50:41.594558"
-      },
-      "created_at": "2026-09-22T19:50:41.689738",
-      "status": "active"
-    },
-    {
-      "memory_id": 346,
-      "evidence_id": 380,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:51:11.712793",
-      "action": "viewed",
-      "duration_seconds": 4.0,
-      "details": {
-        "browser": "Chrome",
-        "title": "Untitled - Google Chrome",
-        "sessions": 3,
-        "first_seen": "2026-09-19T13:31:47.463801",
-        "last_seen": "2026-09-22T19:51:11.712793"
-      },
-      "created_at": "2026-09-22T19:51:11.721515",
-      "status": "active"
-    },
-    {
-      "memory_id": 347,
-      "evidence_id": 381,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:51:16.736468",
-      "action": "viewed",
-      "duration_seconds": 11.02,
+      "duration_seconds": 24.1,
       "details": {
         "browser": "Chrome",
         "title": "ai-memory-frontend - Google Chrome",
-        "sessions": 2,
-        "first_seen": "2026-09-19T14:56:52.711216",
-        "last_seen": "2026-09-22T19:51:16.736468"
-      },
-      "created_at": "2026-09-22T19:51:16.760813",
-      "status": "active"
-    },
-    {
-      "memory_id": 348,
-      "evidence_id": 382,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:51:28.787806",
-      "action": "viewed",
-      "duration_seconds": 3426.4800000000037,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 215,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:51:28.787806"
-      },
-      "created_at": "2026-09-22T19:51:28.793054",
-      "status": "active"
-    },
-    {
-      "memory_id": 349,
-      "evidence_id": 383,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:51:40.804858",
-      "action": "viewed",
-      "duration_seconds": 3428.4800000000037,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 216,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:51:40.804858"
-      },
-      "created_at": "2026-09-22T19:51:40.811164",
-      "status": "active"
-    },
-    {
-      "memory_id": 350,
-      "evidence_id": 384,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:51:42.821105",
-      "action": "viewed",
-      "duration_seconds": 22.1,
-      "details": {
-        "browser": "Chrome",
-        "title": "New Tab - Google Chrome",
-        "sessions": 6,
-        "first_seen": "2026-09-19T13:31:26.347791",
-        "last_seen": "2026-09-22T19:51:42.821105"
-      },
-      "created_at": "2026-09-22T19:51:42.826901",
-      "status": "active"
-    },
-    {
-      "memory_id": 351,
-      "evidence_id": 385,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:51:50.844712",
-      "action": "viewed",
-      "duration_seconds": 3436.490000000004,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 217,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:51:50.844712"
-      },
-      "created_at": "2026-09-22T19:51:50.851288",
-      "status": "active"
-    },
-    {
-      "memory_id": 352,
-      "evidence_id": 386,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:52:01.916817",
-      "action": "viewed",
-      "duration_seconds": 30.160000000000004,
-      "details": {
-        "browser": "Chrome",
-        "title": "New Tab - Google Chrome",
-        "sessions": 7,
-        "first_seen": "2026-09-19T13:31:26.347791",
-        "last_seen": "2026-09-22T19:52:01.916817"
-      },
-      "created_at": "2026-09-22T19:52:01.923429",
-      "status": "active"
-    },
-    {
-      "memory_id": 353,
-      "evidence_id": 387,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:52:08.937150",
-      "action": "viewed",
-      "duration_seconds": 33.17,
-      "details": {
-        "browser": "Chrome",
-        "title": "New Tab - Google Chrome",
-        "sessions": 8,
-        "first_seen": "2026-09-19T13:31:26.347791",
-        "last_seen": "2026-09-22T19:52:08.937150"
-      },
-      "created_at": "2026-09-22T19:52:08.942079",
-      "status": "active"
-    },
-    {
-      "memory_id": 354,
-      "evidence_id": 388,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:52:11.952276",
-      "action": "viewed",
-      "duration_seconds": 5.04,
-      "details": {
-        "browser": "Chrome",
-        "title": "New chat - Claude - Google Chrome",
-        "sessions": 2,
-        "first_seen": "2026-09-22T19:38:26.819213",
-        "last_seen": "2026-09-22T19:52:11.952276"
-      },
-      "created_at": "2026-09-22T19:52:11.964303",
-      "status": "active"
-    },
-    {
-      "memory_id": 355,
-      "evidence_id": 389,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:52:17.974891",
-      "action": "viewed",
-      "duration_seconds": 7.04,
-      "details": {
-        "browser": "Chrome",
-        "title": "New chat - Claude - Google Chrome",
         "sessions": 3,
-        "first_seen": "2026-09-22T19:38:26.819213",
-        "last_seen": "2026-09-22T19:52:17.974891"
+        "first_seen": "2026-09-19T14:56:52.711216",
+        "last_seen": "2026-09-30T13:22:34.893357"
       },
-      "created_at": "2026-09-22T19:52:17.980438",
+      "created_at": "2026-09-30T13:22:34.920965",
       "status": "active"
     },
     {
-      "memory_id": 356,
-      "evidence_id": 390,
+      "memory_id": 413,
+      "evidence_id": 448,
       "source_type": "browser",
-      "timestamp": "2026-09-22T19:52:21.993633",
+      "timestamp": "2026-09-30T13:22:52.132805",
       "action": "viewed",
-      "duration_seconds": 3438.490000000004,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 218,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:52:21.993633"
-      },
-      "created_at": "2026-09-22T19:52:22.000537",
-      "status": "active"
-    },
-    {
-      "memory_id": 357,
-      "evidence_id": 391,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T19:52:26.013928",
-      "action": "viewed",
-      "duration_seconds": 37.18,
+      "duration_seconds": 92.52000000000001,
       "details": {
         "browser": "Chrome",
         "title": "New Tab - Google Chrome",
-        "sessions": 9,
+        "sessions": 13,
         "first_seen": "2026-09-19T13:31:26.347791",
-        "last_seen": "2026-09-22T19:52:26.013928"
+        "last_seen": "2026-09-30T13:22:52.132805"
       },
-      "created_at": "2026-09-22T19:52:26.020435",
+      "created_at": "2026-09-30T13:22:52.146395",
       "status": "active"
     },
     {
-      "memory_id": 358,
-      "evidence_id": 392,
+      "memory_id": 414,
+      "evidence_id": 449,
       "source_type": "browser",
-      "timestamp": "2026-09-22T19:52:36.044719",
+      "timestamp": "2026-09-30T13:23:01.206185",
       "action": "viewed",
-      "duration_seconds": 10.02,
+      "duration_seconds": 23.13,
       "details": {
         "browser": "Chrome",
-        "title": "ECL CIA sheet.xlsx - Google Chrome",
-        "sessions": 1,
-        "first_seen": "2026-09-22T19:52:26.026518",
-        "last_seen": "2026-09-22T19:52:36.044719"
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Google Chrome",
+        "sessions": 4,
+        "first_seen": "2026-09-19T13:28:36.976718",
+        "last_seen": "2026-09-30T13:23:01.206185"
       },
-      "created_at": "2026-09-22T19:52:36.054569",
+      "created_at": "2026-09-30T13:23:01.224857",
       "status": "active"
     },
     {
-      "memory_id": 359,
-      "evidence_id": 393,
+      "memory_id": 415,
+      "evidence_id": 450,
       "source_type": "browser",
-      "timestamp": "2026-09-22T19:52:48.079757",
+      "timestamp": "2026-09-30T13:23:17.318768",
       "action": "viewed",
-      "duration_seconds": 3450.510000000004,
+      "duration_seconds": 16.08,
+      "details": {
+        "browser": "Chrome",
+        "title": "Contributors to ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T13:23:01.240970",
+        "last_seen": "2026-09-30T13:23:17.318768"
+      },
+      "created_at": "2026-09-30T13:23:17.333004",
+      "status": "active"
+    },
+    {
+      "memory_id": 416,
+      "evidence_id": 451,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T13:23:23.375183",
+      "action": "viewed",
+      "duration_seconds": 17.080000000000002,
+      "details": {
+        "browser": "Chrome",
+        "title": "Issues \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 2,
+        "first_seen": "2026-09-23T12:23:44.780865",
+        "last_seen": "2026-09-30T13:23:23.375183"
+      },
+      "created_at": "2026-09-30T13:23:23.400103",
+      "status": "active"
+    },
+    {
+      "memory_id": 417,
+      "evidence_id": 452,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T13:23:25.434658",
+      "action": "viewed",
+      "duration_seconds": 25.14,
+      "details": {
+        "browser": "Chrome",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Google Chrome",
+        "sessions": 5,
+        "first_seen": "2026-09-19T13:28:36.976718",
+        "last_seen": "2026-09-30T13:23:25.434658"
+      },
+      "created_at": "2026-09-30T13:23:25.450519",
+      "status": "active"
+    },
+    {
+      "memory_id": 418,
+      "evidence_id": 453,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T13:23:30.482901",
+      "action": "viewed",
+      "duration_seconds": 5.02,
+      "details": {
+        "browser": "Chrome",
+        "title": "Branches \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T13:23:25.463954",
+        "last_seen": "2026-09-30T13:23:30.482901"
+      },
+      "created_at": "2026-09-30T13:23:30.497383",
+      "status": "active"
+    },
+    {
+      "memory_id": 419,
+      "evidence_id": 454,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T13:24:12.686249",
+      "action": "viewed",
+      "duration_seconds": 42.17,
+      "details": {
+        "browser": "Chrome",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System at member1-ai-engine - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T13:23:30.515328",
+        "last_seen": "2026-09-30T13:24:12.686249"
+      },
+      "created_at": "2026-09-30T13:24:12.701080",
+      "status": "active"
+    },
+    {
+      "memory_id": 420,
+      "evidence_id": 455,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T13:25:00.882691",
+      "action": "viewed",
+      "duration_seconds": 64.25,
+      "details": {
+        "browser": "Chrome",
+        "title": "Contributors to ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 2,
+        "first_seen": "2026-09-30T13:23:01.240970",
+        "last_seen": "2026-09-30T13:25:00.882691"
+      },
+      "created_at": "2026-09-30T13:25:00.895958",
+      "status": "active"
+    },
+    {
+      "memory_id": 421,
+      "evidence_id": 456,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T13:25:14.958726",
+      "action": "viewed",
+      "duration_seconds": 14.05,
+      "details": {
+        "browser": "Chrome",
+        "title": "Code frequency \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T13:25:00.909933",
+        "last_seen": "2026-09-30T13:25:14.958726"
+      },
+      "created_at": "2026-09-30T13:25:14.974100",
+      "status": "active"
+    },
+    {
+      "memory_id": 422,
+      "evidence_id": 457,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T13:25:23.028130",
+      "action": "viewed",
+      "duration_seconds": 72.28999999999999,
+      "details": {
+        "browser": "Chrome",
+        "title": "Contributors to ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 3,
+        "first_seen": "2026-09-30T13:23:01.240970",
+        "last_seen": "2026-09-30T13:25:23.028130"
+      },
+      "created_at": "2026-09-30T13:25:23.045308",
+      "status": "active"
+    },
+    {
+      "memory_id": 423,
+      "evidence_id": 458,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T13:25:30.088103",
+      "action": "viewed",
+      "duration_seconds": 7.03,
+      "details": {
+        "browser": "Chrome",
+        "title": "Pulse \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T13:25:23.062846",
+        "last_seen": "2026-09-30T13:25:30.088103"
+      },
+      "created_at": "2026-09-30T13:25:30.105857",
+      "status": "active"
+    },
+    {
+      "memory_id": 424,
+      "evidence_id": 459,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T13:25:57.204726",
+      "action": "viewed",
+      "duration_seconds": 44.16,
+      "details": {
+        "browser": "Chrome",
+        "title": "Issues \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 3,
+        "first_seen": "2026-09-23T12:23:44.780865",
+        "last_seen": "2026-09-30T13:25:57.204726"
+      },
+      "created_at": "2026-09-30T13:25:57.219734",
+      "status": "active"
+    },
+    {
+      "memory_id": 425,
+      "evidence_id": 460,
+      "source_type": "vscode",
+      "timestamp": "2026-09-30T13:59:05.435877",
+      "action": "editing",
+      "duration_seconds": 19.03,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Unknown",
+        "file": "Visual Studio Code",
+        "sessions": 4,
+        "first_seen": "2026-09-22T22:01:51.382405",
+        "last_seen": "2026-09-30T13:59:05.435877"
+      },
+      "created_at": "2026-09-30T13:59:05.518200",
+      "status": "active"
+    },
+    {
+      "memory_id": 426,
+      "evidence_id": 461,
+      "source_type": "vscode",
+      "timestamp": "2026-09-30T13:59:06.545684",
+      "action": "editing",
+      "duration_seconds": 236.98,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "test.txt",
+        "sessions": 19,
+        "first_seen": "2026-09-22T20:19:30.642126",
+        "last_seen": "2026-09-30T13:59:06.545684"
+      },
+      "created_at": "2026-09-30T13:59:06.640218",
+      "status": "active"
+    },
+    {
+      "memory_id": 427,
+      "evidence_id": 462,
+      "source_type": "vscode",
+      "timestamp": "2026-09-30T13:59:49.870912",
+      "action": "editing",
+      "duration_seconds": 280.15,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "test.txt",
+        "sessions": 20,
+        "first_seen": "2026-09-22T20:19:30.642126",
+        "last_seen": "2026-09-30T13:59:49.870912"
+      },
+      "created_at": "2026-09-30T13:59:50.062142",
+      "status": "active"
+    },
+    {
+      "memory_id": 428,
+      "evidence_id": 463,
+      "source_type": "vscode",
+      "timestamp": "2026-09-30T14:14:21.882277",
+      "action": "editing",
+      "duration_seconds": 282.16999999999996,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "test.txt",
+        "sessions": 21,
+        "first_seen": "2026-09-22T20:19:30.642126",
+        "last_seen": "2026-09-30T14:14:21.882277"
+      },
+      "created_at": "2026-09-30T14:14:22.060726",
+      "status": "active"
+    },
+    {
+      "memory_id": 429,
+      "evidence_id": 464,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:26:37.436459",
+      "action": "viewed",
+      "duration_seconds": 51.199999999999996,
+      "details": {
+        "browser": "Chrome",
+        "title": "Issues \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 4,
+        "first_seen": "2026-09-23T12:23:44.780865",
+        "last_seen": "2026-09-30T14:26:37.436459"
+      },
+      "created_at": "2026-09-30T14:26:37.457804",
+      "status": "active"
+    },
+    {
+      "memory_id": 430,
+      "evidence_id": 465,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:26:38.488154",
+      "action": "viewed",
+      "duration_seconds": 1.01,
+      "details": {
+        "browser": "Chrome",
+        "title": "localhost - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T14:26:37.475223",
+        "last_seen": "2026-09-30T14:26:38.488154"
+      },
+      "created_at": "2026-09-30T14:26:38.505400",
+      "status": "active"
+    },
+    {
+      "memory_id": 431,
+      "evidence_id": 466,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:26:39.526931",
+      "action": "viewed",
+      "duration_seconds": 25.110000000000003,
+      "details": {
+        "browser": "Chrome",
+        "title": "ai-memory-frontend - Google Chrome",
+        "sessions": 4,
+        "first_seen": "2026-09-19T14:56:52.711216",
+        "last_seen": "2026-09-30T14:26:39.526931"
+      },
+      "created_at": "2026-09-30T14:26:39.552831",
+      "status": "active"
+    },
+    {
+      "memory_id": 432,
+      "evidence_id": 467,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:27:43.781241",
+      "action": "viewed",
+      "duration_seconds": 115.41,
+      "details": {
+        "browser": "Chrome",
+        "title": "Issues \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 5,
+        "first_seen": "2026-09-23T12:23:44.780865",
+        "last_seen": "2026-09-30T14:27:43.781241"
+      },
+      "created_at": "2026-09-30T14:27:43.801234",
+      "status": "active"
+    },
+    {
+      "memory_id": 433,
+      "evidence_id": 468,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:27:58.872106",
+      "action": "viewed",
+      "duration_seconds": 124.44,
+      "details": {
+        "browser": "Chrome",
+        "title": "Issues \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 6,
+        "first_seen": "2026-09-23T12:23:44.780865",
+        "last_seen": "2026-09-30T14:27:58.872106"
+      },
+      "created_at": "2026-09-30T14:27:58.891858",
+      "status": "active"
+    },
+    {
+      "memory_id": 434,
+      "evidence_id": 469,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:28:06.939390",
+      "action": "viewed",
+      "duration_seconds": 129.46,
+      "details": {
+        "browser": "Chrome",
+        "title": "Issues \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 7,
+        "first_seen": "2026-09-23T12:23:44.780865",
+        "last_seen": "2026-09-30T14:28:06.939390"
+      },
+      "created_at": "2026-09-30T14:28:06.953040",
+      "status": "active"
+    },
+    {
+      "memory_id": 435,
+      "evidence_id": 470,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:28:45.016569",
+      "action": "viewed",
+      "duration_seconds": 132.47,
+      "details": {
+        "browser": "Chrome",
+        "title": "Issues \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 8,
+        "first_seen": "2026-09-23T12:23:44.780865",
+        "last_seen": "2026-09-30T14:28:45.016569"
+      },
+      "created_at": "2026-09-30T14:28:45.045174",
+      "status": "active"
+    },
+    {
+      "memory_id": 436,
+      "evidence_id": 471,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:28:46.073138",
+      "action": "viewed",
+      "duration_seconds": 93.53000000000002,
+      "details": {
+        "browser": "Chrome",
+        "title": "New Tab - Google Chrome",
+        "sessions": 14,
+        "first_seen": "2026-09-19T13:31:26.347791",
+        "last_seen": "2026-09-30T14:28:46.073138"
+      },
+      "created_at": "2026-09-30T14:28:46.091957",
+      "status": "active"
+    },
+    {
+      "memory_id": 437,
+      "evidence_id": 472,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:28:52.139383",
+      "action": "viewed",
+      "duration_seconds": 9.05,
+      "details": {
+        "browser": "Chrome",
+        "title": "Claude - Google Chrome",
+        "sessions": 3,
+        "first_seen": "2026-09-22T19:38:25.632212",
+        "last_seen": "2026-09-30T14:28:52.139383"
+      },
+      "created_at": "2026-09-30T14:28:52.153556",
+      "status": "active"
+    },
+    {
+      "memory_id": 438,
+      "evidence_id": 473,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:28:54.179924",
+      "action": "viewed",
+      "duration_seconds": 17.089999999999996,
+      "details": {
+        "browser": "Chrome",
+        "title": "New chat - Claude - Google Chrome",
+        "sessions": 5,
+        "first_seen": "2026-09-22T19:38:26.819213",
+        "last_seen": "2026-09-30T14:28:54.179924"
+      },
+      "created_at": "2026-09-30T14:28:54.194106",
+      "status": "active"
+    },
+    {
+      "memory_id": 439,
+      "evidence_id": 474,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:29:35.387000",
+      "action": "viewed",
+      "duration_seconds": 3545.9800000000037,
       "details": {
         "browser": "Chrome",
         "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 219,
+        "sessions": 225,
         "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T19:52:48.079757"
+        "last_seen": "2026-09-30T14:29:35.387000"
       },
-      "created_at": "2026-09-22T19:52:48.084666",
+      "created_at": "2026-09-30T14:29:35.406853",
       "status": "active"
     },
     {
-      "memory_id": 360,
-      "evidence_id": 394,
+      "memory_id": 440,
+      "evidence_id": 475,
       "source_type": "browser",
-      "timestamp": "2026-09-22T20:15:44.424132",
+      "timestamp": "2026-09-30T14:29:40.479031",
+      "action": "viewed",
+      "duration_seconds": 95.54000000000002,
+      "details": {
+        "browser": "Chrome",
+        "title": "New Tab - Google Chrome",
+        "sessions": 15,
+        "first_seen": "2026-09-19T13:31:26.347791",
+        "last_seen": "2026-09-30T14:29:40.479031"
+      },
+      "created_at": "2026-09-30T14:29:40.511263",
+      "status": "active"
+    },
+    {
+      "memory_id": 441,
+      "evidence_id": 476,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:29:45.884423",
+      "action": "viewed",
+      "duration_seconds": 14.07,
+      "details": {
+        "browser": "Chrome",
+        "title": "Claude - Google Chrome",
+        "sessions": 4,
+        "first_seen": "2026-09-22T19:38:25.632212",
+        "last_seen": "2026-09-30T14:29:45.884423"
+      },
+      "created_at": "2026-09-30T14:29:45.895308",
+      "status": "active"
+    },
+    {
+      "memory_id": 442,
+      "evidence_id": 477,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:29:50.931918",
+      "action": "viewed",
+      "duration_seconds": 22.109999999999996,
+      "details": {
+        "browser": "Chrome",
+        "title": "New chat - Claude - Google Chrome",
+        "sessions": 6,
+        "first_seen": "2026-09-22T19:38:26.819213",
+        "last_seen": "2026-09-30T14:29:50.931918"
+      },
+      "created_at": "2026-09-30T14:29:50.945469",
+      "status": "active"
+    },
+    {
+      "memory_id": 443,
+      "evidence_id": 478,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:30:14.095587",
+      "action": "viewed",
+      "duration_seconds": 23.13,
+      "details": {
+        "browser": "Chrome",
+        "title": "Adaptive AI memory operating system flowchart - Claude - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T14:29:50.964976",
+        "last_seen": "2026-09-30T14:30:14.095587"
+      },
+      "created_at": "2026-09-30T14:30:14.119353",
+      "status": "active"
+    },
+    {
+      "memory_id": 444,
+      "evidence_id": 479,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T14:30:17.153968",
+      "action": "viewed",
+      "duration_seconds": 3548.990000000004,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 226,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T14:30:17.153968"
+      },
+      "created_at": "2026-09-30T14:30:17.174626",
+      "status": "active"
+    },
+    {
+      "memory_id": 445,
+      "evidence_id": 480,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:28:37.832389",
+      "action": "viewed",
+      "duration_seconds": 3557.000000000004,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 227,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T19:28:37.832389"
+      },
+      "created_at": "2026-09-30T19:28:37.845087",
+      "status": "active"
+    },
+    {
+      "memory_id": 446,
+      "evidence_id": 481,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:28:55.875168",
+      "action": "viewed",
+      "duration_seconds": 3561.0100000000043,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 228,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T19:28:55.875168"
+      },
+      "created_at": "2026-09-30T19:28:55.881791",
+      "status": "active"
+    },
+    {
+      "memory_id": 447,
+      "evidence_id": 482,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:29:18.904291",
+      "action": "viewed",
+      "duration_seconds": 3564.0100000000043,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 229,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T19:29:18.904291"
+      },
+      "created_at": "2026-09-30T19:29:18.909354",
+      "status": "active"
+    },
+    {
+      "memory_id": 448,
+      "evidence_id": 483,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:30:50.013771",
+      "action": "viewed",
+      "duration_seconds": 3605.0800000000045,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 230,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T19:30:50.013771"
+      },
+      "created_at": "2026-09-30T19:30:50.022156",
+      "status": "active"
+    },
+    {
+      "memory_id": 449,
+      "evidence_id": 484,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:30:52.040636",
+      "action": "viewed",
+      "duration_seconds": 97.54000000000002,
+      "details": {
+        "browser": "Chrome",
+        "title": "New Tab - Google Chrome",
+        "sessions": 16,
+        "first_seen": "2026-09-19T13:31:26.347791",
+        "last_seen": "2026-09-30T19:30:52.040636"
+      },
+      "created_at": "2026-09-30T19:30:52.046347",
+      "status": "active"
+    },
+    {
+      "memory_id": 450,
+      "evidence_id": 485,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:30:54.058224",
+      "action": "viewed",
+      "duration_seconds": 2.01,
+      "details": {
+        "browser": "Chrome",
+        "title": "YouTube - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T19:30:52.052909",
+        "last_seen": "2026-09-30T19:30:54.058224"
+      },
+      "created_at": "2026-09-30T19:30:54.068518",
+      "status": "active"
+    },
+    {
+      "memory_id": 451,
+      "evidence_id": 486,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:30:59.083032",
+      "action": "viewed",
+      "duration_seconds": 3610.0900000000047,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 231,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T19:30:59.083032"
+      },
+      "created_at": "2026-09-30T19:30:59.089075",
+      "status": "active"
+    },
+    {
+      "memory_id": 452,
+      "evidence_id": 490,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:31:59.263984",
+      "action": "viewed",
+      "duration_seconds": 3625.120000000005,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 232,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T19:31:59.263984"
+      },
+      "created_at": "2026-09-30T19:31:59.274540",
+      "status": "active"
+    },
+    {
+      "memory_id": 453,
+      "evidence_id": 491,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:32:01.287055",
+      "action": "viewed",
+      "duration_seconds": 3626.120000000005,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 233,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T19:32:01.287055"
+      },
+      "created_at": "2026-09-30T19:32:01.294704",
+      "status": "active"
+    },
+    {
+      "memory_id": 454,
+      "evidence_id": 492,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:32:06.312076",
+      "action": "viewed",
+      "duration_seconds": 9.02,
+      "details": {
+        "browser": "Chrome",
+        "title": "Top 5 WORST Brawlers RIGHT NOW! - YouTube - Google Chrome",
+        "sessions": 2,
+        "first_seen": "2026-09-30T19:31:40.205569",
+        "last_seen": "2026-09-30T19:32:06.312076"
+      },
+      "created_at": "2026-09-30T19:32:06.324460",
+      "status": "active"
+    },
+    {
+      "memory_id": 455,
+      "evidence_id": 493,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:33:01.373368",
+      "action": "viewed",
+      "duration_seconds": 16.03,
+      "details": {
+        "browser": "Chrome",
+        "title": "Top 5 WORST Brawlers RIGHT NOW! - YouTube - Google Chrome",
+        "sessions": 3,
+        "first_seen": "2026-09-30T19:31:40.205569",
+        "last_seen": "2026-09-30T19:33:01.373368"
+      },
+      "created_at": "2026-09-30T19:33:01.384731",
+      "status": "active"
+    },
+    {
+      "memory_id": 456,
+      "evidence_id": 494,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:33:59.496801",
+      "action": "viewed",
+      "duration_seconds": 3684.230000000005,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 234,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T19:33:59.496801"
+      },
+      "created_at": "2026-09-30T19:33:59.505764",
+      "status": "active"
+    },
+    {
+      "memory_id": 457,
+      "evidence_id": 495,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:34:08.518812",
+      "action": "viewed",
+      "duration_seconds": 3687.230000000005,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 235,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T19:34:08.518812"
+      },
+      "created_at": "2026-09-30T19:34:08.523876",
+      "status": "active"
+    },
+    {
+      "memory_id": 458,
+      "evidence_id": 496,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:34:32.543813",
+      "action": "viewed",
+      "duration_seconds": 3691.230000000005,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 236,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T19:34:32.543813"
+      },
+      "created_at": "2026-09-30T19:34:32.548002",
+      "status": "active"
+    },
+    {
+      "memory_id": 459,
+      "evidence_id": 497,
+      "source_type": "file",
+      "timestamp": "2026-09-30T19:34:46.574187",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Nathan\\Desktop\\nathan\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.py",
+        "file_name": "test.py",
+        "file_type": ".py",
+        "file_size": 32,
+        "content": "print(\"hello world from ryan!!\")",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-09-30T19:34:46.575100",
+      "status": "active"
+    },
+    {
+      "memory_id": 460,
+      "evidence_id": 498,
+      "source_type": "file",
+      "timestamp": "2026-09-30T19:34:46.597995",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Nathan\\Desktop\\nathan\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test_1.pdf",
+        "file_name": "test_1.pdf",
+        "file_type": ".pdf",
+        "file_size": 5144670,
+        "content": "arXiv:2507.03724v1  [cs.CL]  4 Jul 2025\nMemOS: A Memory OS for AI System\nZhiyu Li1,3, Shichao Song1,8, Chenyang Xi1, Hanyu Wang1,8, Chen Tang1, Simin Niu1,8,\nDing Chen10, Jiawei Yang1,8, Chunyu Li1, Qingchen Yu1,9, Jihao Zhao1,8, Yezhaohui\nWang1, Peng Liu8, Zehao Lin1,3, Pengyuan Wang1, Jiahao Huo1, Tianyi Chen1,2, Kai\nChen1,3, Kehang Li1,2, Zhen Tao8, Junpeng Ren1, Huayi Lai1, Hao Wu1, Bo Tang1,\nZhenren Wang7,3, Zhaoxin Fan9, Ningyu Zhang5, Linfeng Zhang2, Junchi Yan2,\nMingchuan Yang10, Tong Xu6, Wei Xu8, Huajun Chen5, Haofeng Wang4, Hongkang\nYang1,3, Wentao Zhang7,\u2020, Zhi-Qin John Xu2,\u2020, Siheng Chen2,\u2020, Feiyu Xiong1,3,\u2020\n1MemTensor (Shanghai) Technology Co., Ltd., 2Shanghai Jiao Tong University, 3Institute for\nAdvanced Algorithms Research, Shanghai, 4Tongji University, 5Zhejiang University,\n6University of Science and Technology of China, 7Peking University, 8Renmin University of\nChina, 9Beihang University, 10Research Institute of China Telecom\nAbstract\nLarge Language Models (LLMs) have become an essential infrastructure for Artificial General\nIntelligence (AGI), yet their lack of well-defined memory management systems hinders the devel-\nopment of long-context reasoning, continual personalization, and knowledge consistency.Existing\nmodels mainly rely on static parameters and short-lived contextual states, limiting their ability to\ntrack user preferences or update knowledge over extended periods.While Retrieval-Augmented\nGeneration (RAG) introduces external knowledge in plain text, it remains a stateless workaround\nwithout lifecycle control or integration with persistent representations.Recent work has modeled the\ntraining and inference cost of LLMs from a memory hierarchy perspective, showing that introducing\nan explicit memory layer between parameter memory and external retrieval can substantially\nreduce these costs by externalizing specific knowledge [1]. Beyond computational efficiency, LLMs\nface broader challenges arising from how information is distributed over time and context, requiring\nsystems capable of managing heterogeneous knowledge spanning different temporal scales and\nsources. To address this challenge, we propose MemOS, a memory operating system that treats\nmemory as a manageable system resource. It unifies the representation, scheduling, and evolution\nof plaintext, activation-based, and parameter-level memories, enabling cost-efficient storage and\nretrieval. As the basic unit, a MemCube encapsulates both memory content and metadata such as\nprovenance and versioning. MemCubes can be composed, migrated, and fused over time, enabling\nflexible transitions between memory types and bridging retrieval with parameter-based learning.\nMemOS establishes a memory-centric system framework that brings controllability, plasticity, and\nevolvability to LLMs, laying the foundation for continual learning and personalized modeling.\nAuthor Legend: \u2020Correspondence\nProject Website: https://memos.openmem.net/\nCode: https://github.com/MemTensor/MemOS\n1\n",
+        "extraction_type": "specialized",
+        "chunk_number": 0
+      },
+      "created_at": "2026-09-30T19:34:46.649091",
+      "status": "active"
+    },
+    {
+      "memory_id": 461,
+      "evidence_id": 499,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:39:46.746317",
+      "action": "viewed",
+      "duration_seconds": 3698.2400000000052,
+      "details": {
+        "browser": "Chrome",
+        "title": "Major project excellence strategy - Claude - Google Chrome",
+        "sessions": 237,
+        "first_seen": "2026-09-19T13:28:05.869289",
+        "last_seen": "2026-09-30T19:39:46.746317"
+      },
+      "created_at": "2026-09-30T19:39:46.754471",
+      "status": "active"
+    },
+    {
+      "memory_id": 462,
+      "evidence_id": 500,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:39:50.765217",
+      "action": "viewed",
+      "duration_seconds": 99.54000000000002,
+      "details": {
+        "browser": "Chrome",
+        "title": "New Tab - Google Chrome",
+        "sessions": 17,
+        "first_seen": "2026-09-19T13:31:26.347791",
+        "last_seen": "2026-09-30T19:39:50.765217"
+      },
+      "created_at": "2026-09-30T19:39:50.776667",
+      "status": "active"
+    },
+    {
+      "memory_id": 463,
+      "evidence_id": 501,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:39:51.792216",
+      "action": "viewed",
+      "duration_seconds": 15.07,
+      "details": {
+        "browser": "Chrome",
+        "title": "Claude - Google Chrome",
+        "sessions": 5,
+        "first_seen": "2026-09-22T19:38:25.632212",
+        "last_seen": "2026-09-30T19:39:51.792216"
+      },
+      "created_at": "2026-09-30T19:39:51.798877",
+      "status": "active"
+    },
+    {
+      "memory_id": 464,
+      "evidence_id": 502,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T19:39:58.819992",
+      "action": "viewed",
+      "duration_seconds": 29.119999999999997,
+      "details": {
+        "browser": "Chrome",
+        "title": "New chat - Claude - Google Chrome",
+        "sessions": 7,
+        "first_seen": "2026-09-22T19:38:26.819213",
+        "last_seen": "2026-09-30T19:39:58.819992"
+      },
+      "created_at": "2026-09-30T19:39:58.830291",
+      "status": "active"
+    },
+    {
+      "memory_id": 465,
+      "evidence_id": 503,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T20:25:33.025745",
+      "action": "viewed",
+      "duration_seconds": 1.0,
+      "details": {
+        "browser": "Chrome",
+        "title": "Backend setup and deployment - Claude - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T20:25:32.023668",
+        "last_seen": "2026-09-30T20:25:33.025745"
+      },
+      "created_at": "2026-09-30T20:25:33.034896",
+      "status": "active"
+    },
+    {
+      "memory_id": 466,
+      "evidence_id": 504,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T20:25:35.045821",
+      "action": "viewed",
+      "duration_seconds": 101.54000000000002,
+      "details": {
+        "browser": "Chrome",
+        "title": "New Tab - Google Chrome",
+        "sessions": 18,
+        "first_seen": "2026-09-19T13:31:26.347791",
+        "last_seen": "2026-09-30T20:25:35.045821"
+      },
+      "created_at": "2026-09-30T20:25:35.052482",
+      "status": "active"
+    },
+    {
+      "memory_id": 467,
+      "evidence_id": 505,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T20:25:44.070361",
+      "action": "viewed",
+      "duration_seconds": 29.14,
+      "details": {
+        "browser": "Chrome",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Google Chrome",
+        "sessions": 6,
+        "first_seen": "2026-09-19T13:28:36.976718",
+        "last_seen": "2026-09-30T20:25:44.070361"
+      },
+      "created_at": "2026-09-30T20:25:44.075924",
+      "status": "active"
+    },
+    {
+      "memory_id": 468,
+      "evidence_id": 506,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T20:25:47.086258",
+      "action": "viewed",
+      "duration_seconds": 3.01,
+      "details": {
+        "browser": "Chrome",
+        "title": "Adaptive-AI-Memory-Operating-System/ui at main \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T20:25:44.080455",
+        "last_seen": "2026-09-30T20:25:47.086258"
+      },
+      "created_at": "2026-09-30T20:25:47.094930",
+      "status": "active"
+    },
+    {
+      "memory_id": 469,
+      "evidence_id": 507,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T20:25:50.107664",
+      "action": "viewed",
+      "duration_seconds": 3.0,
+      "details": {
+        "browser": "Chrome",
+        "title": "Adaptive-AI-Memory-Operating-System/ui/public at main \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T20:25:47.103510",
+        "last_seen": "2026-09-30T20:25:50.107664"
+      },
+      "created_at": "2026-09-30T20:25:50.112856",
+      "status": "active"
+    },
+    {
+      "memory_id": 470,
+      "evidence_id": 508,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T20:25:51.120759",
+      "action": "viewed",
+      "duration_seconds": 1.0,
+      "details": {
+        "browser": "Chrome",
+        "title": "Adaptive-AI-Memory-Operating-System/ui/.gitignore at main \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T20:25:50.118005",
+        "last_seen": "2026-09-30T20:25:51.120759"
+      },
+      "created_at": "2026-09-30T20:25:51.128526",
+      "status": "active"
+    },
+    {
+      "memory_id": 471,
+      "evidence_id": 509,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T20:25:54.139938",
+      "action": "viewed",
+      "duration_seconds": 3.0,
+      "details": {
+        "browser": "Chrome",
+        "title": "Adaptive-AI-Memory-Operating-System/ui/src at main \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
+        "sessions": 1,
+        "first_seen": "2026-09-30T20:25:51.135444",
+        "last_seen": "2026-09-30T20:25:54.139938"
+      },
+      "created_at": "2026-09-30T20:25:54.145187",
+      "status": "active"
+    },
+    {
+      "memory_id": 472,
+      "evidence_id": 510,
+      "source_type": "browser",
+      "timestamp": "2026-09-30T20:25:56.153053",
       "action": "viewed",
       "duration_seconds": 2.0,
       "details": {
         "browser": "Chrome",
-        "title": "Conversation link shared - Claude - Google Chrome",
+        "title": "Adaptive-AI-Memory-Operating-System/ui/src/pages at main \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
         "sessions": 1,
-        "first_seen": "2026-09-22T20:15:42.422301",
-        "last_seen": "2026-09-22T20:15:44.424132"
+        "first_seen": "2026-09-30T20:25:54.149517",
+        "last_seen": "2026-09-30T20:25:56.153053"
       },
-      "created_at": "2026-09-22T20:15:44.432747",
+      "created_at": "2026-09-30T20:25:56.160312",
       "status": "active"
     },
     {
-      "memory_id": 361,
-      "evidence_id": 395,
+      "memory_id": 473,
+      "evidence_id": 511,
       "source_type": "browser",
-      "timestamp": "2026-09-22T20:15:59.454880",
-      "action": "viewed",
-      "duration_seconds": 11.01,
-      "details": {
-        "browser": "Chrome",
-        "title": "Conversation link shared - Claude - Google Chrome",
-        "sessions": 2,
-        "first_seen": "2026-09-22T20:15:42.422301",
-        "last_seen": "2026-09-22T20:15:59.454880"
-      },
-      "created_at": "2026-09-22T20:15:59.462681",
-      "status": "active"
-    },
-    {
-      "memory_id": 362,
-      "evidence_id": 396,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T20:16:25.484617",
-      "action": "viewed",
-      "duration_seconds": 12.01,
-      "details": {
-        "browser": "Chrome",
-        "title": "Conversation link shared - Claude - Google Chrome",
-        "sessions": 3,
-        "first_seen": "2026-09-22T20:15:42.422301",
-        "last_seen": "2026-09-22T20:16:25.484617"
-      },
-      "created_at": "2026-09-22T20:16:25.490022",
-      "status": "active"
-    },
-    {
-      "memory_id": 363,
-      "evidence_id": 397,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T20:16:31.545751",
-      "action": "viewed",
-      "duration_seconds": 13.01,
-      "details": {
-        "browser": "Chrome",
-        "title": "Conversation link shared - Claude - Google Chrome",
-        "sessions": 4,
-        "first_seen": "2026-09-22T20:15:42.422301",
-        "last_seen": "2026-09-22T20:16:31.545751"
-      },
-      "created_at": "2026-09-22T20:16:31.783798",
-      "status": "active"
-    },
-    {
-      "memory_id": 364,
-      "evidence_id": 398,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T20:16:34.992465",
-      "action": "viewed",
-      "duration_seconds": 3452.510000000004,
-      "details": {
-        "browser": "Chrome",
-        "title": "Major project excellence strategy - Claude - Google Chrome",
-        "sessions": 220,
-        "first_seen": "2026-09-19T13:28:05.869289",
-        "last_seen": "2026-09-22T20:16:34.992465"
-      },
-      "created_at": "2026-09-22T20:16:35.014890",
-      "status": "active"
-    },
-    {
-      "memory_id": 365,
-      "evidence_id": 399,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T20:16:44.041193",
-      "action": "viewed",
-      "duration_seconds": 21.02,
-      "details": {
-        "browser": "Chrome",
-        "title": "Conversation link shared - Claude - Google Chrome",
-        "sessions": 5,
-        "first_seen": "2026-09-22T20:15:42.422301",
-        "last_seen": "2026-09-22T20:16:44.041193"
-      },
-      "created_at": "2026-09-22T20:16:44.048595",
-      "status": "active"
-    },
-    {
-      "memory_id": 366,
-      "evidence_id": 400,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T20:16:58.067450",
-      "action": "viewed",
-      "duration_seconds": 25.02,
-      "details": {
-        "browser": "Chrome",
-        "title": "Conversation link shared - Claude - Google Chrome",
-        "sessions": 6,
-        "first_seen": "2026-09-22T20:15:42.422301",
-        "last_seen": "2026-09-22T20:16:58.067450"
-      },
-      "created_at": "2026-09-22T20:16:58.072818",
-      "status": "active"
-    },
-    {
-      "memory_id": 367,
-      "evidence_id": 401,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T20:17:06.094163",
-      "action": "viewed",
-      "duration_seconds": 32.03,
-      "details": {
-        "browser": "Chrome",
-        "title": "Conversation link shared - Claude - Google Chrome",
-        "sessions": 7,
-        "first_seen": "2026-09-22T20:15:42.422301",
-        "last_seen": "2026-09-22T20:17:06.094163"
-      },
-      "created_at": "2026-09-22T20:17:06.100907",
-      "status": "active"
-    },
-    {
-      "memory_id": 368,
-      "evidence_id": 402,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T20:17:28.119097",
+      "timestamp": "2026-09-30T20:25:57.166655",
       "action": "viewed",
       "duration_seconds": 1.0,
       "details": {
         "browser": "Chrome",
-        "title": "Needs input \u2014 Conversation link shared - Claude - Google Chrome",
+        "title": "Adaptive-AI-Memory-Operating-System/ui/src/pages/SettingsPage.jsx at main \u00b7 ryan-reji/Adaptive-AI-Memory-Operating-System - Google Chrome",
         "sessions": 1,
-        "first_seen": "2026-09-22T20:17:27.118032",
-        "last_seen": "2026-09-22T20:17:28.119097"
+        "first_seen": "2026-09-30T20:25:56.166111",
+        "last_seen": "2026-09-30T20:25:57.166655"
       },
-      "created_at": "2026-09-22T20:17:28.124442",
-      "status": "active"
-    },
-    {
-      "memory_id": 369,
-      "evidence_id": 403,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T20:17:55.210073",
-      "action": "viewed",
-      "duration_seconds": 59.11,
-      "details": {
-        "browser": "Chrome",
-        "title": "Conversation link shared - Claude - Google Chrome",
-        "sessions": 8,
-        "first_seen": "2026-09-22T20:15:42.422301",
-        "last_seen": "2026-09-22T20:17:55.210073"
-      },
-      "created_at": "2026-09-22T20:17:55.216493",
-      "status": "active"
-    },
-    {
-      "memory_id": 370,
-      "evidence_id": 404,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T20:18:14.238091",
-      "action": "viewed",
-      "duration_seconds": 68.12,
-      "details": {
-        "browser": "Chrome",
-        "title": "Conversation link shared - Claude - Google Chrome",
-        "sessions": 9,
-        "first_seen": "2026-09-22T20:15:42.422301",
-        "last_seen": "2026-09-22T20:18:14.238091"
-      },
-      "created_at": "2026-09-22T20:18:14.248881",
-      "status": "active"
-    },
-    {
-      "memory_id": 371,
-      "evidence_id": 405,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T20:18:32.266356",
-      "action": "viewed",
-      "duration_seconds": 1.0,
-      "details": {
-        "browser": "Chrome",
-        "title": "Done \u2014 Conversation link shared - Claude - Google Chrome",
-        "sessions": 1,
-        "first_seen": "2026-09-22T20:18:31.265361",
-        "last_seen": "2026-09-22T20:18:32.266356"
-      },
-      "created_at": "2026-09-22T20:18:32.271212",
-      "status": "active"
-    },
-    {
-      "memory_id": 372,
-      "evidence_id": 406,
-      "source_type": "browser",
-      "timestamp": "2026-09-22T20:18:50.311143",
-      "action": "viewed",
-      "duration_seconds": 86.16,
-      "details": {
-        "browser": "Chrome",
-        "title": "Conversation link shared - Claude - Google Chrome",
-        "sessions": 10,
-        "first_seen": "2026-09-22T20:15:42.422301",
-        "last_seen": "2026-09-22T20:18:50.311143"
-      },
-      "created_at": "2026-09-22T20:18:50.319163",
-      "status": "active"
-    },
-    {
-      "memory_id": 373,
-      "evidence_id": 407,
-      "source_type": "vscode",
-      "timestamp": "2026-09-22T20:19:30.629137",
-      "action": "editing",
-      "duration_seconds": 47.03,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "Welcome",
-        "sessions": 4,
-        "first_seen": "2026-09-21T20:06:28.870558",
-        "last_seen": "2026-09-22T20:19:30.629137"
-      },
-      "created_at": "2026-09-22T20:19:30.636452",
-      "status": "active"
-    },
-    {
-      "memory_id": 374,
-      "evidence_id": 408,
-      "source_type": "vscode",
-      "timestamp": "2026-09-22T20:19:33.643989",
-      "action": "editing",
-      "duration_seconds": 3.0,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "test.txt",
-        "sessions": 1,
-        "first_seen": "2026-09-22T20:19:30.642126",
-        "last_seen": "2026-09-22T20:19:33.643989"
-      },
-      "created_at": "2026-09-22T20:19:33.667424",
-      "status": "active"
-    },
-    {
-      "memory_id": 375,
-      "evidence_id": 409,
-      "source_type": "vscode",
-      "timestamp": "2026-09-22T20:19:40.675318",
-      "action": "editing",
-      "duration_seconds": 10.0,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "test.txt",
-        "sessions": 2,
-        "first_seen": "2026-09-22T20:19:30.642126",
-        "last_seen": "2026-09-22T20:19:40.675318"
-      },
-      "created_at": "2026-09-22T20:19:40.685415",
+      "created_at": "2026-09-30T20:25:57.179647",
       "status": "active"
     }
   ]

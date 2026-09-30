@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { Search, Loader2 } from "lucide-react";
 
+
 const SearchBar = forwardRef(function SearchBar(
   { value, onChange, onSubmit, loading, placeholder },
   ref
