@@ -21,3 +21,13 @@ The current system supports:
 - Privacy and permission controls
 
 Smart Forgetting is part of the project architecture and is planned as a later memory-management component.
+
+## Local Chroma Server
+
+The RAG system uses ChromaDB in client-server mode.
+
+Start Chroma before the backend or orchestrator:
+
+``powershell
+chroma run --path ".\memory\ai_engine\chroma_db" --host 127.0.0.1 --port 8001
+``
