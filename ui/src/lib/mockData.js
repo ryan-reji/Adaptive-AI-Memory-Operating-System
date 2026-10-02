@@ -1,102 +1,101 @@
-// Mock data shaped to match the API contract you should confirm with Member 4.
-// Field names here are a reasonable starting guess — once the contract call happens,
-// only this file (and api.js's response mapping) should need to change.
+// Mock data shaped to match the REAL backend contract — confirmed via
+// GET /docs and live curl/Invoke-RestMethod tests against the actual
+// FastAPI backend, not guesses.
+//
+// Note: the backend intentionally strips sensitive fields (content, path,
+// source_path, old_path, raw, any *_path field) before sending memory/
+// evidence data — so mock entries never include those either, to avoid
+// training the UI to expect fields that will never actually arrive.
 
 export const mockMemories = [
   {
-    id: "m1",
-    text: "Discussed the SMOTE + StackingClassifier approach for the PIU severity prediction paper with Amaan and Ayesha.",
-    source: "vscode",
-    sourceLabel: "VS Code — piu_pipeline.py",
-    project: "PIU Research Paper",
-    timestamp: "2026-08-19T14:22:00Z",
-    importance: 0.91,
-    status: "kept",
+    id: 143,
+    evidence_id: 149,
+    source_type: "browser",
+    timestamp: "2026-09-19T14:15:09.800561",
+    action: "viewed",
+    duration_seconds: 231.38,
+    details: {
+      browser: "Chrome",
+      title: "Adaptive AI Memory OS - Swagger UI - Google Chrome",
+      sessions: 15,
+      first_seen: "2026-09-19T14:09:08.962909",
+      last_seen: "2026-09-19T14:15:09.800561",
+    },
+    created_at: "2026-09-19T14:15:09.805506",
+    status: "active",
+    ai_processed: true,
   },
   {
-    id: "m2",
-    text: "Read through the CNS lecture deck on the CIA triad and attack lifecycle stages.",
-    source: "pdf",
-    sourceLabel: "PDF — CNS_Lecture_Wk6.pdf",
-    project: "CNS Coursework",
-    timestamp: "2026-08-18T09:05:00Z",
-    importance: 0.42,
-    status: "summarized",
+    id: 142,
+    evidence_id: 148,
+    source_type: "browser",
+    timestamp: "2026-09-19T14:14:58.773948",
+    action: "viewed",
+    duration_seconds: 544.86,
+    details: {
+      browser: "Chrome",
+      title: "Major project excellence strategy - Claude - Google Chrome",
+      sessions: 53,
+      first_seen: "2026-09-19T13:28:05.869289",
+      last_seen: "2026-09-19T14:14:58.773948",
+    },
+    created_at: "2026-09-19T14:14:58.778632",
+    status: "active",
+    ai_processed: true,
   },
   {
-    id: "m3",
-    text: "Compared Supersonic Broadband vs Specific Net Pvt Ltd speed test results for gaming latency.",
-    source: "browser",
-    sourceLabel: "Browser — speedtest.net",
-    project: "Personal",
-    timestamp: "2026-08-14T20:11:00Z",
-    importance: 0.18,
-    status: "archived",
+    id: 90,
+    evidence_id: 95,
+    source_type: "vscode",
+    timestamp: "2026-09-19T12:10:00.000000",
+    action: "edited",
+    duration_seconds: 300,
+    details: {
+      editor: "Visual Studio Code",
+      project: "ai-memory-frontend",
+      file: "SearchPage.jsx",
+      sessions: 4,
+    },
+    created_at: "2026-09-19T12:10:00.000000",
+    status: "active",
+    ai_processed: true,
   },
   {
-    id: "m4",
-    text: "Fixed the Razorpay paise/rupee double-multiplication bug in the billing controller.",
-    source: "vscode",
-    sourceLabel: "VS Code — billingController.js",
-    project: "HMS Mini Project",
-    timestamp: "2026-05-02T11:40:00Z",
-    importance: 0.76,
-    status: "kept",
-  },
-  {
-    id: "m5",
-    text: "Drafted the Two Truths & A Lie Bible trivia set, volume 2, checking each false statement for subtlety.",
-    source: "files",
-    sourceLabel: "Word — TwoTruths_Vol2.docx",
-    project: "Bible Trivia",
-    timestamp: "2026-06-10T16:00:00Z",
-    importance: 0.33,
-    status: "summarized",
+    id: 80,
+    evidence_id: 85,
+    source_type: "file",
+    timestamp: "2026-09-19T11:00:00.000000",
+    action: "modified",
+    duration_seconds: 0,
+    details: {
+      file_name: "notes.txt",
+      file_type: "text",
+    },
+    created_at: "2026-09-19T11:00:00.000000",
+    status: "active",
+    ai_processed: false,
   },
 ];
 
-export const mockTimeline = [
-  { date: "2026-08-19", projects: ["PIU Research Paper"], count: 6 },
-  { date: "2026-08-18", projects: ["CNS Coursework"], count: 3 },
-  { date: "2026-08-14", projects: ["Personal"], count: 2 },
-  { date: "2026-05-02", projects: ["HMS Mini Project"], count: 9 },
-  { date: "2026-06-10", projects: ["Bible Trivia"], count: 4 },
-];
-
-export const mockProjects = [
-  { id: "p1", name: "PIU Research Paper", memoryCount: 34, lastActive: "2026-08-19" },
-  { id: "p2", name: "CNS Coursework", memoryCount: 21, lastActive: "2026-08-18" },
-  { id: "p3", name: "HMS Mini Project", memoryCount: 58, lastActive: "2026-05-02" },
-  { id: "p4", name: "Bible Trivia", memoryCount: 12, lastActive: "2026-06-10" },
-];
-
-export const mockSettings = {
-  captureEnabled: true,
-  sources: {
-    browser: true,
-    files: true,
-    vscode: true,
-    email: false,
-  },
-  forgettingPolicy: "balanced", // "aggressive" | "balanced" | "retain-all"
-  sensitiveDataFilter: true,
-};
-
-export function mockForget(id) {
-  const idx = mockMemories.findIndex((m) => m.id === id);
-  if (idx !== -1) mockMemories.splice(idx, 1);
-  return { id, deleted: true };
+// Mimics POST /query/ — real endpoint returns a generated answer, not a
+// list of matches, since it's RAG question-answering over ChromaDB.
+export function mockAnswer(query, topK = 3) {
+  const hit = mockMemories.find((m) =>
+    JSON.stringify(m.details).toLowerCase().includes(query.toLowerCase())
+  );
+  return {
+    query,
+    answer: hit
+      ? `Based on what's been captured, this relates to "${hit.details.title || hit.details.file || hit.details.file_name}" from ${hit.source_type}.`
+      : `I don't have enough information in the retrieved context to answer your question about "${query}".`,
+    retrieval_time_ms: 8 + Math.random() * 10,
+  };
 }
 
-export function mockSearch(query) {
-  const q = query.trim().toLowerCase();
-  if (!q) return [];
-  return mockMemories
-    .filter(
-      (m) =>
-        m.text.toLowerCase().includes(q) ||
-        m.project.toLowerCase().includes(q) ||
-        m.sourceLabel.toLowerCase().includes(q)
-    )
-    .sort((a, b) => b.importance - a.importance);
-}
+export const mockPermissionMode = { mode: "allow_all" };
+
+// Kept as plain string arrays internally — api.js wraps these into the
+// real API's {path} object shape when returning them in mock mode.
+export const mockAllowedFolders = [];
+export const mockExclusions = [];
