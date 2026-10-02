@@ -11,22 +11,35 @@ from memory.database.db import get_connection
 
 def get_protected_folders():
     """
-    Return Windows system and application locations
-    that should never be captured.
+    Return built-in protected Windows system folders.
+
+    These locations are always blocked from activity capture,
+    regardless of the selected permission mode.
     """
 
-    system_drive = Path(
-        os.environ.get("SystemDrive", "C:") + "\\"
-    )
+    username = os.environ.get("USERNAME", "")
 
-    return [
-        system_drive / "Windows",
-        system_drive / "Program Files",
-        system_drive / "Program Files (x86)",
-        system_drive / "ProgramData",
-        system_drive / "$Recycle.Bin",
-        system_drive / "System Volume Information",
+    protected = [
+        r"C:\Windows",
+        r"C:\Program Files",
+        r"C:\Program Files (x86)",
+        r"C:\ProgramData",
+        r"C:\$Recycle.Bin",
+        r"C:\System Volume Information",
+        r"C:\Recovery",
+        r"C:\Boot",
     ]
+
+    if username:
+        protected.append(
+            os.path.join(
+                r"C:\Users",
+                username,
+                "AppData"
+            )
+        )
+
+    return protected
 
 
 def is_protected(file_path):
@@ -38,7 +51,7 @@ def is_protected(file_path):
     file_path = Path(file_path).resolve()
 
     for folder in get_protected_folders():
-        folder = folder.resolve()
+        folder = Path(folder).resolve()
 
         try:
             file_path.relative_to(folder)
@@ -68,7 +81,6 @@ def get_permission_mode():
     """)
 
     row = cursor.fetchone()
-
     connection.close()
 
     if row is None:
@@ -129,7 +141,6 @@ def is_excluded(file_path):
     """)
 
     excluded_paths = cursor.fetchall()
-
     connection.close()
 
     for row in excluded_paths:
@@ -208,7 +219,6 @@ def is_in_allowed_folder(file_path):
     """)
 
     allowed_paths = cursor.fetchall()
-
     connection.close()
 
     for row in allowed_paths:
@@ -309,6 +319,10 @@ def is_allowed(file_path):
     return False
 
 
+# ---------------------------------------------------------
+# Active project folders
+# ---------------------------------------------------------
+
 def is_in_project_folder(file_path):
     """
     Check whether a file belongs to an active project folder.
@@ -384,12 +398,12 @@ def remove_project_folder(folder_path):
     connection.commit()
     connection.close()
 
+
 # ---------------------------------------------------------
 # Basic test
 # ---------------------------------------------------------
 
 if __name__ == "__main__":
-
     test_file = "memory/tests/test_data/test.pdf"
 
     print("Test file:", test_file)
