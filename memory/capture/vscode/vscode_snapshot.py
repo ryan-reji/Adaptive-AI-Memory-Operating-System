@@ -11,5 +11,6 @@ def create_vscode_snapshot(aggregated_activity):
         "total_duration_seconds": aggregated_activity["total_duration_seconds"],
         "sessions": aggregated_activity["sessions"],
         "first_seen": aggregated_activity["first_seen"],
-        "last_seen": aggregated_activity["last_seen"]
+        "last_seen": aggregated_activity["last_seen"],
+        "file_path": aggregated_activity.get("file_path")
     }
