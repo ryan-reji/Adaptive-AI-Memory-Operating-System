@@ -5,6 +5,9 @@ from memory.capture.file.file_monitor import start_file_monitor
 from memory.capture.browser.browser_monitor import monitor_browser
 from memory.capture.vscode.vscode_monitor import monitor
 from memory.capture.foreground_activity import start_foreground_monitor
+from memory.capture.file.active_document_monitor import (
+    monitor_active_documents,
+)
 
 
 # =========================================================
@@ -46,6 +49,10 @@ def start_all_monitors():
 
     foreground_thread = threading.Thread(
         target=start_foreground_monitor,
+        daemon=True
+    )
+    document_thread = threading.Thread(
+        target=monitor_active_documents,
         daemon=True
     )
 
@@ -90,6 +97,7 @@ def start_all_monitors():
     file_thread.start()
     browser_thread.start()
     vscode_thread.start()
+    document_thread.start()
 
     print("\nAll activity monitors started.")
     print("Press Ctrl+C to stop.\n")
