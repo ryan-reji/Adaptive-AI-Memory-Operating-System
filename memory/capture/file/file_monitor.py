@@ -29,6 +29,60 @@ from memory.capture.file.file_evidence import create_file_evidence
 from memory.database.activity_evidence_db import save_activity_evidence
 
 
+def is_vscode_file_activity(
+    file_path,
+    foreground_history,
+    event_timestamp=None
+):
+    """
+    Identify a file event caused by editing the file in VS Code.
+
+    Only inspect the latest foreground sample to avoid suppressing
+    file activity because VS Code appeared earlier in the history.
+    """
+    if not foreground_history:
+        return False
+
+    activity = foreground_history[0]
+
+    process_name = (
+        activity.get("process_name") or ""
+    ).casefold()
+
+    if process_name not in {
+        "code.exe",
+        "code-insiders.exe",
+    }:
+        return False
+
+    # Ignore a stale foreground sample when timestamps are available.
+    sample_timestamp = activity.get("timestamp")
+
+    if event_timestamp is not None and sample_timestamp is not None:
+        try:
+            if isinstance(sample_timestamp, str):
+                sample_timestamp = datetime.fromisoformat(
+                    sample_timestamp
+                ).timestamp()
+
+            if abs(
+                float(event_timestamp) - float(sample_timestamp)
+            ) > 2.0:
+                return False
+
+        except (TypeError, ValueError, OverflowError):
+            pass
+
+    title = (
+        activity.get("window_title") or ""
+    ).casefold()
+
+    filename = Path(file_path).name.casefold()
+
+    return bool(filename and filename in title)
+
+
+
 class FileActivityHandler(FileSystemEventHandler):
 
     def __init__(self):
@@ -72,15 +126,16 @@ class FileActivityHandler(FileSystemEventHandler):
 
         foreground_history = get_recent_foreground_activity()
 
+
         if not is_user_interacting_with_file(
             activity["path"],
             foreground_history,
             event_timestamp
         ):
-            print(
-                "Ignoring background file activity:",
-                activity["path"]
-            )
+            #print(
+                #"Ignoring background file activity:",
+                #activity["path"]
+            #)
             return
 
         # -------------------------------------------------

@@ -1,4 +1,1401 @@
 {
-  "date": "2026-10-09",
-  "memories": []
+  "date": "2026-10-13",
+  "memories": [
+    {
+      "memory_id": 474,
+      "evidence_id": 512,
+      "source_type": "file",
+      "timestamp": "2026-10-02T20:22:37.354922",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.txt",
+        "file_name": "test.txt",
+        "file_type": ".txt",
+        "file_size": 50,
+        "content": "sdasdsadasbackground change background change",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-02T20:22:38.992559",
+      "status": "active"
+    },
+    {
+      "memory_id": 475,
+      "evidence_id": 513,
+      "source_type": "file",
+      "timestamp": "2026-10-02T20:31:35.749188",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.txt",
+        "file_name": "test.txt",
+        "file_type": ".txt",
+        "file_size": 50,
+        "content": "sdasdsadasbackground change background change",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-02T20:31:37.191195",
+      "status": "active"
+    },
+    {
+      "memory_id": 476,
+      "evidence_id": 514,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T20:32:57.556398",
+      "action": "editing",
+      "duration_seconds": 8.02,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 2,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-02T20:32:57.556398"
+      },
+      "created_at": "2026-10-02T20:32:57.565282",
+      "status": "active"
+    },
+    {
+      "memory_id": 477,
+      "evidence_id": 515,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T20:33:00.577613",
+      "action": "editing",
+      "duration_seconds": 9.02,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 3,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-02T20:33:00.577613"
+      },
+      "created_at": "2026-10-02T20:33:00.585048",
+      "status": "active"
+    },
+    {
+      "memory_id": 478,
+      "evidence_id": 516,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T20:33:18.602973",
+      "action": "editing",
+      "duration_seconds": 14.02,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 4,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-02T20:33:18.602973"
+      },
+      "created_at": "2026-10-02T20:33:18.609109",
+      "status": "active"
+    },
+    {
+      "memory_id": 479,
+      "evidence_id": 517,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T20:33:23.617752",
+      "action": "editing",
+      "duration_seconds": 15.02,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 5,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-02T20:33:23.617752"
+      },
+      "created_at": "2026-10-02T20:33:23.625301",
+      "status": "active"
+    },
+    {
+      "memory_id": 480,
+      "evidence_id": 518,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T20:35:33.370225",
+      "action": "editing",
+      "duration_seconds": 3.0,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "foreground_activity.py",
+        "sessions": 1,
+        "first_seen": "2026-10-02T20:35:30.368737",
+        "last_seen": "2026-10-02T20:35:33.370225"
+      },
+      "created_at": "2026-10-02T20:35:33.377907",
+      "status": "active"
+    },
+    {
+      "memory_id": 481,
+      "evidence_id": 519,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T20:38:21.049395",
+      "action": "editing",
+      "duration_seconds": 20.02,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 6,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-02T20:38:21.049395"
+      },
+      "created_at": "2026-10-02T20:38:21.056764",
+      "status": "active"
+    },
+    {
+      "memory_id": 482,
+      "evidence_id": 520,
+      "source_type": "file",
+      "timestamp": "2026-10-02T20:41:50.415397",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.txt",
+        "file_name": "test.txt",
+        "file_type": ".txt",
+        "file_size": 51,
+        "content": "sdasdsadasbackground change background change sss",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-02T20:41:50.432399",
+      "status": "active"
+    },
+    {
+      "memory_id": 483,
+      "evidence_id": 521,
+      "source_type": "file",
+      "timestamp": "2026-10-02T20:42:06.050410",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.txt",
+        "file_name": "test.txt",
+        "file_type": ".txt",
+        "file_size": 70,
+        "content": "sdasdsadasbackground change background change sssbackground change",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-02T20:42:06.063585",
+      "status": "active"
+    },
+    {
+      "memory_id": 484,
+      "evidence_id": 522,
+      "source_type": "file",
+      "timestamp": "2026-10-02T20:51:10.541603",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.txt",
+        "file_name": "test.txt",
+        "file_type": ".txt",
+        "file_size": 82,
+        "content": "sdasdsadasbackground change background change sssbackground change asadsadasdas",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-02T20:51:10.553545",
+      "status": "active"
+    },
+    {
+      "memory_id": 485,
+      "evidence_id": 523,
+      "source_type": "file",
+      "timestamp": "2026-10-02T20:51:40.855855",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.txt",
+        "file_name": "test.txt",
+        "file_type": ".txt",
+        "file_size": 101,
+        "content": "sdasdsadasbackground change background change sssbackground change asadsadasdasbackground change",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-02T20:51:40.869319",
+      "status": "active"
+    },
+    {
+      "memory_id": 486,
+      "evidence_id": 524,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T20:52:11.697102",
+      "action": "editing",
+      "duration_seconds": 24.02,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 7,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-02T20:52:11.697102"
+      },
+      "created_at": "2026-10-02T20:52:11.705230",
+      "status": "active"
+    },
+    {
+      "memory_id": 487,
+      "evidence_id": 525,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T20:57:20.991031",
+      "action": "editing",
+      "duration_seconds": 15.3,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "activity_manager.py",
+        "sessions": 5,
+        "first_seen": "2026-09-17T12:01:53.270997",
+        "last_seen": "2026-10-02T20:57:20.991031"
+      },
+      "created_at": "2026-10-02T20:57:20.999340",
+      "status": "active"
+    },
+    {
+      "memory_id": 488,
+      "evidence_id": 526,
+      "source_type": "file",
+      "timestamp": "2026-10-02T20:57:28.061164",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.txt",
+        "file_name": "test.txt",
+        "file_type": ".txt",
+        "file_size": 48,
+        "content": "sdasdsadasbackground change background change",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-02T20:57:28.088076",
+      "status": "active"
+    },
+    {
+      "memory_id": 489,
+      "evidence_id": 527,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T20:57:36.019069",
+      "action": "editing",
+      "duration_seconds": 21.3,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "activity_manager.py",
+        "sessions": 6,
+        "first_seen": "2026-09-17T12:01:53.270997",
+        "last_seen": "2026-10-02T20:57:36.019069"
+      },
+      "created_at": "2026-10-02T20:57:36.026458",
+      "status": "active"
+    },
+    {
+      "memory_id": 490,
+      "evidence_id": 528,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T21:14:37.678899",
+      "action": "editing",
+      "duration_seconds": 3.01,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "permissions.py",
+        "sessions": 1,
+        "first_seen": "2026-10-02T21:14:34.664482",
+        "last_seen": "2026-10-02T21:14:37.678899"
+      },
+      "created_at": "2026-10-02T21:14:37.687906",
+      "status": "active"
+    },
+    {
+      "memory_id": 491,
+      "evidence_id": 529,
+      "source_type": "browser",
+      "timestamp": "2026-10-02T21:14:43.681626",
+      "action": "viewed",
+      "duration_seconds": 1.0,
+      "details": {
+        "browser": "Brave",
+        "title": "presentation - Brave",
+        "sessions": 1,
+        "first_seen": "2026-10-02T21:14:42.681192",
+        "last_seen": "2026-10-02T21:14:43.681626"
+      },
+      "created_at": "2026-10-02T21:14:43.699731",
+      "status": "active"
+    },
+    {
+      "memory_id": 492,
+      "evidence_id": 530,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T21:14:56.720956",
+      "action": "editing",
+      "duration_seconds": 14.03,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "permissions.py",
+        "sessions": 2,
+        "first_seen": "2026-10-02T21:14:34.664482",
+        "last_seen": "2026-10-02T21:14:56.720956"
+      },
+      "created_at": "2026-10-02T21:14:56.729347",
+      "status": "active"
+    },
+    {
+      "memory_id": 493,
+      "evidence_id": 531,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T21:15:18.750846",
+      "action": "editing",
+      "duration_seconds": 17.03,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "permissions.py",
+        "sessions": 3,
+        "first_seen": "2026-10-02T21:14:34.664482",
+        "last_seen": "2026-10-02T21:15:18.750846"
+      },
+      "created_at": "2026-10-02T21:15:18.758990",
+      "status": "active"
+    },
+    {
+      "memory_id": 494,
+      "evidence_id": 532,
+      "source_type": "file",
+      "timestamp": "2026-10-02T21:15:39.294945",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\tests\\test_data\\test.txt",
+        "file_name": "test.txt",
+        "file_type": ".txt",
+        "file_size": 70,
+        "content": "sdasdsadasbackground change background change background change sss",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-02T21:15:39.306785",
+      "status": "active"
+    },
+    {
+      "memory_id": 495,
+      "evidence_id": 533,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T21:29:01.880776",
+      "action": "editing",
+      "duration_seconds": 37.32,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "activity_manager.py",
+        "sessions": 7,
+        "first_seen": "2026-09-17T12:01:53.270997",
+        "last_seen": "2026-10-02T21:29:01.880776"
+      },
+      "created_at": "2026-10-02T21:29:01.888096",
+      "status": "active"
+    },
+    {
+      "memory_id": 496,
+      "evidence_id": 534,
+      "source_type": "browser",
+      "timestamp": "2026-10-02T21:29:15.896567",
+      "action": "viewed",
+      "duration_seconds": 4.01,
+      "details": {
+        "browser": "Brave",
+        "title": "HPCL_3.pdf - Brave",
+        "sessions": 1,
+        "first_seen": "2026-10-02T21:29:11.889852",
+        "last_seen": "2026-10-02T21:29:15.896567"
+      },
+      "created_at": "2026-10-02T21:29:15.905077",
+      "status": "active"
+    },
+    {
+      "memory_id": 497,
+      "evidence_id": 535,
+      "source_type": "browser",
+      "timestamp": "2026-10-02T21:29:16.914841",
+      "action": "viewed",
+      "duration_seconds": 1.0,
+      "details": {
+        "browser": "Brave",
+        "title": "AI-Assistant(RAG,LLM) iwth smart forgetting - Develop Project Integration - Brave",
+        "sessions": 1,
+        "first_seen": "2026-10-02T21:29:15.914388",
+        "last_seen": "2026-10-02T21:29:16.914841"
+      },
+      "created_at": "2026-10-02T21:29:16.928037",
+      "status": "active"
+    },
+    {
+      "memory_id": 498,
+      "evidence_id": 536,
+      "source_type": "vscode",
+      "timestamp": "2026-10-02T21:29:55.928355",
+      "action": "editing",
+      "duration_seconds": 76.34,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "activity_manager.py",
+        "sessions": 8,
+        "first_seen": "2026-09-17T12:01:53.270997",
+        "last_seen": "2026-10-02T21:29:55.928355"
+      },
+      "created_at": "2026-10-02T21:29:55.935850",
+      "status": "active"
+    },
+    {
+      "memory_id": 499,
+      "evidence_id": 537,
+      "source_type": "file",
+      "timestamp": "2026-10-02T21:30:16.697027",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Downloads\\HPCL_3.pdf",
+        "file_name": "HPCL_3.pdf",
+        "file_type": ".pdf",
+        "file_size": 240395,
+        "content": "#include \"sal.h\"\n#include <mpi.h>\n#include <stdio.h>\n#include <stdlib.h>\n#include <math.h>\n#define RADIUS 20\n#define SIGMA 10.0\nint main(int argc, char** argv) {\nint rank, size;\nMPI_Init(&argc, &argv);\nMPI_Comm_rank(MPI_COMM_WORLD, &rank);\nMPI_Comm_size(MPI_COMM_WORLD, &size);\nint width = 0, height = 0, max_val = 0;\nchar magic[3];\nunsigned char *full_image = NULL;\nunsigned char *final_output = NULL;\n// 1. Root process reads image metadata and file\nif (rank == 0) {\nFILE *fp_in = fopen(\"input.pgm\", \"rb\");\nif (!fp_in) {\nprintf(\"Rank 0: Error opening input.pgm\\n\");\nMPI_Abort(MPI_COMM_WORLD, 1);\n}\nfscanf(fp_in, \"%2s\\n%d %d\\n%d\\n\", magic, &width, &height, &max_val);\nint total_pixels = width * height;\nfull_image = (unsigned char *)malloc(total_pixels);\nfinal_output = (unsigned char *)malloc(total_pixels);\nfread(full_image, sizeof(unsigned char), total_pixels, fp_in);\nfclose(fp_in);\nprintf(\"MPI Master (Rank 0): Image %dx%d loaded across %d processes.\\n\", width, height,\nsize);\n}\n// 2. Broadcast image dimensions to all processes\nMPI_Bcast(&width, 1, MPI_INT, 0, MPI_COMM_WORLD);\nMPI_Bcast(&height, 1, MPI_INT, 0, MPI_COMM_WORLD);\n// Compute distribution per process\nint rows_per_proc = height / size;\nint start_y = rank * rows_per_proc;\nint end_y = (rank == size - 1) ? height : start_y + rows_per_proc;\nint local_rows = end_y - start_y;\n// 3. Precompute the identical 41x41 Gaussian Kernel on each process\nint k_size = 2 * RADIUS + 1;\n",
+        "extraction_type": "specialized",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-02T21:30:16.775659",
+      "status": "active"
+    },
+    {
+      "memory_id": 500,
+      "evidence_id": 538,
+      "source_type": "vscode",
+      "timestamp": "2026-10-09T23:32:30.509991",
+      "action": "editing",
+      "duration_seconds": 3.0,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Unknown",
+        "file": "- Adaptive-AI-Memory-Operating-System",
+        "sessions": 1,
+        "first_seen": "2026-10-09T23:32:27.507466",
+        "last_seen": "2026-10-09T23:32:30.509991",
+        "file_path": null
+      },
+      "created_at": "2026-10-09T23:32:30.519716",
+      "status": "active"
+    },
+    {
+      "memory_id": 501,
+      "evidence_id": 539,
+      "source_type": "vscode",
+      "timestamp": "2026-10-09T23:32:34.532932",
+      "action": "editing",
+      "duration_seconds": 47.86,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "vscode_monitor.py",
+        "sessions": 12,
+        "first_seen": "2026-09-15T19:00:45.705399",
+        "last_seen": "2026-10-09T23:32:34.532932",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\vscode\\vscode_monitor.py"
+      },
+      "created_at": "2026-10-09T23:32:34.539826",
+      "status": "active"
+    },
+    {
+      "memory_id": 502,
+      "evidence_id": 540,
+      "source_type": "vscode",
+      "timestamp": "2026-10-09T23:32:35.546960",
+      "action": "editing",
+      "duration_seconds": 4.0,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Unknown",
+        "file": "- Adaptive-AI-Memory-Operating-System",
+        "sessions": 2,
+        "first_seen": "2026-10-09T23:32:27.507466",
+        "last_seen": "2026-10-09T23:32:35.546960",
+        "file_path": null
+      },
+      "created_at": "2026-10-09T23:32:35.554241",
+      "status": "active"
+    },
+    {
+      "memory_id": 503,
+      "evidence_id": 541,
+      "source_type": "vscode",
+      "timestamp": "2026-10-09T23:36:44.479042",
+      "action": "editing",
+      "duration_seconds": 62.879999999999995,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "vscode_monitor.py",
+        "sessions": 13,
+        "first_seen": "2026-09-15T19:00:45.705399",
+        "last_seen": "2026-10-09T23:36:44.479042",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\vscode\\vscode_monitor.py"
+      },
+      "created_at": "2026-10-09T23:36:44.484802",
+      "status": "active"
+    },
+    {
+      "memory_id": 504,
+      "evidence_id": 542,
+      "source_type": "vscode",
+      "timestamp": "2026-10-09T23:36:55.538991",
+      "action": "editing",
+      "duration_seconds": 11.05,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "vscode_evidence.py",
+        "sessions": 1,
+        "first_seen": "2026-10-09T23:36:44.492980",
+        "last_seen": "2026-10-09T23:36:55.538991",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\vscode\\vscode_evidence.py"
+      },
+      "created_at": "2026-10-09T23:36:55.549632",
+      "status": "active"
+    },
+    {
+      "memory_id": 505,
+      "evidence_id": 543,
+      "source_type": "vscode",
+      "timestamp": "2026-10-09T23:37:00.559155",
+      "action": "editing",
+      "duration_seconds": 67.88,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "vscode_monitor.py",
+        "sessions": 14,
+        "first_seen": "2026-09-15T19:00:45.705399",
+        "last_seen": "2026-10-09T23:37:00.559155",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\vscode\\vscode_monitor.py"
+      },
+      "created_at": "2026-10-09T23:37:00.566518",
+      "status": "active"
+    },
+    {
+      "memory_id": 506,
+      "evidence_id": 544,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T20:33:12.674380",
+      "action": "editing",
+      "duration_seconds": 28.02,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 8,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-13T20:33:12.674380",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py"
+      },
+      "created_at": "2026-10-13T20:33:12.686772",
+      "status": "active"
+    },
+    {
+      "memory_id": 507,
+      "evidence_id": 545,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T20:33:42.477728",
+      "action": "editing",
+      "duration_seconds": 32.019999999999996,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 9,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-13T20:33:42.477728",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py"
+      },
+      "created_at": "2026-10-13T20:33:42.488187",
+      "status": "active"
+    },
+    {
+      "memory_id": 508,
+      "evidence_id": 546,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T20:33:49.486717",
+      "action": "viewed",
+      "duration_seconds": 3.0,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 1,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T20:33:49.486717"
+      },
+      "created_at": "2026-10-13T20:33:49.498387",
+      "status": "active"
+    },
+    {
+      "memory_id": 509,
+      "evidence_id": 547,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T20:33:50.503324",
+      "action": "editing",
+      "duration_seconds": 33.019999999999996,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 10,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-13T20:33:50.503324",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py"
+      },
+      "created_at": "2026-10-13T20:33:50.512174",
+      "status": "active"
+    },
+    {
+      "memory_id": 510,
+      "evidence_id": 548,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T20:34:03.540917",
+      "action": "viewed",
+      "duration_seconds": 16.03,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 2,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T20:34:03.540917"
+      },
+      "created_at": "2026-10-13T20:34:03.549039",
+      "status": "active"
+    },
+    {
+      "memory_id": 511,
+      "evidence_id": 549,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T20:34:17.537132",
+      "action": "editing",
+      "duration_seconds": 46.029999999999994,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 11,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-13T20:34:17.537132",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py"
+      },
+      "created_at": "2026-10-13T20:34:17.544893",
+      "status": "active"
+    },
+    {
+      "memory_id": 512,
+      "evidence_id": 550,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T20:34:28.591800",
+      "action": "viewed",
+      "duration_seconds": 26.05,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 3,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T20:34:28.591800"
+      },
+      "created_at": "2026-10-13T20:34:28.604513",
+      "status": "active"
+    },
+    {
+      "memory_id": 513,
+      "evidence_id": 551,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T20:34:40.582001",
+      "action": "editing",
+      "duration_seconds": 58.05,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 12,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-13T20:34:40.582001",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py"
+      },
+      "created_at": "2026-10-13T20:34:40.647927",
+      "status": "active"
+    },
+    {
+      "memory_id": 514,
+      "evidence_id": 553,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T20:35:01.726208",
+      "action": "editing",
+      "duration_seconds": 70.11,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 13,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-13T20:35:01.726208",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py"
+      },
+      "created_at": "2026-10-13T20:35:01.734099",
+      "status": "active"
+    },
+    {
+      "memory_id": 515,
+      "evidence_id": 554,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T20:35:54.778903",
+      "action": "editing",
+      "duration_seconds": 73.11,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 14,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-13T20:35:54.778903",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py"
+      },
+      "created_at": "2026-10-13T20:35:54.792804",
+      "status": "active"
+    },
+    {
+      "memory_id": 516,
+      "evidence_id": 555,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T20:36:08.814354",
+      "action": "editing",
+      "duration_seconds": 85.12,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 15,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-13T20:36:08.814354",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py"
+      },
+      "created_at": "2026-10-13T20:36:08.821457",
+      "status": "active"
+    },
+    {
+      "memory_id": 517,
+      "evidence_id": 556,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T20:37:37.882969",
+      "action": "viewed",
+      "duration_seconds": 65.13,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 4,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T20:37:37.882969"
+      },
+      "created_at": "2026-10-13T20:37:37.919410",
+      "status": "active"
+    },
+    {
+      "memory_id": 518,
+      "evidence_id": 558,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T20:42:42.542253",
+      "action": "viewed",
+      "duration_seconds": 86.16999999999999,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 5,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T20:42:42.542253"
+      },
+      "created_at": "2026-10-13T20:42:42.552422",
+      "status": "active"
+    },
+    {
+      "memory_id": 519,
+      "evidence_id": 559,
+      "source_type": "file",
+      "timestamp": "2026-10-13T21:01:09",
+      "action": "opened",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\activity_manager.py",
+        "file_name": "activity_manager.py",
+        "file_type": ".py",
+        "file_size": 3291,
+        "content": "import threading import time from memory.capture.file.file_monitor import start_file_monitor from memory.capture.browser.browser_monitor import monitor_browser from memory.capture.vscode.vscode_monitor import monitor from memory.capture.foreground_activity import start_foreground_monitor from memory.capture.file.active_document_monitor import ( monitor_active_documents, ) # ========================================================= # BROWSER MONITOR # ========================================================= def start_browser_monitor(): \"\"\" Start the browser activity monitor. \"\"\" monitor_browser() # ========================================================= # VS CODE MONITOR # ========================================================= def start_vscode_monitor(): \"\"\" Start the VS Code activity monitor. \"\"\" monitor() # ========================================================= # ALL MONITORS # ========================================================= def start_all_monitors(): \"\"\" Start File, Browser and VS Code monitors concurrently. \"\"\" # ----------------------------------------------------- # Shared foreground activity monitor # ----------------------------------------------------- foreground_thread = threading.Thread( target=start_foreground_monitor, daemon=True ) document_thread = threading.Thread( target=monitor_active_documents, daemon=True ) foreground_thread.start() print(\"Foreground activity monitor started.\") # ----------------------------------------------------- # File monitor # ----------------------------------------------------- file_thread = threading.Thread( target=start_file_monitor, kwargs={ \"start_foreground\": False }, daemon=True ) # ----------------------------------------------------- # Browser monitor # ----------------------------------------------------- browser_thread = threading.Thread( target=start_browser_monitor, daemon=True ) # ----------------------------------------------------- # VS Code monitor # ----------------------------------------------------- vscode_thread = threading.Thread( target=start_vscode_monitor, daemon=True ) # ----------------------------------------------------- # Start all monitors # ----------------------------------------------------- file_thread.start() browser_thread.start() vscode_thread.start() document_thread.start() print(\"\\nAll activity monitors started.\") print(\"Press Ctrl+C to stop.\\n\") # ----------------------------------------------------- # Keep manager alive # ----------------------------------------------------- try: while True: time.sleep(1) except KeyboardInterrupt: print(\"\\nActivity manager stopped.\") # ========================================================= # STANDALONE # ========================================================= if __name__ == \"__main__\": start_all_monitors()",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-13T21:01:09.492101",
+      "status": "active"
+    },
+    {
+      "memory_id": 520,
+      "evidence_id": 560,
+      "source_type": "file",
+      "timestamp": "2026-10-13T21:01:14.519642",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\activity_manager.py",
+        "file_name": "activity_manager.py",
+        "file_type": ".py",
+        "file_size": 3291,
+        "content": "import threading import time from memory.capture.file.file_monitor import start_file_monitor from memory.capture.browser.browser_monitor import monitor_browser from memory.capture.vscode.vscode_monitor import monitor from memory.capture.foreground_activity import start_foreground_monitor from memory.capture.file.active_document_monitor import ( monitor_active_documents, ) # ========================================================= # BROWSER MONITOR # ========================================================= def start_browser_monitor(): \"\"\" Start the browser activity monitor. \"\"\" monitor_browser() # ========================================================= # VS CODE MONITOR # ========================================================= def start_vscode_monitor(): \"\"\" Start the VS Code activity monitor. \"\"\" monitor() # ========================================================= # ALL MONITORS # ========================================================= def start_all_monitors(): \"\"\" Start File, Browser and VS Code monitors concurrently. \"\"\" # ----------------------------------------------------- # Shared foreground activity monitor # ----------------------------------------------------- foreground_thread = threading.Thread( target=start_foreground_monitor, daemon=True ) document_thread = threading.Thread( target=monitor_active_documents, daemon=True ) foreground_thread.start() print(\"Foreground activity monitor started.\") # ----------------------------------------------------- # File monitor # ----------------------------------------------------- file_thread = threading.Thread( target=start_file_monitor, kwargs={ \"start_foreground\": False }, daemon=True ) # ----------------------------------------------------- # Browser monitor # ----------------------------------------------------- browser_thread = threading.Thread( target=start_browser_monitor, daemon=True ) # ----------------------------------------------------- # VS Code monitor # ----------------------------------------------------- vscode_thread = threading.Thread( target=start_vscode_monitor, daemon=True ) # ----------------------------------------------------- # Start all monitors # ----------------------------------------------------- file_thread.start() browser_thread.start() vscode_thread.start() document_thread.start() print(\"\\nAll activity monitors started.\") print(\"Press Ctrl+C to stop.\\n\") # ----------------------------------------------------- # Keep manager alive # ----------------------------------------------------- try: while True: time.sleep(1) except KeyboardInterrupt: print(\"\\nActivity manager stopped.\") # ========================================================= # STANDALONE # ========================================================= if __name__ == \"__main__\": start_all_monitors()",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-13T21:01:14.531227",
+      "status": "active"
+    },
+    {
+      "memory_id": 521,
+      "evidence_id": 561,
+      "source_type": "file",
+      "timestamp": "2026-10-13T21:05:45.529485",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\active_document_monitor.py",
+        "file_name": "active_document_monitor.py",
+        "file_type": ".py",
+        "file_size": 8868,
+        "content": "import os import re import time from pathlib import Path import psutil from memory.capture.foreground_activity import ( get_recent_foreground_activity, ) from memory.capture.common.permissions import is_allowed from memory.capture.file.universal_extractor import get_chunk from memory.capture.file.file_snapshot import create_snapshot from memory.capture.file.file_evidence import create_file_evidence from memory.database.activity_evidence_db import save_activity_evidence SUPPORTED_EXTENSIONS = { \".txt\", \".md\", \".csv\", \".json\", \".xml\", \".yaml\", \".yml\", \".py\", \".js\", \".ts\", \".html\", \".css\", \".sql\", \".pdf\", \".doc\", \".docx\", \".odt\", \".rtf\", \".xls\", \".xlsx\", \".xlsm\", \".ods\", \".ppt\", \".pptx\", \".odp\", } APP_TITLE_SUFFIXES = ( \" - ONLYOFFICE\", \" - Microsoft Word\", \" - Word\", \" - Microsoft Excel\", \" - Excel\", \" - Microsoft PowerPoint\", \" - PowerPoint\", \" - WPS Office\", ) SKIP_DIRS = { \"appdata\", \".git\", \"node_modules\", \".venv\", \"venv\", \"__pycache__\", \"program files\", \"windows\", } # Cache filename lookups so repeated sessions don't rescan folders. _path_cache = {} def _filename_from_title(title): \"\"\"Extract a supported filename from a window title.\"\"\" title = title.strip() for suffix in APP_TITLE_SUFFIXES: if title.lower().endswith(suffix.lower()): title = title[:-len(suffix)].strip() # Remove common unsaved-document markers. title = title.lstrip(\"*\").strip() pattern = ( r'([^\\\\/:*?\"<>|\\r\\n]+\\.' r'(?:' + \"|\".join( re.escape(ext.lstrip(\".\")) for ext in SUPPORTED_EXTENSIONS ) + r'))' ) match = re.search(pattern, title, re.IGNORECASE) return match.group(1).strip() if match else None def _path_from_title(title): \"\"\"Use an absolute path if the application exposes one.\"\"\" pattern = ( r'([A-Za-z]:\\\\.*?\\.(?:' + \"|\".join( re.escape(ext.lstrip(\".\")) for ext in SUPPORTED_EXTENSIONS ) + r'))(?=$|\\s+-\\s)' ) match = re.search(pattern, title, re.IGNORECASE) if match: candidate = Path(match.group(1)) if candidate.is_file(): return candidate.resolve() return None def _path_from_process(pid, filename): \"\"\"Try to find the document among files opened by the app.\"\"\" if not pid or not filename: return None try: process = psutil.Process(pid) for opened_file in process.open_files(): candidate = Path(opened_file.path) if ( candidate.name.lower() == filename.lower() and candidate.is_file() ): return candidate.resolve() except (psutil.Error, OSError): pass return None def _search_user_folders(filename): \"\"\" Search the user's profile for a unique matching filename. Ambiguous matches are deliberately rejected. \"\"\" if not filename: return None cache_key = filename.lower() if cache_key in _path_cache: return _path_cache[cache_key] home = Path.home() preferred = [ home / \"Downloads\", home / \"Documents\", home / \"Desktop\", home / \"OneDrive\", ] matches = set() # Search common folders first. for root in preferred: if not root.is_dir(): continue for directory, subdirs, files in os.walk(root): subdirs[:] = [ d for d in subdirs if d.lower() not in SKIP_DIRS ] for item in files: if item.lower() == cache_key: matches.add( (Path(directory) / item).resolve() ) if len(matches) > 1: break if len(matches) > 1: break # If not found in common folders, search the remaining profile. if not matches: for directory, subdirs, files in os.walk(home): current = Path(directory) if current == home: subdirs[:] = [ d for d in subdirs if d.lower() not in SKIP_DIRS and d not in { \"Downloads\", \"Documents\", \"Desktop\", \"OneDrive\", } ] else: subdirs[:] = [ d for d in subdirs if d.lower() not in SKIP_DIRS ] for item in files: if item.lower() == cache_key: matches.add( (current / item).resolve() ) if len(matches) > 1: break result = next(iter(matches)) if len(matches) == 1 else None _path_cache[cache_key] = result return result def resolve_document_path(activity): \"\"\"Resolve a document path without guessing between duplicates.\"\"\" title = activity.get(\"window_title\", \"\") path = _path_from_title(title) if path: return path filename = _filename_from_title(title) if not filename: return None path = _path_from_process( activity.get(\"process_id\"), filename, ) if path: return path return _search_user_folders(filename) def capture_active_document(activity, path): \"\"\"Extract and save one active-document evidence record.\"\"\" if not path.is_file() or not is_allowed(path): return try: result = get_chunk(str(path), chunk_number=0) event = { \"source_type\": \"file\", \"action\": \"opened\", \"path\": str(path), \"timestamp\": time.strftime( \"%Y-%m-%dT%H:%M:%S\", time.localtime(activity[\"timestamp\"]), ), } snapshot = create_snapshot(event, result) evidence = create_file_evidence(snapshot) evidence_id = save_activity_evidence(evidence) print( f\"Saved active-document evidence: \" f\"{path.name} (ID: {evidence_id})\" ) except Exception as exc: print( f\"Could not capture active document \" f\"{path.name}: {exc}\" ) def monitor_active_documents(): \"\"\" Capture documents opened in supported document applications. Skip VS Code because its activity is handled by the VS Code monitor. Uses the shared foreground monitor; starts no new thread. \"\"\" previous_key = None attempted_key = None last_attempt = 0.0 print(\"Active document monitor started.\") while True: try: history = get_recent_foreground_activity() activity = history[0] if history else None if not activity: previous_key = None attempted_key = None time.sleep(0.5) continue key = ( activity.get(\"hwnd\"), activity.get(\"process_id\"), activity.get(\"window_title\"), ) # Skip VS Code; its activity is captured by its own monitor. process_name = ( activity.get(\"process_name\") or \"\" ).lower() if process_name in {\"code.exe\", \"code-insiders.exe\"}: previous_key = key attempted_key = key time.sleep(0.5) continue if key != previous_key: previous_key = key attempted_key = None last_attempt = 0.0 title = activity.get(\"window_title\", \"\") filename = _filename_from_title(title) if ( filename and key != attempted_key and time.time() - last_attempt >= 1.0 ): last_attempt = time.time() path = resolve_document_path(activity) if path: attempted_key = key if is_allowed(path): capture_active_document(activity, path) else: # Avoid repeatedly searching for the same document. attempted_key = key time.sleep(0.5) except Exception as exc: print(f\"Active document monitor error: {exc}\") time.sleep(1.0) if __name__ == \"__main__\": monitor_active_documents()",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-13T21:05:45.543091",
+      "status": "active"
+    },
+    {
+      "memory_id": 522,
+      "evidence_id": 562,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:06:06.255342",
+      "action": "editing",
+      "duration_seconds": 29.05,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "active_document_monitor.py",
+        "sessions": 1,
+        "first_seen": "2026-10-13T21:05:37.201161",
+        "last_seen": "2026-10-13T21:06:06.255342",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\active_document_monitor.py"
+      },
+      "created_at": "2026-10-13T21:06:06.264887",
+      "status": "active"
+    },
+    {
+      "memory_id": 523,
+      "evidence_id": 563,
+      "source_type": "file",
+      "timestamp": "2026-10-13T21:06:13",
+      "action": "opened",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Downloads\\YOUTH SUNDAY SERMON NOTES ENGLISH.pdf",
+        "file_name": "YOUTH SUNDAY SERMON NOTES ENGLISH.pdf",
+        "file_type": ".pdf",
+        "file_size": 354142,
+        "content": "MAR THOMA YUVAJANA SAKHYAM\nYOUTH SUNDAY  - 2026\n SERMON NOTES\n  1\nSt. Matt. 7: 21-27\nWhenever a builder starts constructing a house, the most important work happens where\nno one can see. Before the walls go up, and long before the paint dries, the builder has to dig down\ndeep into the dirt until they strike solid rock. If they take shortcuts and ignore the foundation, even\nthe most beautiful house will come crashing down the moment a heavy storm hits.\nToday, on this Youth Sunday, we live in a world that focuses almost entirely on the outside.\nWe are constantly taught to look successful, keep our social media feeds bright, and pretend that\nour lives are completely put together. But behind those bright smiles, many of our youth are quietly\nstruggling. There is the heavy stress of exams, the search for stable jobs, the ache of loneliness\nin distant cities and hostels, and the fear of falling behind. In Matthew 7, Jesus does not care about\nthe paint on our walls. He looks straight through the appearance and asks one vital question: what\nis holding your life up from beneath?\n1.  Rooted in Christ: Going Beyond the Surface\nJesus warns us that simply saying \u201cLord, Lord\u201d is never enough. It is easy to come to\nchurch every Sunday, wear nice clothes, sing the songs, and still be building our lives on loose\nsand. Sand is comfortable because it requires zero effort. It means living for instant likes, following\nthe crowd, and treating God like an afterthought.\nBuilding on the rock takes real work. It means choosing to dig past our pride and our selfish\ndesires. To be rooted in Christ means our worth is not decided by our job title, our salary, or what\npeople say about us. It means making time every day to pray, read His Word, and anchor our\nidentity in the love of Jesus. When your roots grip the bedrock of Christ, no trend or hardship can\nwash you away.\n2. Driven by Faith: Hearing That Becomes Doing\nBoth builders in the parable heard the exact same words of Jesus. The only difference was\nthat one walked away and did nothing, while the other went home and put those words into practice.\nReal faith is never just sitting quietly in a pew. Faith has hands and feet.\nIn our Mar Thoma tradition, faith is always meant to be lived out. When we are driven by\nfaith, our belief changes how we act on Monday morning. It means being honest in an office where\nothers cheat. It means standing up for a friend who is left out. It means trusting God with your\nfuture even when the doors seem closed. Faith does not keep the rain away, but it gives us the\ncourage to keep walking through the downpour.\nThis question remains before us as followers of Christ. Can you join the sorrow of a different\nperson who is facing neglect? Can you join his dreams? The man\u2019s answer is not a condemnation,\nbut the sorrow of not having a group that understands him and holds him together. Our mission is\nto become that group which understand and hold together.\n                 Youth: Rooted in Christ, Driven by Faith, and Living with Purpose\n",
+        "extraction_type": "specialized",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-13T21:06:13.798415",
+      "status": "active"
+    },
+    {
+      "memory_id": 524,
+      "evidence_id": 564,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:06:17.283078",
+      "action": "editing",
+      "duration_seconds": 31.05,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "active_document_monitor.py",
+        "sessions": 2,
+        "first_seen": "2026-10-13T21:05:37.201161",
+        "last_seen": "2026-10-13T21:06:17.283078",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\active_document_monitor.py"
+      },
+      "created_at": "2026-10-13T21:06:17.291691",
+      "status": "active"
+    },
+    {
+      "memory_id": 525,
+      "evidence_id": 565,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:06:22.310275",
+      "action": "editing",
+      "duration_seconds": 32.05,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "active_document_monitor.py",
+        "sessions": 3,
+        "first_seen": "2026-10-13T21:05:37.201161",
+        "last_seen": "2026-10-13T21:06:22.310275",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\active_document_monitor.py"
+      },
+      "created_at": "2026-10-13T21:06:22.319892",
+      "status": "active"
+    },
+    {
+      "memory_id": 526,
+      "evidence_id": 566,
+      "source_type": "file",
+      "timestamp": "2026-10-13T21:06:34",
+      "action": "opened",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Downloads\\YOUTH SUNDAY SERMON NOTES ENGLISH.pdf",
+        "file_name": "YOUTH SUNDAY SERMON NOTES ENGLISH.pdf",
+        "file_type": ".pdf",
+        "file_size": 354142,
+        "content": "MAR THOMA YUVAJANA SAKHYAM\nYOUTH SUNDAY  - 2026\n SERMON NOTES\n  1\nSt. Matt. 7: 21-27\nWhenever a builder starts constructing a house, the most important work happens where\nno one can see. Before the walls go up, and long before the paint dries, the builder has to dig down\ndeep into the dirt until they strike solid rock. If they take shortcuts and ignore the foundation, even\nthe most beautiful house will come crashing down the moment a heavy storm hits.\nToday, on this Youth Sunday, we live in a world that focuses almost entirely on the outside.\nWe are constantly taught to look successful, keep our social media feeds bright, and pretend that\nour lives are completely put together. But behind those bright smiles, many of our youth are quietly\nstruggling. There is the heavy stress of exams, the search for stable jobs, the ache of loneliness\nin distant cities and hostels, and the fear of falling behind. In Matthew 7, Jesus does not care about\nthe paint on our walls. He looks straight through the appearance and asks one vital question: what\nis holding your life up from beneath?\n1.  Rooted in Christ: Going Beyond the Surface\nJesus warns us that simply saying \u201cLord, Lord\u201d is never enough. It is easy to come to\nchurch every Sunday, wear nice clothes, sing the songs, and still be building our lives on loose\nsand. Sand is comfortable because it requires zero effort. It means living for instant likes, following\nthe crowd, and treating God like an afterthought.\nBuilding on the rock takes real work. It means choosing to dig past our pride and our selfish\ndesires. To be rooted in Christ means our worth is not decided by our job title, our salary, or what\npeople say about us. It means making time every day to pray, read His Word, and anchor our\nidentity in the love of Jesus. When your roots grip the bedrock of Christ, no trend or hardship can\nwash you away.\n2. Driven by Faith: Hearing That Becomes Doing\nBoth builders in the parable heard the exact same words of Jesus. The only difference was\nthat one walked away and did nothing, while the other went home and put those words into practice.\nReal faith is never just sitting quietly in a pew. Faith has hands and feet.\nIn our Mar Thoma tradition, faith is always meant to be lived out. When we are driven by\nfaith, our belief changes how we act on Monday morning. It means being honest in an office where\nothers cheat. It means standing up for a friend who is left out. It means trusting God with your\nfuture even when the doors seem closed. Faith does not keep the rain away, but it gives us the\ncourage to keep walking through the downpour.\nThis question remains before us as followers of Christ. Can you join the sorrow of a different\nperson who is facing neglect? Can you join his dreams? The man\u2019s answer is not a condemnation,\nbut the sorrow of not having a group that understands him and holds him together. Our mission is\nto become that group which understand and hold together.\n                 Youth: Rooted in Christ, Driven by Faith, and Living with Purpose\n",
+        "extraction_type": "specialized",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-13T21:06:37.806151",
+      "status": "active"
+    },
+    {
+      "memory_id": 527,
+      "evidence_id": 567,
+      "source_type": "file",
+      "timestamp": "2026-10-13T21:06:38",
+      "action": "opened",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Downloads\\YOUTH SUNDAY SERMON NOTES ENGLISH.pdf",
+        "file_name": "YOUTH SUNDAY SERMON NOTES ENGLISH.pdf",
+        "file_type": ".pdf",
+        "file_size": 354142,
+        "content": "MAR THOMA YUVAJANA SAKHYAM\nYOUTH SUNDAY  - 2026\n SERMON NOTES\n  1\nSt. Matt. 7: 21-27\nWhenever a builder starts constructing a house, the most important work happens where\nno one can see. Before the walls go up, and long before the paint dries, the builder has to dig down\ndeep into the dirt until they strike solid rock. If they take shortcuts and ignore the foundation, even\nthe most beautiful house will come crashing down the moment a heavy storm hits.\nToday, on this Youth Sunday, we live in a world that focuses almost entirely on the outside.\nWe are constantly taught to look successful, keep our social media feeds bright, and pretend that\nour lives are completely put together. But behind those bright smiles, many of our youth are quietly\nstruggling. There is the heavy stress of exams, the search for stable jobs, the ache of loneliness\nin distant cities and hostels, and the fear of falling behind. In Matthew 7, Jesus does not care about\nthe paint on our walls. He looks straight through the appearance and asks one vital question: what\nis holding your life up from beneath?\n1.  Rooted in Christ: Going Beyond the Surface\nJesus warns us that simply saying \u201cLord, Lord\u201d is never enough. It is easy to come to\nchurch every Sunday, wear nice clothes, sing the songs, and still be building our lives on loose\nsand. Sand is comfortable because it requires zero effort. It means living for instant likes, following\nthe crowd, and treating God like an afterthought.\nBuilding on the rock takes real work. It means choosing to dig past our pride and our selfish\ndesires. To be rooted in Christ means our worth is not decided by our job title, our salary, or what\npeople say about us. It means making time every day to pray, read His Word, and anchor our\nidentity in the love of Jesus. When your roots grip the bedrock of Christ, no trend or hardship can\nwash you away.\n2. Driven by Faith: Hearing That Becomes Doing\nBoth builders in the parable heard the exact same words of Jesus. The only difference was\nthat one walked away and did nothing, while the other went home and put those words into practice.\nReal faith is never just sitting quietly in a pew. Faith has hands and feet.\nIn our Mar Thoma tradition, faith is always meant to be lived out. When we are driven by\nfaith, our belief changes how we act on Monday morning. It means being honest in an office where\nothers cheat. It means standing up for a friend who is left out. It means trusting God with your\nfuture even when the doors seem closed. Faith does not keep the rain away, but it gives us the\ncourage to keep walking through the downpour.\nThis question remains before us as followers of Christ. Can you join the sorrow of a different\nperson who is facing neglect? Can you join his dreams? The man\u2019s answer is not a condemnation,\nbut the sorrow of not having a group that understands him and holds him together. Our mission is\nto become that group which understand and hold together.\n                 Youth: Rooted in Christ, Driven by Faith, and Living with Purpose\n",
+        "extraction_type": "specialized",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-13T21:06:39.291024",
+      "status": "active"
+    },
+    {
+      "memory_id": 528,
+      "evidence_id": 568,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:06:51.357367",
+      "action": "editing",
+      "duration_seconds": 41.059999999999995,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "active_document_monitor.py",
+        "sessions": 4,
+        "first_seen": "2026-10-13T21:05:37.201161",
+        "last_seen": "2026-10-13T21:06:51.357367",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\active_document_monitor.py"
+      },
+      "created_at": "2026-10-13T21:06:51.385314",
+      "status": "active"
+    },
+    {
+      "memory_id": 529,
+      "evidence_id": 569,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:07:11.889976",
+      "action": "editing",
+      "duration_seconds": 49.06999999999999,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "active_document_monitor.py",
+        "sessions": 5,
+        "first_seen": "2026-10-13T21:05:37.201161",
+        "last_seen": "2026-10-13T21:07:11.889976",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\active_document_monitor.py"
+      },
+      "created_at": "2026-10-13T21:07:12.426335",
+      "status": "active"
+    },
+    {
+      "memory_id": 530,
+      "evidence_id": 570,
+      "source_type": "file",
+      "timestamp": "2026-10-13T21:07:17.822417",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Downloads\\Youth_Sunday_msg.docx",
+        "file_name": "Youth_Sunday_msg.docx",
+        "file_type": ".docx",
+        "file_size": 29186,
+        "content": null,
+        "extraction_type": "metadata",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-13T21:07:17.830258",
+      "status": "active"
+    },
+    {
+      "memory_id": 531,
+      "evidence_id": 571,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:07:39.463837",
+      "action": "editing",
+      "duration_seconds": 67.08,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "active_document_monitor.py",
+        "sessions": 6,
+        "first_seen": "2026-10-13T21:05:37.201161",
+        "last_seen": "2026-10-13T21:07:39.463837",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\active_document_monitor.py"
+      },
+      "created_at": "2026-10-13T21:07:39.473322",
+      "status": "active"
+    },
+    {
+      "memory_id": 532,
+      "evidence_id": 572,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T21:07:46.480513",
+      "action": "viewed",
+      "duration_seconds": 5.01,
+      "details": {
+        "browser": "Brave",
+        "title": "(241) F1: Explained! - YouTube - Brave",
+        "sessions": 1,
+        "first_seen": "2026-10-13T21:07:41.469716",
+        "last_seen": "2026-10-13T21:07:46.480513"
+      },
+      "created_at": "2026-10-13T21:07:46.496082",
+      "status": "active"
+    },
+    {
+      "memory_id": 533,
+      "evidence_id": 573,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:07:52.492077",
+      "action": "editing",
+      "duration_seconds": 73.08,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "active_document_monitor.py",
+        "sessions": 7,
+        "first_seen": "2026-10-13T21:05:37.201161",
+        "last_seen": "2026-10-13T21:07:52.492077",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\active_document_monitor.py"
+      },
+      "created_at": "2026-10-13T21:07:52.499431",
+      "status": "active"
+    },
+    {
+      "memory_id": 534,
+      "evidence_id": 574,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T21:07:55.512922",
+      "action": "viewed",
+      "duration_seconds": 6.01,
+      "details": {
+        "browser": "Brave",
+        "title": "(241) F1: Explained! - YouTube - Brave",
+        "sessions": 2,
+        "first_seen": "2026-10-13T21:07:41.469716",
+        "last_seen": "2026-10-13T21:07:55.512922"
+      },
+      "created_at": "2026-10-13T21:07:55.520696",
+      "status": "active"
+    },
+    {
+      "memory_id": 535,
+      "evidence_id": 575,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T21:07:57.533730",
+      "action": "viewed",
+      "duration_seconds": 88.16999999999999,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 6,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T21:07:57.533730"
+      },
+      "created_at": "2026-10-13T21:07:57.546455",
+      "status": "active"
+    },
+    {
+      "memory_id": 536,
+      "evidence_id": 576,
+      "source_type": "file",
+      "timestamp": "2026-10-13T21:07:59.439515",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\active_document_monitor.py",
+        "file_name": "active_document_monitor.py",
+        "file_type": ".py",
+        "file_size": 8868,
+        "content": "import os import re import time from pathlib import Path import psutil from memory.capture.foreground_activity import ( get_recent_foreground_activity, ) from memory.capture.common.permissions import is_allowed from memory.capture.file.universal_extractor import get_chunk from memory.capture.file.file_snapshot import create_snapshot from memory.capture.file.file_evidence import create_file_evidence from memory.database.activity_evidence_db import save_activity_evidence SUPPORTED_EXTENSIONS = { \".txt\", \".md\", \".csv\", \".json\", \".xml\", \".yaml\", \".yml\", \".py\", \".js\", \".ts\", \".html\", \".css\", \".sql\", \".pdf\", \".doc\", \".docx\", \".odt\", \".rtf\", \".xls\", \".xlsx\", \".xlsm\", \".ods\", \".ppt\", \".pptx\", \".odp\", } APP_TITLE_SUFFIXES = ( \" - ONLYOFFICE\", \" - Microsoft Word\", \" - Word\", \" - Microsoft Excel\", \" - Excel\", \" - Microsoft PowerPoint\", \" - PowerPoint\", \" - WPS Office\", ) SKIP_DIRS = { \"appdata\", \".git\", \"node_modules\", \".venv\", \"venv\", \"__pycache__\", \"program files\", \"windows\", } # Cache filename lookups so repeated sessions don't rescan folders. _path_cache = {} def _filename_from_title(title): \"\"\"Extract a supported filename from a window title.\"\"\" title = title.strip() for suffix in APP_TITLE_SUFFIXES: if title.lower().endswith(suffix.lower()): title = title[:-len(suffix)].strip() # Remove common unsaved-document markers. title = title.lstrip(\"*\").strip() pattern = ( r'([^\\\\/:*?\"<>|\\r\\n]+\\.' r'(?:' + \"|\".join( re.escape(ext.lstrip(\".\")) for ext in SUPPORTED_EXTENSIONS ) + r'))' ) match = re.search(pattern, title, re.IGNORECASE) return match.group(1).strip() if match else None def _path_from_title(title): \"\"\"Use an absolute path if the application exposes one.\"\"\" pattern = ( r'([A-Za-z]:\\\\.*?\\.(?:' + \"|\".join( re.escape(ext.lstrip(\".\")) for ext in SUPPORTED_EXTENSIONS ) + r'))(?=$|\\s+-\\s)' ) match = re.search(pattern, title, re.IGNORECASE) if match: candidate = Path(match.group(1)) if candidate.is_file(): return candidate.resolve() return None def _path_from_process(pid, filename): \"\"\"Try to find the document among files opened by the app.\"\"\" if not pid or not filename: return None try: process = psutil.Process(pid) for opened_file in process.open_files(): candidate = Path(opened_file.path) if ( candidate.name.lower() == filename.lower() and candidate.is_file() ): return candidate.resolve() except (psutil.Error, OSError): pass return None def _search_user_folders(filename): \"\"\" Search the user's profile for a unique matching filename. Ambiguous matches are deliberately rejected. \"\"\" if not filename: return None cache_key = filename.lower() if cache_key in _path_cache: return _path_cache[cache_key] home = Path.home() preferred = [ home / \"Downloads\", home / \"Documents\", home / \"Desktop\", home / \"OneDrive\", ] matches = set() # Search common folders first. for root in preferred: if not root.is_dir(): continue for directory, subdirs, files in os.walk(root): subdirs[:] = [ d for d in subdirs if d.lower() not in SKIP_DIRS ] for item in files: if item.lower() == cache_key: matches.add( (Path(directory) / item).resolve() ) if len(matches) > 1: break if len(matches) > 1: break # If not found in common folders, search the remaining profile. if not matches: for directory, subdirs, files in os.walk(home): current = Path(directory) if current == home: subdirs[:] = [ d for d in subdirs if d.lower() not in SKIP_DIRS and d not in { \"Downloads\", \"Documents\", \"Desktop\", \"OneDrive\", } ] else: subdirs[:] = [ d for d in subdirs if d.lower() not in SKIP_DIRS ] for item in files: if item.lower() == cache_key: matches.add( (current / item).resolve() ) if len(matches) > 1: break result = next(iter(matches)) if len(matches) == 1 else None _path_cache[cache_key] = result return result def resolve_document_path(activity): \"\"\"Resolve a document path without guessing between duplicates.\"\"\" title = activity.get(\"window_title\", \"\") path = _path_from_title(title) if path: return path filename = _filename_from_title(title) if not filename: return None path = _path_from_process( activity.get(\"process_id\"), filename, ) if path: return path return _search_user_folders(filename) def capture_active_document(activity, path): \"\"\"Extract and save one active-document evidence record.\"\"\" if not path.is_file() or not is_allowed(path): return try: result = get_chunk(str(path), chunk_number=0) event = { \"source_type\": \"file\", \"action\": \"opened\", \"path\": str(path), \"timestamp\": time.strftime( \"%Y-%m-%dT%H:%M:%S\", time.localtime(activity[\"timestamp\"]), ), } snapshot = create_snapshot(event, result) evidence = create_file_evidence(snapshot) evidence_id = save_activity_evidence(evidence) print( f\"Saved active-document evidence: \" f\"{path.name} (ID: {evidence_id})\" ) except Exception as exc: print( f\"Could not capture active document \" f\"{path.name}: {exc}\" ) def monitor_active_documents(): \"\"\" Capture documents opened in supported document applications. Skip VS Code because its activity is handled by the VS Code monitor. Uses the shared foreground monitor; starts no new thread. \"\"\" previous_key = None attempted_key = None last_attempt = 0.0 print(\"Active document monitor started.\") while True: try: history = get_recent_foreground_activity() activity = history[0] if history else None if not activity: previous_key = None attempted_key = None time.sleep(0.5) continue key = ( activity.get(\"hwnd\"), activity.get(\"process_id\"), activity.get(\"window_title\"), ) # Skip VS Code; its activity is captured by its own monitor. process_name = ( activity.get(\"process_name\") or \"\" ).lower() if process_name in {\"code.exe\", \"code-insiders.exe\"}: previous_key = key attempted_key = key time.sleep(0.5) continue if key != previous_key: previous_key = key attempted_key = None last_attempt = 0.0 title = activity.get(\"window_title\", \"\") filename = _filename_from_title(title) if ( filename and key != attempted_key and time.time() - last_attempt >= 1.0 ): last_attempt = time.time() path = resolve_document_path(activity) if path: attempted_key = key if is_allowed(path): capture_active_document(activity, path) else: # Avoid repeatedly searching for the same document. attempted_key = key time.sleep(0.5) except Exception as exc: print(f\"Active document monitor error: {exc}\") time.sleep(1.0) if __name__ == \"__main__\": monitor_active_documents()",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-13T21:07:59.448518",
+      "status": "active"
+    },
+    {
+      "memory_id": 537,
+      "evidence_id": 577,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:08:03.520137",
+      "action": "editing",
+      "duration_seconds": 79.08,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "active_document_monitor.py",
+        "sessions": 8,
+        "first_seen": "2026-10-13T21:05:37.201161",
+        "last_seen": "2026-10-13T21:08:03.520137",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\active_document_monitor.py"
+      },
+      "created_at": "2026-10-13T21:08:03.529395",
+      "status": "active"
+    },
+    {
+      "memory_id": 538,
+      "evidence_id": 578,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T21:08:17.588983",
+      "action": "viewed",
+      "duration_seconds": 102.19999999999999,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 7,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T21:08:17.588983"
+      },
+      "created_at": "2026-10-13T21:08:17.600405",
+      "status": "active"
+    },
+    {
+      "memory_id": 539,
+      "evidence_id": 579,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:08:24.564135",
+      "action": "editing",
+      "duration_seconds": 86.08,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "active_document_monitor.py",
+        "sessions": 9,
+        "first_seen": "2026-10-13T21:05:37.201161",
+        "last_seen": "2026-10-13T21:08:24.564135",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\active_document_monitor.py"
+      },
+      "created_at": "2026-10-13T21:08:24.576617",
+      "status": "active"
+    },
+    {
+      "memory_id": 540,
+      "evidence_id": 580,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T21:09:38.767281",
+      "action": "viewed",
+      "duration_seconds": 176.35,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 8,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T21:09:38.767281"
+      },
+      "created_at": "2026-10-13T21:09:38.775722",
+      "status": "active"
+    },
+    {
+      "memory_id": 541,
+      "evidence_id": 581,
+      "source_type": "file",
+      "timestamp": "2026-10-13T21:15:17.946308",
+      "action": "modified",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py",
+        "file_name": "file_monitor.py",
+        "file_type": ".py",
+        "file_size": 10371,
+        "content": "from pathlib import Path import os import threading import time from datetime import datetime from watchdog.observers import Observer from watchdog.events import FileSystemEventHandler from memory.capture.common.activity_event import create_activity_event from memory.capture.common.permissions import ( is_allowed, get_permission_mode ) from memory.capture.common.deduplicator import ActivityDeduplicator from memory.capture.foreground_activity import ( get_recent_foreground_activity, start_foreground_monitor ) from memory.capture.user_interaction_filter import ( is_user_interacting_with_file ) from memory.capture.file.universal_extractor import get_chunk from memory.capture.file.file_snapshot import create_snapshot from memory.capture.file.file_evidence import create_file_evidence from memory.database.activity_evidence_db import save_activity_evidence def is_vscode_file_activity(file_path, foreground_history): \"\"\" Return True when the changed file matches the file shown in the active VS Code window. \"\"\" filename = Path(file_path).name.casefold() vscode_processes = { \"code.exe\", \"code-insiders.exe\", } for activity in foreground_history: process_name = ( activity.get(\"process_name\") or \"\" ).casefold() if process_name not in vscode_processes: continue window_title = ( activity.get(\"window_title\") or \"\" ).casefold() if filename and filename in window_title: return True return False class FileActivityHandler(FileSystemEventHandler): def __init__(self): super().__init__() self.deduplicator = ActivityDeduplicator() def process_activity(self, activity, event_timestamp=None): \"\"\" Process a filesystem activity event. \"\"\" if self.deduplicator.is_duplicate(activity): return # ------------------------------------------------- # Permission check # ------------------------------------------------- if not is_allowed(activity[\"path\"]): print( \"Ignoring file outside allowed permissions:\", activity[\"path\"] ) return # ------------------------------------------------- # Exact filesystem event timestamp # ------------------------------------------------- if event_timestamp is None: try: event_timestamp = datetime.fromisoformat( activity[\"timestamp\"] ).timestamp() except Exception: event_timestamp = time.time() # ------------------------------------------------- # Foreground activity correlation # ------------------------------------------------- foreground_history = get_recent_foreground_activity() if not is_user_interacting_with_file( activity[\"path\"], foreground_history, event_timestamp ): #print( #\"Ignoring background file activity:\", #activity[\"path\"] #) return # ------------------------------------------------- # User-driven activity detected # ------------------------------------------------- print(\"\\nUser-driven file activity detected:\") print(activity) # Deleted files cannot be extracted. if activity[\"action\"] == \"deleted\": return file_path = Path(activity[\"path\"]) if not file_path.exists(): return # ------------------------------------------------- # Extract content # ------------------------------------------------- result = get_chunk( activity[\"path\"], chunk_number=0 ) # ------------------------------------------------- # Create snapshot # ------------------------------------------------- snapshot = create_snapshot( activity, result ) print(\"Activity Snapshot:\") print(snapshot) # ------------------------------------------------- # Create evidence # ------------------------------------------------- evidence = create_file_evidence(snapshot) print(\"Activity Evidence:\") print(evidence) # ------------------------------------------------- # Save evidence # ------------------------------------------------- evidence_id = save_activity_evidence(evidence) print(\"Saved Evidence ID:\", evidence_id) # ===================================================== # CREATED # ===================================================== def on_created(self, event): if event.is_directory: return event_timestamp = time.time() if is_allowed(event.src_path): activity = create_activity_event( source_type=\"file\", action=\"created\", path=event.src_path ) self.process_activity( activity, event_timestamp ) # ===================================================== # MODIFIED # ===================================================== def on_modified(self, event): if event.is_directory: return event_timestamp = time.time() if is_allowed(event.src_path): activity = create_activity_event( source_type=\"file\", action=\"modified\", path=event.src_path ) self.process_activity( activity, event_timestamp ) # ===================================================== # MOVED # ===================================================== def on_moved(self, event): if event.is_directory: return event_timestamp = time.time() if is_allowed(event.dest_path): activity = create_activity_event( source_type=\"file\", action=\"moved\", path=event.dest_path, metadata={ \"old_path\": event.src_path } ) self.process_activity( activity, event_timestamp ) # ===================================================== # DELETED # ===================================================== def on_deleted(self, event): if event.is_directory: return event_timestamp = time.time() if is_allowed(event.src_path): activity = create_activity_event( source_type=\"file\", action=\"deleted\", path=event.src_path ) self.process_activity( activity, event_timestamp ) # ========================================================= # MONITORING SCOPE # ========================================================= def get_monitoring_folder(): \"\"\" Determine the Watchdog monitoring scope. allow_all: C:\\\\Users\\\\<username> allow_only: memory\\\\tests\\\\test_data \"\"\" permission_mode = get_permission_mode() if permission_mode == \"allow_all\": username = os.environ.get(\"USERNAME\", \"\") if not username: raise RuntimeError( \"Could not determine Windows username.\" ) return Path( os.path.join( r\"C:\\Users\", username ) ).resolve() if permission_mode == \"allow_only\": return Path( \"memory/tests/test_data\" ).resolve() raise RuntimeError( f\"Unsupported permission mode: {permission_mode}\" ) # ========================================================= # START FILE MONITOR # ========================================================= def start_file_monitor(start_foreground=True): \"\"\" Start the filesystem monitor. The monitoring scope is determined here. start_foreground=True: Used when running this module directly. start_foreground=False: Used by activity_manager, which already owns the shared foreground monitor. \"\"\" folder = get_monitoring_folder() permission_mode = get_permission_mode() if not folder.exists(): raise RuntimeError( f\"Monitoring folder does not exist: {folder}\" ) event_handler = FileActivityHandler() observer = Observer() observer.schedule( event_handler, str(folder), recursive=True ) # ----------------------------------------------------- # Foreground monitor # ----------------------------------------------------- if start_foreground: foreground_thread = threading.Thread( target=start_foreground_monitor, daemon=True ) foreground_thread.start() print(\"Foreground activity monitor started.\") # ----------------------------------------------------- # Watchdog # ----------------------------------------------------- observer.start() print(\"\\nFile monitor started.\") print(f\"Permission mode: {permission_mode}\") print(f\"Monitoring: {folder}\") print(\"Press Ctrl+C to stop.\\n\") try: while True: time.sleep(1) except KeyboardInterrupt: print(\"\\nStopping file monitor...\") observer.stop() observer.join() # ========================================================= # STANDALONE # ========================================================= if __name__ == \"__main__\": start_file_monitor()",
+        "extraction_type": "text",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-13T21:15:17.958141",
+      "status": "active"
+    },
+    {
+      "memory_id": 542,
+      "evidence_id": 582,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:15:19.205921",
+      "action": "editing",
+      "duration_seconds": 90.12,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 16,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-13T21:15:19.205921",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py"
+      },
+      "created_at": "2026-10-13T21:15:19.218590",
+      "status": "active"
+    },
+    {
+      "memory_id": 543,
+      "evidence_id": 583,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T21:15:22.181516",
+      "action": "viewed",
+      "duration_seconds": 179.35999999999999,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 9,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T21:15:22.181516"
+      },
+      "created_at": "2026-10-13T21:15:22.189920",
+      "status": "active"
+    },
+    {
+      "memory_id": 544,
+      "evidence_id": 584,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:15:28.239626",
+      "action": "editing",
+      "duration_seconds": 96.12,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 17,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-13T21:15:28.239626",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py"
+      },
+      "created_at": "2026-10-13T21:15:28.248650",
+      "status": "active"
+    },
+    {
+      "memory_id": 545,
+      "evidence_id": 585,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T21:15:35.216158",
+      "action": "viewed",
+      "duration_seconds": 185.36999999999998,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 10,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T21:15:35.216158"
+      },
+      "created_at": "2026-10-13T21:15:35.230498",
+      "status": "active"
+    },
+    {
+      "memory_id": 546,
+      "evidence_id": 586,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:15:40.278434",
+      "action": "editing",
+      "duration_seconds": 101.13000000000001,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "file_monitor.py",
+        "sessions": 18,
+        "first_seen": "2026-09-17T12:04:34.384205",
+        "last_seen": "2026-10-13T21:15:40.278434",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\file\\file_monitor.py"
+      },
+      "created_at": "2026-10-13T21:15:40.288420",
+      "status": "active"
+    },
+    {
+      "memory_id": 547,
+      "evidence_id": 587,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T21:15:46.358090",
+      "action": "viewed",
+      "duration_seconds": 191.48,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 11,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T21:15:46.358090"
+      },
+      "created_at": "2026-10-13T21:15:46.369266",
+      "status": "active"
+    },
+    {
+      "memory_id": 548,
+      "evidence_id": 588,
+      "source_type": "vscode",
+      "timestamp": "2026-10-13T21:24:55.617523",
+      "action": "editing",
+      "duration_seconds": 23.369999999999997,
+      "details": {
+        "editor": "Visual Studio Code",
+        "project": "Adaptive-AI-Memory-Operating-System",
+        "file": "vscode_event.py",
+        "sessions": 5,
+        "first_seen": "2026-09-15T19:47:40.957793",
+        "last_seen": "2026-10-13T21:24:55.617523",
+        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\capture\\vscode\\vscode_event.py"
+      },
+      "created_at": "2026-10-13T21:24:55.637056",
+      "status": "active"
+    },
+    {
+      "memory_id": 549,
+      "evidence_id": 589,
+      "source_type": "browser",
+      "timestamp": "2026-10-13T21:24:57.602737",
+      "action": "viewed",
+      "duration_seconds": 193.48,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Project Integration - Brave",
+        "sessions": 12,
+        "first_seen": "2026-10-13T20:33:46.483063",
+        "last_seen": "2026-10-13T21:24:57.602737"
+      },
+      "created_at": "2026-10-13T21:24:57.750964",
+      "status": "active"
+    }
+  ]
 }
