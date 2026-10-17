@@ -55,10 +55,15 @@ def _build_content(memory: dict) -> str:
         )
 
     if source_type == "file":
-        return details.get(
-            "content",
-            f"User {memory.get('action', 'accessed')} "
-            f"the file {details.get('file_name', '')}."
+        content = details.get("content")
+        
+        if isinstance(content, str) and content.strip():
+            return content
+
+        return (
+                f"User {memory.get('action', 'accessed')} "
+                f"the file {details.get('file_name', '')}."
         )
+
 
     return str(details)
