@@ -1,157 +1,363 @@
+
 import json
+import os
+from pathlib import Path
+
+import joblib
 
 from memory.ai_engine.rag.llm_client import OllamaLLM
 
 
 VALID_DECISIONS = {"relevant", "irrelevant", "uncertain"}
 
+# LinearSVC decision scores are margins, not probabilities.
+DEFAULT_CONFIDENCE_THRESHOLD = 0.5
+
+MODEL_PATH = (
+    Path(__file__).resolve().parents[2]
+    / "relevance_svm_pipeline.joblib"
+)
+
 
 class RelevanceProcessor:
+    def __init__(
+        self,
+        model_path=None,
+        confidence_threshold=None,
+        model=None,
+        llm=None,
+    ):
+        self.model_path = Path(model_path or MODEL_PATH)
 
-    def __init__(self):
-        self.llm = OllamaLLM()
+        self.confidence_threshold = (
+            float(confidence_threshold)
+            if confidence_threshold is not None
+            else float(
+                os.getenv(
+                    "RELEVANCE_SVM_THRESHOLD",
+                    DEFAULT_CONFIDENCE_THRESHOLD,
+                )
+            )
+        )
 
-    def build_prompt(self, evidence):
-     return f"""
-You are the relevance classifier for a personal AI memory system.
+        if self.confidence_threshold < 0:
+            raise ValueError("Confidence threshold cannot be negative.")
 
-Your job is to decide whether each activity should be retained as
-potential long-term memory.
+        # Dependency injection supports isolated unit tests.
+        self.model = model if model is not None else self._load_model()
+        self.llm = llm if llm is not None else OllamaLLM()
 
-First infer the user's current work/context from the COMPLETE set
-of activities provided.
+    def _load_model(self):
+        if not self.model_path.is_file():
+            raise FileNotFoundError(
+                f"Relevance model not found: {self.model_path}"
+            )
 
-Classification rules:
+        model = joblib.load(self.model_path)
 
-- relevant:
-  Clearly connected to the user's current work, projects, research,
-  programming, or tasks.
+        if not hasattr(model, "predict") or not hasattr(
+            model, "decision_function"
+        ):
+            raise TypeError(
+                "Expected a trained TF-IDF + Linear SVM pipeline "
+                "with predict() and decision_function()."
+            )
 
-- irrelevant:
-  Clearly unrelated to the user's work/context.
-  This includes entertainment and leisure activities such as:
-  - Unrelated YouTube videos
-  - Gaming websites and gaming activity
-  - Netflix and other streaming services
-  - Movies and TV shows
-  - Music and music-streaming sites
-  - Sports and sports websites
-  - Memes and casual entertainment
-  - Unrelated social media browsing
-  when there is no evidence that the activity is connected to the
-  user's current work.
+        return model
 
-- uncertain:
-  The activity could reasonably be related to the user's work,
-  but there is not enough information to confidently classify it.
+    @staticmethod
+    def evidence_to_text(item):
+        """Format activity fields as used during model training."""
+        details = item.get("details", "")
 
-IMPORTANT:
-- Use the entire evidence set to understand the user's context.
-- Do NOT mark something uncertain merely because the individual activity
-  lacks information.
-- If the activity is clearly connected to the inferred context, mark it
-  relevant.
-- If the activity is clearly unrelated to the inferred context, mark it
-  irrelevant.
-- Use uncertain only when the activity could reasonably be relevant but
-  there is insufficient information to determine that.
-- Do not invent information that is not present in the evidence.
-- When uncertain, choose "uncertain" rather than guessing.
+        if isinstance(details, (dict, list)):
+            details = json.dumps(details, ensure_ascii=False)
+
+        return (
+            f"source: {item.get('source_type', '')} "
+            f"action: {item.get('action', '')} "
+            f"duration: {item.get('duration_seconds', '')} "
+            f"details: {details}"
+        )
+
+    def build_prompt(self, evidence, candidate_ids=None):
+        """Build a strict prompt for low-confidence predictions."""
+        candidates = [
+            item
+            for item in evidence
+            if candidate_ids is None or item["id"] in candidate_ids
+        ]
+
+        return f"""
+You are the final relevance judge for a personal AI memory system.
+
+The local TF-IDF + Linear SVM classifier identified the candidate
+activities below as low-confidence cases. Resolve those cases using
+the available evidence and the complete activity context.
+
+AVAILABLE FIELDS:
+Evidence may contain source_type, timestamp, action,
+duration_seconds, and details.
+
+Browser details may contain browser, title, sessions, first_seen,
+and last_seen. A URL may not exist. Never require a URL.
+
+CLASSIFICATION RULES:
+
+1. RELEVANT
+Choose relevant when an activity clearly connects to the user's
+work, projects, programming, study, research, or ongoing tasks.
 
 Examples:
+- Editing code in an active project.
+- Researching a technology used in a project.
+- Visiting a project-related GitHub repository.
+- Watching a tutorial that directly supports current project work.
 
-VS Code editing a file in the user's active project → relevant
-Research about a technology being used in the project → relevant
-GitHub related to the project → relevant
-YouTube programming tutorial related to the project → relevant
-YouTube video explaining a technology used in the project → relevant
-Random YouTube entertainment → irrelevant
-YouTube football/sports video unrelated to the project → irrelevant
-Unrelated social media browsing → irrelevant
-Unknown activity that could potentially relate to the project → uncertain
-Activity with insufficient information to determine relevance → uncertain
-Random YouTube entertainment → irrelevant
-YouTube football/sports video unrelated to the project → irrelevant
-Gaming website or gaming activity → irrelevant
-Netflix/movie/TV-show browsing → irrelevant
-Music streaming unrelated to the project → irrelevant
-Unrelated social media browsing → irrelevant
-YouTube programming tutorial related to the project → relevant
-Netflix documentary being researched for the project → relevant
-Gaming technology research related to the project → relevant
+2. IRRELEVANT
+Choose irrelevant when an activity is clearly unrelated to the
+user's work or projects.
 
-Activity evidence:
+Examples:
+- Football highlights unrelated to work.
+- Random gaming websites or gameplay.
+- Funny videos, memes, movies, and casual entertainment.
+- Music streaming and unrelated social media browsing.
 
- {json.dumps(evidence, indent=2)}
+IMPORTANT:
+Do not label ordinary entertainment uncertain merely because a URL
+is missing, duration is short, or a browser title is the only useful
+detail. If the title clearly identifies unrelated entertainment and
+no work connection is evident, choose irrelevant.
 
-Return ONLY valid JSON:
+A technical topic is not automatically work-related. Likewise,
+YouTube or browser activity is not automatically irrelevant.
 
- {{
-    "decisions": [
-        {{
-            "evidence_id": 123,
-            "decision": "relevant"
-        }}
-    ]
- }}
+3. UNCERTAIN
+Choose uncertain only when the evidence genuinely supports multiple
+reasonable interpretations and the user's context does not resolve
+the ambiguity, or when there is too little meaningful information.
+
+DECISION PROCEDURE:
+- Use the complete activity context.
+- Classify each candidate independently.
+- Use actual evidence; do not invent facts.
+- Do not automatically prefer uncertain as a safe default.
+- Return exactly one decision for each candidate evidence ID.
+- Do not classify non-candidate items.
+
+FULL ACTIVITY CONTEXT:
+{json.dumps(evidence, indent=2, ensure_ascii=False, default=str)}
+
+CANDIDATES REQUIRING A FINAL DECISION:
+{json.dumps(candidates, indent=2, ensure_ascii=False, default=str)}
+
+Return ONLY valid JSON in this format:
+{{
+  "decisions": [
+    {{"evidence_id": 123, "decision": "irrelevant"}}
+  ]
+}}
+
+Allowed labels: relevant, irrelevant, uncertain.
+No markdown, explanations, or additional keys.
 """
 
-    def process(self, evidence):
-        prompt = self.build_prompt(evidence)
-        response = self.llm.generate(prompt)
+    @staticmethod
+    def _uncertain_decisions(items):
+        return [
+            {
+                "evidence_id": item["id"],
+                "decision": "uncertain",
+            }
+            for item in items
+        ]
 
+    
+    def _llm_fallback(self, evidence, candidates):
+        """Resolve low-confidence predictions and retry missing LLM decisions."""
+        if not candidates:
+            return []
+
+        candidate_ids = {item["id"] for item in candidates}
+        validated = {}
+
+        def parse_response(response, allowed_ids):
+            """Extract only valid decisions for the requested evidence IDs."""
+            try:
+                result = json.loads(response)
+            except (json.JSONDecodeError, TypeError):
+                return {}
+
+            if not isinstance(result, dict):
+                return {}
+
+            entries = result.get("decisions")
+            if not isinstance(entries, list):
+                return {}
+
+            parsed = {}
+            for entry in entries:
+                if not isinstance(entry, dict):
+                    continue
+
+                evidence_id = entry.get("evidence_id")
+                decision = entry.get("decision")
+
+                if (
+                    evidence_id in allowed_ids
+                    and isinstance(decision, str)
+                    and decision.strip().lower() in VALID_DECISIONS
+                ):
+                    parsed[evidence_id] = decision.strip().lower()
+
+            return parsed
+
+        print(
+            f"[LLM FALLBACK] Resolving "
+            f"{len(candidates)} low-confidence item(s)"
+        )
+
+        # First attempt: resolve all candidates in one request.
         try:
-            result = json.loads(response)
-        except json.JSONDecodeError:
-            # Conservative fallback:
-            # if the LLM response cannot be understood,
-            # keep all evidence.
-            return [
-                {
-                    "evidence_id": item["id"],
-                    "decision": "uncertain"
-                }
-                for item in evidence
-            ]
+            response = self.llm.generate(
+                self.build_prompt(evidence, candidate_ids)
+            )
+            validated.update(parse_response(response, candidate_ids))
+        except Exception as exc:
+            print(
+                f"[LLM FALLBACK ERROR] Batch request failed: "
+                f"{type(exc).__name__}: {exc}"
+            )
 
-        decisions = result.get("decisions")
+        # Retry every candidate omitted or invalidated by the first response.
+        missing = [
+            item for item in candidates
+            if item["id"] not in validated
+        ]
 
-        if not isinstance(decisions, list):
-            return [
-                {
-                    "evidence_id": item["id"],
-                    "decision": "uncertain"
-                }
-                for item in evidence
-            ]
+        if missing:
+            print(
+                f"[LLM RETRY] Retrying {len(missing)} missing "
+                f"decision(s) individually"
+            )
 
-        valid_ids = {item["id"] for item in evidence}
-        validated = []
+        for item in missing:
+            evidence_id = item["id"]
 
-        for decision in decisions:
-            evidence_id = decision.get("evidence_id")
-            decision_value = decision.get("decision")
+            try:
+                response = self.llm.generate(
+                    self.build_prompt(evidence, {evidence_id})
+                )
+                retry_result = parse_response(response, {evidence_id})
 
-            if (
-                evidence_id in valid_ids
-                and decision_value in VALID_DECISIONS
-            ):
-                validated.append({
-                    "evidence_id": evidence_id,
-                    "decision": decision_value
-                })
+                if evidence_id in retry_result:
+                    validated[evidence_id] = retry_result[evidence_id]
+                    print(
+                        f"[LLM RETRY SUCCESS] id={evidence_id} "
+                        f"decision={validated[evidence_id]}"
+                    )
+                else:
+                    print(
+                        f"[LLM RETRY WARNING] id={evidence_id}: "
+                        "No valid decision returned"
+                    )
 
-        # Any evidence missing from the LLM response is uncertain.
-        returned_ids = {
-            item["evidence_id"]
-            for item in validated
-        }
+            except Exception as exc:
+                print(
+                    f"[LLM RETRY ERROR] id={evidence_id}: "
+                    f"{type(exc).__name__}: {exc}"
+                )
 
-        for item in evidence:
-            if item["id"] not in returned_ids:
-                validated.append({
-                    "evidence_id": item["id"],
-                    "decision": "uncertain"
-                })
+        # Never lose an evidence item, even if all LLM attempts fail.
+        output = []
+        for item in candidates:
+            evidence_id = item["id"]
+            decision = validated.get(evidence_id, "uncertain")
 
-        return validated
+            if evidence_id not in validated:
+                print(
+                    f"[LLM WARNING] id={evidence_id}: "
+                    "using uncertain after retries"
+                )
+
+            output.append({
+                "evidence_id": evidence_id,
+                "decision": decision,
+            })
+
+        return output
+
+
+    def process(self, evidence):
+        """
+        Return the existing pipeline format:
+        [{"evidence_id": ..., "decision": ...}, ...]
+        """
+        if not evidence:
+            return []
+
+        texts = [
+            self.evidence_to_text(item)
+            for item in evidence
+        ]
+
+        predictions = self.model.predict(texts)
+        scores = self.model.decision_function(texts)
+
+        # This implementation expects binary LinearSVC output.
+        if getattr(scores, "ndim", 1) != 1:
+            raise ValueError(
+                "Expected binary LinearSVC decision scores."
+            )
+
+        if len(predictions) != len(evidence) or len(scores) != len(evidence):
+            raise ValueError(
+                "The model returned a different number of results "
+                "than the supplied evidence count."
+            )
+
+        final_decisions = {}
+        low_confidence = []
+
+        for item, prediction, score in zip(
+            evidence, predictions, scores
+        ):
+            prediction = str(prediction).strip().lower()
+            margin = float(score)
+
+            use_fallback = (
+                prediction not in {"relevant", "irrelevant"}
+                or abs(margin) < self.confidence_threshold
+            )
+
+            print(
+                f"[SVM] id={item['id']} "
+                f"prediction={prediction} "
+                f"margin={margin:.4f} "
+                f"fallback={use_fallback}"
+            )
+
+            if use_fallback:
+                low_confidence.append(item)
+            else:
+                final_decisions[item["id"]] = prediction
+
+        fallback_decisions = self._llm_fallback(
+            evidence,
+            low_confidence,
+        )
+
+        for entry in fallback_decisions:
+            final_decisions[entry["evidence_id"]] = entry["decision"]
+
+        # Preserve the input order and the existing pipeline schema.
+        return [
+            {
+                "evidence_id": item["id"],
+                "decision": final_decisions.get(
+                    item["id"], "uncertain"
+                ),
+            }
+            for item in evidence
+        ]
