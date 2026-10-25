@@ -9,14 +9,16 @@ A privacy-preserving personal memory assistant. It captures permitted user activ
 - Relevance-aware memory creation, stored in SQLite
 - Embedding and chunking into ChromaDB for semantic retrieval
 - RAG-based question answering over memories
+- Smart Forgetting: Random Forest-based file-retention recommendations with local LLM fallback for low-confidence predictions
+- Independent Smart Forgetting background runner: performs an initial scan and reassesses the known file inventory every 12 hours
 - Privacy controls: allow-all / allow-only modes, folder exclusions
 - Desktop UI (Electron + React) wired to the live backend
 
-The architecture is modular: monitoring, memory management, AI processing, and the UI are independent components.
+The architecture is modular: monitoring, memory management, AI processing, Smart Forgetting, and the UI are independent components.
 
 ## Architecture
 
-```
+```text
 USER
   |
 python -m memory.orchestrator
@@ -36,6 +38,25 @@ Embedding + chunking -> ChromaDB
 ai_processed = true
   |
 FastAPI backend (backend/app) <- Desktop UI (ui/)
+
+
+INDEPENDENT SMART FORGETTING SERVICE
+  |
+python -m memory.smart_forgetting.runner
+  |
+Initial scan on first run
+  |
+Reassess known file inventory every 12 hours
+  |
+Extract file metadata and activity features
+  |
+Random Forest classification
+  |
+Low-confidence predictions -> Ollama LLM fallback
+  |
+Recommendations (SQLite)
+  |
+keep / review
 ```
 
 ## Team
@@ -49,7 +70,7 @@ FastAPI backend (backend/app) <- Desktop UI (ui/)
 
 ## Getting Started
 
-Three processes run at the same time, each in its own terminal: the capture pipeline, the backend API, and the desktop app.
+Five processes run at the same time, each in its own terminal: the capture pipeline, backend API, desktop app, ChromaDB, and Smart Forgetting runner.
 
 ### Prerequisites
 
@@ -74,37 +95,39 @@ pip install -r requirements-dev.txt
 
 ### Terminal 1: capture pipeline
 
-```bash
-python -m memory.orchestrator
+```powershell
+.\venv\Scripts\Activate.ps1; python -m memory.orchestrator
 ```
 
 ### Terminal 2: API server
 
-```bash
-python -m uvicorn backend.app.main:app --reload --port 8000
+```powershell
+.\venv\Scripts\Activate.ps1; uvicorn backend.app.main:app --reload --port 8000
 ```
 
 ### Terminal 3: desktop app
 
-```bash
-cd ui
-npm install
+```powershell
+cd ui; npm run electron:dev
 ```
 
-Create `ui/.env`:
+### Terminal 4: ChromaDB — Vector Database
 
-```
-VITE_USE_MOCK=false
-VITE_API_BASE=/api
-```
-
-Then run:
-
-```bash
-npm run electron:dev
+```powershell
+chroma run --path ".\memory\ai_engine\chroma_db" --host 127.0.0.1 --port 8001
 ```
 
-The UI proxies `/api` to `http://127.0.0.1:8000` (see `ui/vite.config.js`).
+### Terminal 5: Smart Forgetting — Background Runner
+
+Smart Forgetting uses its dedicated Python environment to maintain compatibility with the trained model.
+
+```powershell
+.\.venv_smart_forgetting\Scripts\python.exe -m memory.smart_forgetting.runner
+```
+
+The runner performs an initial scan, then reassesses the known file inventory every 12 hours. Keep this terminal running. It resumes based on the last successful scan timestamp after restarting.
+
+Keep all five terminals running. Also ensure Ollama is running and `qwen3.5:4b` is available for AI responses.
 
 **Mock mode:** set `VITE_USE_MOCK=true` (or delete `ui/.env`) to run the UI on mock data without the backend or Ollama. This is useful for frontend-only development or as a demo fallback.
 
@@ -136,9 +159,11 @@ Interactive docs are at `http://127.0.0.1:8000/docs` once the backend is running
 
 Sensitive fields (`content`, `path`, `source_path`, etc.) are stripped from all API responses before they reach the frontend. There are no create/update/delete endpoints for memories or evidence.
 
+Smart Forgetting currently runs independently and stores its recommendations in its own SQLite database. It is not exposed through the API in this version.
+
 ## Project Structure
 
-```
+```text
 Adaptive-AI-Memory-Operating-System/
   backend/                  FastAPI app (Member 4)
     app/
@@ -148,6 +173,15 @@ Adaptive-AI-Memory-Operating-System/
     orchestrator.py
     capture/                file, browser, vscode monitors
     relevance/
+    smart_forgetting/       Smart Forgetting model and background runner
+      config.py
+      feature_extractor.py
+      model.py
+      recommender.py
+      safety.py
+      pipeline.py
+      runner.py
+      recommendations.db   Generated at runtime
     ai_engine/              embeddings, ChromaDB, RAG
     database/
   ui/                       Electron + React app (Member 3)
@@ -158,12 +192,13 @@ Adaptive-AI-Memory-Operating-System/
     electron/
   requirements.txt
   requirements-dev.txt
+  smart_forgetting_rf.joblib
   .gitignore
 ```
 
 ## Known Issues and Gaps
 
-- **Smart Forgetting is not implemented.** It is planned as a later memory-management component, so all memories are currently permanent.
-- **No browser permission control.** Allowed folders and exclusions apply only to file and VS Code activity. There is no way to restrict which sites or domains the browser monitor captures.
-- **VS Code activity can be slow to appear.** If VS Code memories are missing, check that the orchestrator log shows "VS Code monitor started", make sure you are actively editing, and allow at least one full 60-second processing cycle.
-- **CORS is not configured on the backend.** The dev server avoids this by proxying through Vite, but a packaged or production build will need an equivalent solution.
+- Smart Forgetting inventory limitation: V1 reassesses known file paths recorded in `activity_evidence`; it does not scan the entire computer for previously unobserved files.
+- No browser permission control. Allowed folders and exclusions apply only to file and VS Code activity. There is no way to restrict which sites or domains the browser monitor captures.
+- VS Code activity can be slow to appear. If VS Code memories are missing, check that the orchestrator log shows "VS Code monitor started", make sure you are actively editing, and allow at least one full 60-second processing cycle.
+- CORS is not configured on the backend. The dev server avoids this by proxying through Vite, but a packaged or production build will need an equivalent solution.
