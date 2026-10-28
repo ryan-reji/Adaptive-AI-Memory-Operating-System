@@ -122,7 +122,7 @@ chroma run --path ".\memory\ai_engine\chroma_db" --host 127.0.0.1 --port 8001
 Smart Forgetting uses its dedicated Python environment to maintain compatibility with the trained model.
 
 ```powershell
-.\.venv_smart_forgetting\Scripts\python.exe -m memory.smart_forgetting.runner
+.\.venv_smart_forgetting_new\Scripts\python.exe -m memory.smart_forgetting.runner
 ```
 
 The runner performs an initial scan, then reassesses the known file inventory every 12 hours. Keep this terminal running. It resumes based on the last successful scan timestamp after restarting.
@@ -156,10 +156,15 @@ Interactive docs are at `http://127.0.0.1:8000/docs` once the backend is running
 | `GET/POST/DELETE /permissions/exclusions` | Excluded folders |
 | `GET/POST/DELETE /permissions/allowed-folders` | Allowed folders (`allow_only` mode) |
 | `GET/POST/DELETE /permissions/project-folders` | Named project folder mappings |
+| `GET /forgetting/candidates` | Files flagged for review by Smart Forgetting |
+| `GET /forgetting/stats` | Scan stats: files scanned, review candidates, kept, last scan |
+| `POST /forgetting/{id}/keep` | Mark a file as keep |
+| `POST /forgetting/{id}/dismiss` | Dismiss a review recommendation |
+| `POST /forgetting/candidates/dismiss-all` | Dismiss all review candidates |
 
 Sensitive fields (`content`, `path`, `source_path`, etc.) are stripped from all API responses before they reach the frontend. There are no create/update/delete endpoints for memories or evidence.
 
-Smart Forgetting currently runs independently and stores its recommendations in its own SQLite database. It is not exposed through the API in this version.
+Smart Forgetting recommendations are read from `memory/smart_forgetting/recommendations.db` and exposed via the `/forgetting/` endpoints above. The runner (`memory.smart_forgetting.runner`) writes to that database independently — the API is read/action only.
 
 ## Project Structure
 
@@ -168,7 +173,7 @@ Adaptive-AI-Memory-Operating-System/
   backend/                  FastAPI app (Member 4)
     app/
       main.py
-      api/routes/           health, memories, query, evidence, permissions
+      api/routes/           health, memories, query, evidence, permissions, forgetting
   memory/                   Members 1 and 2
     orchestrator.py
     capture/                file, browser, vscode monitors
@@ -186,7 +191,7 @@ Adaptive-AI-Memory-Operating-System/
     database/
   ui/                       Electron + React app (Member 3)
     src/
-      pages/                Dashboard, Search, Timeline, Settings
+      pages/                Dashboard, Search, Timeline, Settings, SmartForgetting
       components/
       lib/                  api.js, memoryAdapter.js, mockData.js
     electron/
@@ -202,3 +207,47 @@ Adaptive-AI-Memory-Operating-System/
 - No browser permission control. Allowed folders and exclusions apply only to file and VS Code activity. There is no way to restrict which sites or domains the browser monitor captures.
 - VS Code activity can be slow to appear. If VS Code memories are missing, check that the orchestrator log shows "VS Code monitor started", make sure you are actively editing, and allow at least one full 60-second processing cycle.
 - CORS is not configured on the backend. The dev server avoids this by proxying through Vite, but a packaged or production build will need an equivalent solution.
+
+## Session changelog — 28 Oct 2026 (Member 3)
+
+### Smart Forgetting UI page (`ui/src/pages/SmartForgettingPage.jsx`)
+
+Built the full Smart Forgetting page wired to the live backend:
+
+- Stats row: files scanned, review candidates, kept count, last scan timestamp
+- Review candidate cards showing file name, full path, model reason, confidence bar, prediction source badge (RF model vs LLM fallback), file size, and scan date
+- **Keep** button — overrides the review recommendation (POST `/forgetting/{id}/keep`)
+- **Dismiss** button — acknowledges the recommendation and removes it (POST `/forgetting/{id}/dismiss`)
+- **Dismiss all** button — clears all current candidates at once
+- **Run scan** button — triggers a fresh forgetting analysis
+- Empty state when no candidates are flagged
+- Footer note explaining the runner is a separate process and never auto-deletes files
+
+### Smart Forgetting API endpoints (`backend/app/`)
+
+Added five new endpoints under `/forgetting/` that read from `memory/smart_forgetting/recommendations.db`:
+
+| Endpoint | Purpose |
+|---|---|
+| `GET /forgetting/candidates` | List all files flagged as `review`, ordered by confidence ascending |
+| `GET /forgetting/stats` | Aggregate stats: files scanned, review candidates, kept, last scan |
+| `POST /forgetting/{id}/keep` | Mark a file as keep (overrides review recommendation) |
+| `POST /forgetting/{id}/dismiss` | Dismiss a review recommendation (removes from list) |
+| `POST /forgetting/candidates/dismiss-all` | Dismiss all current review candidates |
+
+New files: `backend/app/schemas/forgetting.py`, `backend/app/services/forgetting_service.py`, `backend/app/api/routes/forgetting.py`. Router registered in `backend/app/main.py`. Service opens its own connection to `recommendations.db` — never touches `memory.db`.
+
+### Sidebar + routing
+
+- Added **Smart Forgetting** nav item to `ui/src/components/Sidebar.jsx` (BrainCog icon)
+- Added `/forgetting` route to `ui/src/App.jsx`
+
+### Smart Forgetting venv (`venv_smart_forgetting_new`)
+
+The original `.venv_smart_forgetting` was built on Ryan's machine (Python 3.10, broken path). Created `.venv_smart_forgetting_new` with Python 3.13 + scikit-learn 1.5.2 (compatible with the trained `smart_forgetting_rf.joblib` model). Use this venv to run the runner:
+
+```powershell
+.\.venv_smart_forgetting_new\Scripts\python.exe -m memory.smart_forgetting.runner
+```
+
+Both venv directories are now gitignored.
