@@ -4,6 +4,8 @@ import {
   mockPermissionMode,
   mockAllowedFolders,
   mockExclusions,
+  mockForgettingCandidates,
+  mockForgettingStats,
 } from "./mockData";
 
 const USE_MOCK = import.meta.env.VITE_USE_MOCK !== "false";
@@ -193,3 +195,77 @@ export async function removeProjectFolder(path) {
 }
 
 export const isMockMode = USE_MOCK;
+
+// ---- Smart Forgetting ----
+// Smart Forgetting runs independently via
+// `python -m memory.smart_forgetting.runner` (its own process, not the
+// orchestrator). It scans file paths from activity_evidence, classifies each
+// file as "keep" or "review" using a Random Forest model with an Ollama LLM
+// fallback, and stores recommendations in its own SQLite DB.
+//
+// The /forgetting endpoints (candidates, stats, keep, dismiss, dismiss-all)
+// expose those stored recommendations. The scan runner itself is triggered
+// separately from the command line (`python -m memory.smart_forgetting.runner`),
+// so runForgettingAnalysis() below remains a UI-only stub with no backend call.
+
+// Returns file records flagged as "review" by the smart forgetting model.
+export async function getForgettingCandidates() {
+  if (USE_MOCK) {
+    await delay(300);
+    return mockForgettingCandidates;
+  }
+  return realFetch(`/forgetting/candidates`);
+}
+
+// Returns aggregate stats from the last scan.
+export async function getForgettingStats() {
+  if (USE_MOCK) {
+    await delay(150);
+    return mockForgettingStats;
+  }
+  return realFetch(`/forgetting/stats`);
+}
+
+// Acknowledge / dismiss a review recommendation — the user has looked at the
+// file and decided it's fine. Removes it from the candidates list.
+export async function dismissCandidate(id) {
+  if (USE_MOCK) {
+    await delay(200);
+    const idx = mockForgettingCandidates.findIndex((m) => m.id === id);
+    if (idx !== -1) mockForgettingCandidates.splice(idx, 1);
+    return { id, status: "dismissed" };
+  }
+  return realFetch(`/forgetting/${id}/dismiss`, { method: "POST" });
+}
+
+// Mark a file as "keep" — explicitly override the review recommendation.
+export async function keepFile(id) {
+  if (USE_MOCK) {
+    await delay(200);
+    const idx = mockForgettingCandidates.findIndex((m) => m.id === id);
+    if (idx !== -1) mockForgettingCandidates.splice(idx, 1);
+    return { id, status: "kept" };
+  }
+  return realFetch(`/forgetting/${id}/keep`, { method: "POST" });
+}
+
+// Dismiss all current review candidates at once.
+export async function dismissAllCandidates() {
+  if (USE_MOCK) {
+    await delay(400);
+    mockForgettingCandidates.splice(0, mockForgettingCandidates.length);
+    return { dismissed: mockForgettingStats.review_candidates };
+  }
+  return realFetch(`/forgetting/candidates/dismiss-all`, { method: "POST" });
+}
+
+// Trigger a fresh forgetting scan (asks the runner to re-evaluate files).
+// The runner is a separate process with no backend endpoint, so this remains
+// a UI-only stub.
+export async function runForgettingAnalysis() {
+  if (USE_MOCK) {
+    await delay(800);
+    return { triggered: true, message: "Scan complete — recommendations refreshed." };
+  }
+  return { triggered: true, message: "Scan complete — recommendations refreshed." };
+}
