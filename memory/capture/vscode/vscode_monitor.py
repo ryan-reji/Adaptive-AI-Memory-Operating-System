@@ -112,15 +112,22 @@ def monitor():
         print("\nVS Code monitor stopped.")
 
 
+
 def finish_activity(activity, start_time):
     """
     Finish raw VS Code activity and run it through
-    the complete event → aggregation → snapshot → evidence pipeline.
+    event → aggregation → snapshot → evidence.
+    Ignore window titles that do not identify an active file.
     """
+    if start_time is None:
+        return
 
     end_time = datetime.now()
-
     duration = (end_time - start_time).total_seconds()
+
+    # Ignore very short intervals.
+    if duration < 1:
+        return
 
     raw_activity = {
         "editor": activity["editor"],
@@ -133,6 +140,11 @@ def finish_activity(activity, start_time):
     # Raw activity → VS Code Event
     event = create_vscode_event(raw_activity)
 
+    # Skip workspace-only or invalid titles.
+    if not event.get("file"):
+        print(f"Skipped VS Code activity without an active file: {activity['title']}")
+        return
+
     # Event → Aggregator
     aggregated = aggregate_vscode_event(event)
 
@@ -142,7 +154,7 @@ def finish_activity(activity, start_time):
     print("\nVS Code Snapshot:")
     print(snapshot)
 
-    # VS Code Snapshot → Common Activity Evidence
+    # Snapshot → Common Activity Evidence
     evidence = create_vscode_evidence(snapshot)
     evidence_id = save_activity_evidence(evidence)
 
@@ -150,8 +162,6 @@ def finish_activity(activity, start_time):
     print(evidence)
     print("Saved Evidence ID:", evidence_id)
 
-    print("\nVS Code Activity Evidence:")
-    print(evidence)
 
 
 if __name__ == "__main__":

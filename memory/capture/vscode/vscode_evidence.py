@@ -17,7 +17,8 @@ def create_vscode_evidence(snapshot):
             "file": snapshot["file"],
             "sessions": snapshot["sessions"],
             "first_seen": snapshot["first_seen"],
-            "last_seen": snapshot["last_seen"]
+            "last_seen": snapshot["last_seen"],
+            "file_path": snapshot.get("file_path")
         }
     )
 
