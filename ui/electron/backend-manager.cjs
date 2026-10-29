@@ -1,7 +1,7 @@
 // ui/electron/backend-manager.cjs
 "use strict";
 
-const { spawn, exec } = require("child_process");
+const { spawn, execSync } = require("child_process");
 const path = require("path");
 const fs = require("fs");
 const { app, dialog } = require("electron");
@@ -55,6 +55,32 @@ function _spawnOne(label, args, config) {
     logStream.write(`${new Date().toISOString()} ${prefix} [ERR] ${data}`);
   });
 
+  // Track whether this process failed to spawn (ENOENT, EACCES, etc.) so the
+  // subsequent 'exit' event doesn't show the generic "exited unexpectedly" dialog.
+  let _spawnFailed = false;
+
+  proc.on("error", (err) => {
+    _spawnFailed = true;
+    logStream.write(
+      `${new Date().toISOString()} ${prefix} [SPAWN ERROR] ${err.message}\n`
+    );
+    // Show a spawn-specific dialog so the user knows the process never started,
+    // which is distinct from a process crash after successful startup.
+    if (!_stopping) {
+      dialog.showMessageBox({
+        type: "error",
+        title: "Recall — Failed to start backend process",
+        message: `Could not start the "${label}" process.`,
+        detail:
+          `Error: ${err.message}\n\n` +
+          "Check that Python is installed correctly and that all dependencies " +
+          "are available.\n" +
+          `Log: ${path.join(app.getPath("userData"), "logs", label + ".log")}`,
+        buttons: ["OK"],
+      });
+    }
+  });
+
   proc.on("exit", (code, signal) => {
     logStream.write(
       `${new Date().toISOString()} ${prefix} exited — code=${code} signal=${signal}\n`
@@ -65,7 +91,9 @@ function _spawnOne(label, args, config) {
     const idx = _procs.findIndex((e) => e.proc === proc);
     if (idx !== -1) _procs.splice(idx, 1);
 
-    if (!_stopping) {
+    // Only show the generic crash dialog if the process started successfully
+    // and then exited on its own (not due to a spawn error or intentional stop).
+    if (!_stopping && !_spawnFailed) {
       dialog.showMessageBox({
         type: "warning",
         title: "Recall — Backend process stopped",
@@ -76,12 +104,6 @@ function _spawnOne(label, args, config) {
         buttons: ["OK"],
       });
     }
-  });
-
-  proc.on("error", (err) => {
-    logStream.write(
-      `${new Date().toISOString()} ${prefix} [SPAWN ERROR] ${err.message}\n`
-    );
   });
 
   _procs.push({ label, proc });
@@ -107,14 +129,16 @@ function _kill(entry) {
     const timer = setTimeout(() => {
       try {
         if (process.platform === "win32") {
-          exec(`taskkill /F /T /PID ${proc.pid}`, () => resolve());
+          // execSync waits for taskkill to complete before resolving, ensuring
+          // the process tree is confirmed dead (not just the shell exited).
+          execSync(`taskkill /F /T /PID ${proc.pid}`, { stdio: "ignore" });
         } else {
           proc.kill("SIGKILL");
-          resolve();
         }
       } catch (_) {
-        resolve();
+        // Process may have already exited between the check and force-kill.
       }
+      resolve();
     }, 3000);
 
     proc.once("exit", () => {

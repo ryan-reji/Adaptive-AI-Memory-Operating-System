@@ -34,20 +34,38 @@
     },
     "extraResources": [
       {
-        "from": "../",
-        "to": "app-source",
+        "from": "../backend",
+        "to": "app-source/backend",
         "filter": [
-          "backend/**/*",
-          "memory/**/*",
-          "requirements.txt",
-          "smart_forgetting_rf.joblib",
+          "**/*.py",
           "!**/__pycache__/**",
           "!**/*.pyc",
-          "!**/chroma_db/**",
-          "!**/node_modules/**",
-          "!**/.venv*/**",
-          "!**/venv/**"
+          "!**/*.pyo"
         ]
+      },
+      {
+        "from": "../memory",
+        "to": "app-source/memory",
+        "filter": [
+          "**/*.py",
+          "!**/__pycache__/**",
+          "!**/*.pyc",
+          "!**/*.pyo",
+          "!**/chroma_db/**",
+          "!**/database/**"
+        ]
+      },
+      {
+        "from": "../requirements.txt",
+        "to": "app-source/requirements.txt"
+      },
+      {
+        "from": "../smart_forgetting_rf.joblib",
+        "to": "app-source/smart_forgetting_rf.joblib"
+      },
+      {
+        "from": "../relevance_svm_pipeline.joblib",
+        "to": "app-source/relevance_svm_pipeline.joblib"
       }
     ]
   },
