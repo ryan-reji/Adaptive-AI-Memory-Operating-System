@@ -1,8 +1,4 @@
-
 from functools import lru_cache
-import logging
-
-logger = logging.getLogger(__name__)
 
 
 class RAGServiceUnavailable(Exception):
@@ -14,7 +10,6 @@ def _get_pipeline():
     try:
         from memory.ai_engine.rag.rag_pipeline import RAGPipeline
     except ImportError as error:
-        logger.exception("Failed to import RAGPipeline")
         raise RAGServiceUnavailable(
             "AI dependencies are not installed."
         ) from error
@@ -22,10 +17,8 @@ def _get_pipeline():
     try:
         return RAGPipeline()
     except Exception as error:
-        logger.exception("Failed to initialize RAGPipeline")
         raise RAGServiceUnavailable(
-            f"The AI query service could not be initialized: "
-            f"{type(error).__name__}: {error}"
+            "The AI query service could not be initialized."
         ) from error
 
 
@@ -38,10 +31,10 @@ def answer_query(query: str, top_k: int = 3) -> dict:
             top_k=top_k,
         )
     except Exception as error:
-        logger.exception("RAG pipeline query failed")
+        import traceback
+        traceback.print_exc()
         raise RAGServiceUnavailable(
-            f"The AI query service is currently unavailable: "
-            f"{type(error).__name__}: {error}"
+            "The AI query service is currently unavailable."
         ) from error
 
     return {
