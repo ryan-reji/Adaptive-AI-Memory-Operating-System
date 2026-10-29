@@ -1,277 +1,140 @@
 {
-  "date": "2026-10-24",
+  "date": "2026-10-29",
   "memories": [
     {
-      "memory_id": 1264,
-      "evidence_id": 1322,
-      "source_type": "vscode",
-      "timestamp": "2026-10-24T14:03:43.979604",
-      "action": "editing",
-      "duration_seconds": 3.0,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "memory_writer.py",
-        "sessions": 1,
-        "first_seen": "2026-10-24T14:03:40.978610",
-        "last_seen": "2026-10-24T14:03:43.979604",
-        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\memory_creation\\memory_writer.py"
-      },
-      "created_at": "2026-10-24T14:03:43.995381",
-      "status": "active"
-    },
-    {
-      "memory_id": 1265,
-      "evidence_id": 1323,
+      "memory_id": 1279,
+      "evidence_id": 1344,
       "source_type": "browser",
-      "timestamp": "2026-10-24T14:03:50.017438",
+      "timestamp": "2026-10-29T22:32:00.869102",
       "action": "viewed",
-      "duration_seconds": 3.01,
+      "duration_seconds": 12.03,
       "details": {
         "browser": "Brave",
-        "title": "Continue Project Cleanup - Brave",
-        "sessions": 1,
-        "first_seen": "2026-10-24T14:03:47.011180",
-        "last_seen": "2026-10-24T14:03:50.017438"
-      },
-      "created_at": "2026-10-24T14:03:50.029582",
-      "status": "active"
-    },
-    {
-      "memory_id": 1266,
-      "evidence_id": 1324,
-      "source_type": "vscode",
-      "timestamp": "2026-10-24T14:03:51.011175",
-      "action": "editing",
-      "duration_seconds": 4.0,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "memory_writer.py",
-        "sessions": 2,
-        "first_seen": "2026-10-24T14:03:40.978610",
-        "last_seen": "2026-10-24T14:03:51.011175",
-        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\memory_creation\\memory_writer.py"
-      },
-      "created_at": "2026-10-24T14:03:51.087191",
-      "status": "active"
-    },
-    {
-      "memory_id": 1267,
-      "evidence_id": 1326,
-      "source_type": "browser",
-      "timestamp": "2026-10-24T14:03:55.197709",
-      "action": "viewed",
-      "duration_seconds": 3.01,
-      "details": {
-        "browser": "Brave",
-        "title": "Selecting the Best Text Classification Model - Google Gemini - Brave",
-        "sessions": 1,
-        "first_seen": "2026-10-24T14:03:52.192228",
-        "last_seen": "2026-10-24T14:03:55.197709"
-      },
-      "created_at": "2026-10-24T14:03:55.206305",
-      "status": "active"
-    },
-    {
-      "memory_id": 1268,
-      "evidence_id": 1327,
-      "source_type": "vscode",
-      "timestamp": "2026-10-24T14:03:56.151218",
-      "action": "editing",
-      "duration_seconds": 5.0,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "memory_writer.py",
-        "sessions": 3,
-        "first_seen": "2026-10-24T14:03:40.978610",
-        "last_seen": "2026-10-24T14:03:56.151218",
-        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\memory_creation\\memory_writer.py"
-      },
-      "created_at": "2026-10-24T14:03:56.164852",
-      "status": "active"
-    },
-    {
-      "memory_id": 1269,
-      "evidence_id": 1329,
-      "source_type": "vscode",
-      "timestamp": "2026-10-24T14:04:00.217259",
-      "action": "editing",
-      "duration_seconds": 8.03,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "memory_writer.py",
-        "sessions": 4,
-        "first_seen": "2026-10-24T14:03:40.978610",
-        "last_seen": "2026-10-24T14:04:00.217259",
-        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\memory_creation\\memory_writer.py"
-      },
-      "created_at": "2026-10-24T14:04:00.226421",
-      "status": "active"
-    },
-    {
-      "memory_id": 1270,
-      "evidence_id": 1331,
-      "source_type": "vscode",
-      "timestamp": "2026-10-24T14:04:05.261080",
-      "action": "editing",
-      "duration_seconds": 10.03,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "memory_writer.py",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Brave",
         "sessions": 5,
-        "first_seen": "2026-10-24T14:03:40.978610",
-        "last_seen": "2026-10-24T14:04:05.261080",
-        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\memory_creation\\memory_writer.py"
+        "first_seen": "2026-10-13T21:54:36.485080",
+        "last_seen": "2026-10-29T22:32:00.869102"
       },
-      "created_at": "2026-10-24T14:04:05.270243",
+      "created_at": "2026-10-29T22:32:00.877838",
       "status": "active"
     },
     {
-      "memory_id": 1271,
-      "evidence_id": 1333,
+      "memory_id": 1280,
+      "evidence_id": 1345,
       "source_type": "browser",
-      "timestamp": "2026-10-24T14:04:10.346243",
+      "timestamp": "2026-10-29T22:32:05.949463",
       "action": "viewed",
-      "duration_seconds": 4.01,
+      "duration_seconds": 14.03,
       "details": {
         "browser": "Brave",
-        "title": "Choosing between AI models - Claude - Brave",
-        "sessions": 1,
-        "first_seen": "2026-10-24T14:04:06.340075",
-        "last_seen": "2026-10-24T14:04:10.346243"
-      },
-      "created_at": "2026-10-24T14:04:10.357812",
-      "status": "active"
-    },
-    {
-      "memory_id": 1272,
-      "evidence_id": 1334,
-      "source_type": "vscode",
-      "timestamp": "2026-10-24T14:04:12.288930",
-      "action": "editing",
-      "duration_seconds": 11.03,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "memory_writer.py",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Brave",
         "sessions": 6,
-        "first_seen": "2026-10-24T14:03:40.978610",
-        "last_seen": "2026-10-24T14:04:12.288930",
-        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\memory_creation\\memory_writer.py"
+        "first_seen": "2026-10-13T21:54:36.485080",
+        "last_seen": "2026-10-29T22:32:05.949463"
       },
-      "created_at": "2026-10-24T14:04:12.297219",
+      "created_at": "2026-10-29T22:32:05.974361",
       "status": "active"
     },
     {
-      "memory_id": 1273,
-      "evidence_id": 1336,
-      "source_type": "vscode",
-      "timestamp": "2026-10-24T14:04:40.324475",
-      "action": "editing",
+      "memory_id": 1281,
+      "evidence_id": 1346,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:32:21.002187",
+      "action": "viewed",
+      "duration_seconds": 16.03,
+      "details": {
+        "browser": "Brave",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Brave",
+        "sessions": 7,
+        "first_seen": "2026-10-13T21:54:36.485080",
+        "last_seen": "2026-10-29T22:32:21.002187"
+      },
+      "created_at": "2026-10-29T22:32:21.010986",
+      "status": "active"
+    },
+    {
+      "memory_id": 1282,
+      "evidence_id": 1347,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:32:33.037909",
+      "action": "viewed",
       "duration_seconds": 18.03,
       "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "memory_writer.py",
-        "sessions": 7,
-        "first_seen": "2026-10-24T14:03:40.978610",
-        "last_seen": "2026-10-24T14:04:40.324475",
-        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\memory_creation\\memory_writer.py"
+        "browser": "Brave",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Brave",
+        "sessions": 8,
+        "first_seen": "2026-10-13T21:54:36.485080",
+        "last_seen": "2026-10-29T22:32:33.037909"
       },
-      "created_at": "2026-10-24T14:04:40.331711",
+      "created_at": "2026-10-29T22:32:33.045331",
       "status": "active"
     },
     {
-      "memory_id": 1274,
-      "evidence_id": 1337,
-      "source_type": "vscode",
-      "timestamp": "2026-10-24T14:04:42.341624",
-      "action": "editing",
-      "duration_seconds": 2.0,
+      "memory_id": 1283,
+      "evidence_id": 1348,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:32:39.065633",
+      "action": "viewed",
+      "duration_seconds": 6.01,
       "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "test_relevance_processor.py",
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
         "sessions": 1,
-        "first_seen": "2026-10-24T14:04:40.338937",
-        "last_seen": "2026-10-24T14:04:42.341624",
-        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\relevance\\test_relevance_processor.py"
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T22:32:39.065633"
       },
-      "created_at": "2026-10-24T14:04:42.351027",
+      "created_at": "2026-10-29T22:32:39.078882",
       "status": "active"
     },
     {
-      "memory_id": 1275,
-      "evidence_id": 1338,
-      "source_type": "vscode",
-      "timestamp": "2026-10-24T14:10:55.058108",
-      "action": "editing",
-      "duration_seconds": 5.0,
-      "details": {
-        "editor": "Visual Studio Code",
-        "project": "Adaptive-AI-Memory-Operating-System",
-        "file": "test_relevance_processor.py",
-        "sessions": 2,
-        "first_seen": "2026-10-24T14:04:40.338937",
-        "last_seen": "2026-10-24T14:10:55.058108",
-        "file_path": "C:\\Users\\Ryan\\Ryan\\Major\\Adaptive-AI-Memory-Operating-System\\memory\\relevance\\test_relevance_processor.py"
-      },
-      "created_at": "2026-10-24T14:10:55.069875",
-      "status": "active"
-    },
-    {
-      "memory_id": 1276,
-      "evidence_id": 1339,
+      "memory_id": 1284,
+      "evidence_id": 1349,
       "source_type": "browser",
-      "timestamp": "2026-10-24T14:10:58.083291",
+      "timestamp": "2026-10-29T22:33:01.163666",
       "action": "viewed",
-      "duration_seconds": 7.09,
+      "duration_seconds": 23.04,
       "details": {
         "browser": "Brave",
-        "title": "Continue Project Cleanup - Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 2,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T22:33:01.163666"
+      },
+      "created_at": "2026-10-29T22:33:01.172182",
+      "status": "active"
+    },
+    {
+      "memory_id": 1285,
+      "evidence_id": 1350,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:33:28.209054",
+      "action": "viewed",
+      "duration_seconds": 24.04,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
         "sessions": 3,
-        "first_seen": "2026-10-24T14:03:47.011180",
-        "last_seen": "2026-10-24T14:10:58.083291"
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T22:33:28.209054"
       },
-      "created_at": "2026-10-24T14:10:58.092466",
+      "created_at": "2026-10-29T22:33:28.224466",
       "status": "active"
     },
     {
-      "memory_id": 1277,
-      "evidence_id": 1340,
+      "memory_id": 1286,
+      "evidence_id": 1351,
       "source_type": "browser",
-      "timestamp": "2026-10-24T14:11:00.116265",
+      "timestamp": "2026-10-29T22:33:47.275690",
       "action": "viewed",
-      "duration_seconds": 5.02,
+      "duration_seconds": 37.07,
       "details": {
         "browser": "Brave",
-        "title": "Selecting the Best Text Classification Model - Google Gemini - Brave",
-        "sessions": 2,
-        "first_seen": "2026-10-24T14:03:52.192228",
-        "last_seen": "2026-10-24T14:11:00.116265"
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Brave",
+        "sessions": 9,
+        "first_seen": "2026-10-13T21:54:36.485080",
+        "last_seen": "2026-10-29T22:33:47.275690"
       },
-      "created_at": "2026-10-24T14:11:00.129326",
-      "status": "active"
-    },
-    {
-      "memory_id": 1278,
-      "evidence_id": 1341,
-      "source_type": "browser",
-      "timestamp": "2026-10-24T14:11:02.151728",
-      "action": "viewed",
-      "duration_seconds": 6.039999999999999,
-      "details": {
-        "browser": "Brave",
-        "title": "Relevance_Major.ipynb - Colab - Brave",
-        "sessions": 4,
-        "first_seen": "2026-10-24T14:03:56.224809",
-        "last_seen": "2026-10-24T14:11:02.151728"
-      },
-      "created_at": "2026-10-24T14:11:02.161432",
+      "created_at": "2026-10-29T22:33:47.286217",
       "status": "active"
     }
   ]
