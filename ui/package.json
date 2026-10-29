@@ -31,7 +31,25 @@
     },
     "linux": {
       "target": "AppImage"
-    }
+    },
+    "extraResources": [
+      {
+        "from": "../",
+        "to": "app-source",
+        "filter": [
+          "backend/**/*",
+          "memory/**/*",
+          "requirements.txt",
+          "smart_forgetting_rf.joblib",
+          "!**/__pycache__/**",
+          "!**/*.pyc",
+          "!**/chroma_db/**",
+          "!**/node_modules/**",
+          "!**/.venv*/**",
+          "!**/venv/**"
+        ]
+      }
+    ]
   },
   "dependencies": {
     "lucide-react": "^1.33.0",
