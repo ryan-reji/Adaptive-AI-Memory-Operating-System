@@ -1,11 +1,12 @@
 import { NavLink } from "react-router-dom";
-import { LayoutDashboard, Search, Clock3, Settings, Circle } from "lucide-react";
+import { LayoutDashboard, Search, Clock3, Settings, Circle, BrainCog } from "lucide-react";
 import { isMockMode } from "../lib/api";
 
 const items = [
   { to: "/", label: "Dashboard", icon: LayoutDashboard, end: true },
   { to: "/search", label: "Search", icon: Search },
   { to: "/timeline", label: "Timeline", icon: Clock3 },
+  { to: "/forgetting", label: "Smart Forgetting", icon: BrainCog },
   { to: "/settings", label: "Privacy & Settings", icon: Settings },
 ];
 
