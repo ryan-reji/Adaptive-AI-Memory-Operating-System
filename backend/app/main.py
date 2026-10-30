@@ -7,6 +7,7 @@ from backend.app.api.routes import health
 from backend.app.api.routes import memories
 from backend.app.api.routes import permissions
 from backend.app.api.routes import query
+from memory.database.db import create_tables
 
 
 app = FastAPI(
@@ -14,6 +15,10 @@ app = FastAPI(
     description="Backend API for the Adaptive AI Memory OS",
     version="0.1.0",
 )
+
+# Ensure all tables exist on startup — safe to call on an existing DB
+# (uses CREATE TABLE IF NOT EXISTS throughout).
+create_tables()
 
 
 app.include_router(health.router)

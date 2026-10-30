@@ -179,6 +179,26 @@ function startAll(config) {
 
   _spawnOne("backend", ["-m", "uvicorn", "backend.app.main:app", "--port", "8000", "--no-access-log", "--timeout-keep-alive", "120"], orchCfg);
   _spawnOne("orchestrator", ["-m", "memory.orchestrator"], orchCfg);
+  // Ollama — local LLM server needed for relevance classification and RAG.
+  const ollamaExe = process.platform === "win32"
+    ? require("path").join(process.env.LOCALAPPDATA || "", "Programs", "Ollama", "ollama.exe")
+    : "ollama";
+  _spawnOne("ollama", ["serve"], { pythonExecutable: ollamaExe, workDir, extraEnv });
+  // ChromaDB vector store — needed for AI embedding and RAG.
+  // Use the chroma CLI executable directly (not a Python module).
+  const chromaExe = require("path").join(
+    require("path").dirname(orchPython), // same Scripts/ dir as python
+    process.platform === "win32" ? "chroma.exe" : "chroma"
+  );
+  const chromaDataPath = require("path").join(
+    require("electron").app.getPath("userData"),
+    "chroma_db"
+  );
+  _spawnOne("chromadb", ["run",
+    "--path", chromaDataPath,
+    "--host", "127.0.0.1",
+    "--port", "8001",
+  ], { ...orchCfg, pythonExecutable: chromaExe });
   _spawnOne("smart-forgetting", ["-m", "memory.smart_forgetting.runner"], {
     pythonExecutable: sfPython,
     workDir,

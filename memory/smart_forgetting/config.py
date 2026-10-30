@@ -1,5 +1,6 @@
 
 from pathlib import Path
+import os
 
 # Project root: Adaptive-AI-Memory-Operating-System/
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -8,13 +9,14 @@ PROJECT_ROOT = Path(__file__).resolve().parents[2]
 MODEL_PATH = PROJECT_ROOT / "smart_forgetting_rf.joblib"
 
 # Existing activity and memory database
-MEMORY_DB_PATH = (
-    PROJECT_ROOT / "memory" / "database" / "memory.db"
+MEMORY_DB_PATH = Path(
+    os.environ.get("MEMORY_DB_PATH", str(PROJECT_ROOT / "memory" / "database" / "memory.db"))
 )
 
 # Independent database for Smart Forgetting recommendations
-RECOMMENDATIONS_DB_PATH = (
-    Path(__file__).resolve().parent / "recommendations.db"
+_default_recommendations_db = Path(__file__).resolve().parent / "recommendations.db"
+RECOMMENDATIONS_DB_PATH = Path(
+    os.environ.get("SF_RECOMMENDATIONS_DB_PATH", str(_default_recommendations_db))
 )
 
 # Prediction settings

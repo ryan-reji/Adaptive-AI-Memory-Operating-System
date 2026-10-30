@@ -1,7 +1,8 @@
 import sqlite3
 from datetime import datetime
+import os
 
-DB_PATH = "memory/database/memory.db"
+DB_PATH = os.environ.get("MEMORY_DB_PATH", "memory/database/memory.db")
 
 
 def get_connection():
