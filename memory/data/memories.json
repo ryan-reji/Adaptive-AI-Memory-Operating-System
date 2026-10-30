@@ -136,6 +136,437 @@
       },
       "created_at": "2026-10-29T22:33:47.286217",
       "status": "active"
+    },
+    {
+      "memory_id": 1287,
+      "evidence_id": 1352,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:37:55.073590",
+      "action": "viewed",
+      "duration_seconds": 38.08,
+      "details": {
+        "browser": "Brave",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Brave",
+        "sessions": 10,
+        "first_seen": "2026-10-13T21:54:36.485080",
+        "last_seen": "2026-10-29T22:37:55.073590"
+      },
+      "created_at": "2026-10-29T22:37:55.084169",
+      "status": "active"
+    },
+    {
+      "memory_id": 1288,
+      "evidence_id": 1353,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:38:01.121649",
+      "action": "viewed",
+      "duration_seconds": 40.089999999999996,
+      "details": {
+        "browser": "Brave",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Brave",
+        "sessions": 11,
+        "first_seen": "2026-10-13T21:54:36.485080",
+        "last_seen": "2026-10-29T22:38:01.121649"
+      },
+      "created_at": "2026-10-29T22:38:01.128990",
+      "status": "active"
+    },
+    {
+      "memory_id": 1289,
+      "evidence_id": 1354,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:38:05.142744",
+      "action": "viewed",
+      "duration_seconds": 42.089999999999996,
+      "details": {
+        "browser": "Brave",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Brave",
+        "sessions": 12,
+        "first_seen": "2026-10-13T21:54:36.485080",
+        "last_seen": "2026-10-29T22:38:05.142744"
+      },
+      "created_at": "2026-10-29T22:38:05.154544",
+      "status": "active"
+    },
+    {
+      "memory_id": 1290,
+      "evidence_id": 1355,
+      "source_type": "file",
+      "timestamp": "2026-10-29T22:42:47",
+      "action": "opened",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Engineering\\SEM-7\\Major_Project\\Major_Report_Group2_Final_Draft.pdf",
+        "file_name": "Major_Report_Group2_Final_Draft.pdf",
+        "file_type": ".pdf",
+        "file_size": 1124958,
+        "content": "A Project Report on\n\u201cAdaptive AI Memory Operating System:\nA Privacy-Preserving, Context-Aware\nPersonal Memory Assistant\u201d\nSubmitted in partial fulfillment of the requirement for\nDegree in Bachelor of Technology (Information Technology)\nBy\nMiguel Lopes (5023128)\nNathan Johncy (5023133)\nDivine Marshal (5023144)\nRyan Reji (5023164)\nGuided by:\nDr. Vaishali Bodade\nDepartment of Information Technology\nFr. Conceicao Rodrigues Institute of Technology\n(An Autonomous Institute & Permanently Affiliated to University of Mumbai)\nSector 9A, Vashi, Navi Mumbai \u2013 400703\nUniversity of Mumbai\n2026\u20132027\n",
+        "extraction_type": "specialized",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-29T22:42:58.019954",
+      "status": "active"
+    },
+    {
+      "memory_id": 1291,
+      "evidence_id": 1356,
+      "source_type": "file",
+      "timestamp": "2026-10-29T22:48:09",
+      "action": "opened",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Engineering\\SEM-7\\Major_Project\\Major_Report_Group2_Final_Draft.pdf",
+        "file_name": "Major_Report_Group2_Final_Draft.pdf",
+        "file_type": ".pdf",
+        "file_size": 1124958,
+        "content": "A Project Report on\n\u201cAdaptive AI Memory Operating System:\nA Privacy-Preserving, Context-Aware\nPersonal Memory Assistant\u201d\nSubmitted in partial fulfillment of the requirement for\nDegree in Bachelor of Technology (Information Technology)\nBy\nMiguel Lopes (5023128)\nNathan Johncy (5023133)\nDivine Marshal (5023144)\nRyan Reji (5023164)\nGuided by:\nDr. Vaishali Bodade\nDepartment of Information Technology\nFr. Conceicao Rodrigues Institute of Technology\n(An Autonomous Institute & Permanently Affiliated to University of Mumbai)\nSector 9A, Vashi, Navi Mumbai \u2013 400703\nUniversity of Mumbai\n2026\u20132027\n",
+        "extraction_type": "specialized",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-29T22:48:10.478164",
+      "status": "active"
+    },
+    {
+      "memory_id": 1292,
+      "evidence_id": 1357,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:48:14.435400",
+      "action": "viewed",
+      "duration_seconds": 43.089999999999996,
+      "details": {
+        "browser": "Brave",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Brave",
+        "sessions": 13,
+        "first_seen": "2026-10-13T21:54:36.485080",
+        "last_seen": "2026-10-29T22:48:14.435400"
+      },
+      "created_at": "2026-10-29T22:48:14.443784",
+      "status": "active"
+    },
+    {
+      "memory_id": 1293,
+      "evidence_id": 1360,
+      "source_type": "file",
+      "timestamp": "2026-10-29T22:48:56",
+      "action": "opened",
+      "duration_seconds": null,
+      "details": {
+        "source_path": "C:\\Users\\Ryan\\Ryan\\Engineering\\SEM-7\\Major_Project\\Major_Report_Group2_Final_Draft.pdf",
+        "file_name": "Major_Report_Group2_Final_Draft.pdf",
+        "file_type": ".pdf",
+        "file_size": 1124958,
+        "content": "A Project Report on\n\u201cAdaptive AI Memory Operating System:\nA Privacy-Preserving, Context-Aware\nPersonal Memory Assistant\u201d\nSubmitted in partial fulfillment of the requirement for\nDegree in Bachelor of Technology (Information Technology)\nBy\nMiguel Lopes (5023128)\nNathan Johncy (5023133)\nDivine Marshal (5023144)\nRyan Reji (5023164)\nGuided by:\nDr. Vaishali Bodade\nDepartment of Information Technology\nFr. Conceicao Rodrigues Institute of Technology\n(An Autonomous Institute & Permanently Affiliated to University of Mumbai)\nSector 9A, Vashi, Navi Mumbai \u2013 400703\nUniversity of Mumbai\n2026\u20132027\n",
+        "extraction_type": "specialized",
+        "chunk_number": 0
+      },
+      "created_at": "2026-10-29T22:48:59.890644",
+      "status": "active"
+    },
+    {
+      "memory_id": 1294,
+      "evidence_id": 1361,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:53:53.889453",
+      "action": "viewed",
+      "duration_seconds": 85.21000000000001,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 6,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T22:53:53.889453"
+      },
+      "created_at": "2026-10-29T22:53:53.900710",
+      "status": "active"
+    },
+    {
+      "memory_id": 1295,
+      "evidence_id": 1362,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:54:50.123359",
+      "action": "viewed",
+      "duration_seconds": 136.42000000000002,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 7,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T22:54:50.123359"
+      },
+      "created_at": "2026-10-29T22:54:50.133262",
+      "status": "active"
+    },
+    {
+      "memory_id": 1296,
+      "evidence_id": 1365,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:55:56.295946",
+      "action": "viewed",
+      "duration_seconds": 151.45000000000002,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 10,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T22:55:56.295946"
+      },
+      "created_at": "2026-10-29T22:55:56.309103",
+      "status": "active"
+    },
+    {
+      "memory_id": 1297,
+      "evidence_id": 1367,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:57:24.414667",
+      "action": "viewed",
+      "duration_seconds": 167.49000000000004,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 12,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T22:57:24.414667"
+      },
+      "created_at": "2026-10-29T22:57:24.422520",
+      "status": "active"
+    },
+    {
+      "memory_id": 1298,
+      "evidence_id": 1368,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:57:55.476377",
+      "action": "viewed",
+      "duration_seconds": 176.51000000000005,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 13,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T22:57:55.476377"
+      },
+      "created_at": "2026-10-29T22:57:55.483502",
+      "status": "active"
+    },
+    {
+      "memory_id": 1299,
+      "evidence_id": 1369,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:58:26.540483",
+      "action": "viewed",
+      "duration_seconds": 195.55000000000004,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 14,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T22:58:26.540483"
+      },
+      "created_at": "2026-10-29T22:58:26.645408",
+      "status": "active"
+    },
+    {
+      "memory_id": 1300,
+      "evidence_id": 1370,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T22:59:10.745084",
+      "action": "viewed",
+      "duration_seconds": 232.64000000000004,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 15,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T22:59:10.745084"
+      },
+      "created_at": "2026-10-29T22:59:10.752006",
+      "status": "active"
+    },
+    {
+      "memory_id": 1301,
+      "evidence_id": 1374,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T23:01:04.024156",
+      "action": "viewed",
+      "duration_seconds": 321.83000000000004,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 19,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T23:01:04.024156"
+      },
+      "created_at": "2026-10-29T23:01:04.030865",
+      "status": "active"
+    },
+    {
+      "memory_id": 1302,
+      "evidence_id": 1375,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T23:01:49.161474",
+      "action": "viewed",
+      "duration_seconds": 333.93000000000006,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 20,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T23:01:49.161474"
+      },
+      "created_at": "2026-10-29T23:01:49.168684",
+      "status": "active"
+    },
+    {
+      "memory_id": 1303,
+      "evidence_id": 1376,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T23:02:20.207518",
+      "action": "viewed",
+      "duration_seconds": 341.95000000000005,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 21,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T23:02:20.207518"
+      },
+      "created_at": "2026-10-29T23:02:20.214621",
+      "status": "active"
+    },
+    {
+      "memory_id": 1304,
+      "evidence_id": 1378,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T23:03:09.277419",
+      "action": "viewed",
+      "duration_seconds": 46.099999999999994,
+      "details": {
+        "browser": "Brave",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Brave",
+        "sessions": 14,
+        "first_seen": "2026-10-13T21:54:36.485080",
+        "last_seen": "2026-10-29T23:03:09.277419"
+      },
+      "created_at": "2026-10-29T23:03:09.286079",
+      "status": "active"
+    },
+    {
+      "memory_id": 1305,
+      "evidence_id": 1379,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T23:05:13.403941",
+      "action": "viewed",
+      "duration_seconds": 47.099999999999994,
+      "details": {
+        "browser": "Brave",
+        "title": "ryan-reji/Adaptive-AI-Memory-Operating-System: Privacy-preserving AI Memory Assistant with activity capture and smart forgetting and information retrieval using RAG - Brave",
+        "sessions": 15,
+        "first_seen": "2026-10-13T21:54:36.485080",
+        "last_seen": "2026-10-29T23:05:13.403941"
+      },
+      "created_at": "2026-10-29T23:05:13.429192",
+      "status": "active"
+    },
+    {
+      "memory_id": 1306,
+      "evidence_id": 1380,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T23:05:58.543857",
+      "action": "viewed",
+      "duration_seconds": 391.07000000000005,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 23,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T23:05:58.543857"
+      },
+      "created_at": "2026-10-29T23:05:58.551693",
+      "status": "active"
+    },
+    {
+      "memory_id": 1307,
+      "evidence_id": 1381,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T23:06:08.576598",
+      "action": "viewed",
+      "duration_seconds": 395.08000000000004,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 24,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T23:06:08.576598"
+      },
+      "created_at": "2026-10-29T23:06:08.584525",
+      "status": "active"
+    },
+    {
+      "memory_id": 1308,
+      "evidence_id": 1382,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T23:06:15.599765",
+      "action": "viewed",
+      "duration_seconds": 396.08000000000004,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 25,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T23:06:15.599765"
+      },
+      "created_at": "2026-10-29T23:06:15.610913",
+      "status": "active"
+    },
+    {
+      "memory_id": 1309,
+      "evidence_id": 1383,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T23:06:34.674491",
+      "action": "viewed",
+      "duration_seconds": 410.11,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 26,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T23:06:34.674491"
+      },
+      "created_at": "2026-10-29T23:06:34.686087",
+      "status": "active"
+    },
+    {
+      "memory_id": 1310,
+      "evidence_id": 1386,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T23:09:18.993908",
+      "action": "viewed",
+      "duration_seconds": 490.29,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 29,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T23:09:18.993908"
+      },
+      "created_at": "2026-10-29T23:09:19.001773",
+      "status": "active"
+    },
+    {
+      "memory_id": 1311,
+      "evidence_id": 1387,
+      "source_type": "browser",
+      "timestamp": "2026-10-29T23:09:50.053103",
+      "action": "viewed",
+      "duration_seconds": 508.33000000000004,
+      "details": {
+        "browser": "Brave",
+        "title": "Develop Smart Forgetting - Brave",
+        "sessions": 30,
+        "first_seen": "2026-10-29T22:32:33.053016",
+        "last_seen": "2026-10-29T23:09:50.053103"
+      },
+      "created_at": "2026-10-29T23:09:50.063972",
+      "status": "active"
     }
   ]
 }
