@@ -1,7 +1,9 @@
+
 import ollama
 
 
 class OllamaLLM:
+
     def __init__(self, model_name="qwen3.5:4b"):
         self.model_name = model_name
 
@@ -14,7 +16,11 @@ class OllamaLLM:
                     "content": prompt
                 }
             ],
-            think=False
+            think=False,
+            options={
+                "temperature": 0.2,
+                "num_predict": 256,
+            }
         )
 
         return response.message.content

@@ -5,22 +5,17 @@ import re
 
 
 def parse_vscode_title(title):
-    """
-    Parse a VS Code window title into project, filename,
-    and absolute file path when available.
-    """
     empty_result = {
         "file": None,
         "file_path": None,
         "project": None
     }
 
-    if not title or not title.strip():
+    if not isinstance(title, str) or not title.strip():
         return empty_result.copy()
 
     title = title.strip()
 
-    # Remove VS Code application suffix.
     suffixes = (
         " - Visual Studio Code Insiders",
         " - Visual Studio Code"
@@ -32,54 +27,59 @@ def parse_vscode_title(title):
             break
 
     # Remove common unsaved/modified indicators.
-    title = re.sub(r"^[●*]\s*", "", title).strip()
+    title = re.sub(r"^[*●•]+\s*", "", title).strip()
+    title = re.sub(r"^\s*-\s*", "", title).strip()
 
     if not title:
         return empty_result.copy()
 
-    # VS Code can show a workspace-only title.
-    if title.startswith(" - "):
+    parts = [
+        part.strip()
+        for part in title.split(" - ")
+        if part.strip()
+    ]
+
+    if not parts:
         return empty_result.copy()
-
-    parts = [part.strip() for part in title.split(" - ")]
-
-    if not parts or not parts[0]:
-        return empty_result.copy()
-
-    first_part = parts[0]
 
     invalid_names = {
         "visual studio code",
         "visual studio code insiders",
         "welcome",
-        "getting started"
+        "getting started",
+        "unknown"
     }
 
-    # Handle a title containing an absolute Windows file path.
+    first_part = parts[0]
+
+    # Only accept an absolute path if it actually exists.
     if re.match(r"^[A-Za-z]:[\\/]", first_part):
         candidate = Path(first_part)
 
-        return {
-            "file": candidate.name or None,
-            "file_path": str(candidate.resolve()),
-            "project": parts[1] if len(parts) > 1 else None
-        }
+        if candidate.is_file():
+            return {
+                "file": candidate.name,
+                "file_path": str(candidate.resolve()),
+                "project": parts[1] if len(parts) > 1 else None
+            }
 
-    # A single title segment is not enough to establish
-    # that the active editor contains a file.
-    if len(parts) < 2:
+    # A single title segment is a workspace/window title.
+    if len(parts) == 1:
         return {
             "file": None,
             "file_path": None,
-            "project": first_part or None
+            "project": (
+                first_part
+                if first_part.casefold() not in invalid_names
+                else None
+            )
         }
 
     file_name = first_part
 
-    if file_name.lower() in invalid_names:
+    if file_name.casefold() in invalid_names:
         file_name = None
 
-    # Do not treat a workspace-only title as a file.
     if file_name and not Path(file_name).suffix:
         file_name = None
 
@@ -91,7 +91,9 @@ def parse_vscode_title(title):
 
 
 def create_vscode_event(activity):
-    parsed = parse_vscode_title(activity.get("title", ""))
+    parsed = parse_vscode_title(
+        activity.get("title", "")
+    )
 
     return {
         "source_type": "vscode",
