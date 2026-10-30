@@ -115,8 +115,53 @@ app.whenReady().then(async () => {
     // Python source is copied here by electron-builder's extraResources rule.
     const workDir = path.join(process.resourcesPath, "app-source");
 
+    // Databases must live in a writable location (resourcesPath is read-only
+    // in a signed/installed app). On first run the Python code creates them.
+    const userDataDir = app.getPath("userData");
+    const memoryDbPath = path.join(userDataDir, "memory.db");
+    const sfDbPath = path.join(userDataDir, "recommendations.db");
+
+    // Smart-forgetting needs sklearn 1.5.2 — use the bundled venv if present,
+    // otherwise fall back to system Python (which may fail on version mismatch).
+    const sfVenvPython = path.join(
+      process.resourcesPath,
+      "sf-venv",
+      "Scripts",
+      "python.exe"
+    );
+    let sfPythonExecutable;
+    try {
+      require("fs").accessSync(sfVenvPython);
+      sfPythonExecutable = sfVenvPython;
+    } catch (_) {
+      sfPythonExecutable = pythonExecutable; // fallback
+    }
+
+    // Lite venv for backend and orchestrator (no heavy AI packages).
+    const liteVenvPython = path.join(
+      process.resourcesPath,
+      "lite-venv",
+      "Scripts",
+      "python.exe"
+    );
+    let orchestratorPython = pythonExecutable; // fallback to system
+    try {
+      require("fs").accessSync(liteVenvPython);
+      orchestratorPython = liteVenvPython;
+    } catch (_) {}
+
     // --- Start backend processes ---
-    backendManager.startAll({ pythonExecutable, workDir });
+    backendManager.startAll({
+      pythonExecutable,
+      sfPythonExecutable,
+      orchestratorPythonExecutable: orchestratorPython,
+      workDir,
+      extraEnv: {
+        // Override hardcoded DB paths so both processes use userData.
+        MEMORY_DB_PATH: memoryDbPath,
+        SF_RECOMMENDATIONS_DB_PATH: sfDbPath,
+      },
+    });
 
     // --- Open the window immediately (shows background color while backend warms up) ---
     createWindow();
@@ -150,9 +195,13 @@ app.on("window-all-closed", () => {
 });
 
 // Stop all Python processes before the app exits.
-// event.preventDefault() + app.exit(0) ensures processes are dead before quit.
-app.once("before-quit", (event) => {
-  if (!isDev && backendManager) {
+// Uses app.on (not app.once) + a re-entry guard so the handler is not
+// consumed on first fire — on macOS, app.exit(0) re-emits before-quit and
+// a once-listener would leave the app hanging with no handler the second time.
+let _quitting = false;
+app.on("before-quit", (event) => {
+  if (!isDev && backendManager && !_quitting) {
+    _quitting = true;
     event.preventDefault();
     backendManager.stopAll().then(() => app.exit(0));
   }

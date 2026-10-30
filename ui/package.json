@@ -51,13 +51,32 @@
           "!**/__pycache__/**",
           "!**/*.pyc",
           "!**/*.pyo",
-          "!**/chroma_db/**",
-          "!**/database/**"
+          "!**/chroma_db/**"
         ]
       },
       {
-        "from": "../requirements.txt",
-        "to": "app-source/requirements.txt"
+        "from": "../.venv_smart_forgetting_new",
+        "to": "sf-venv",
+        "filter": [
+          "pyvenv.cfg",
+          "Scripts/**",
+          "Lib/**",
+          "!Lib/**/__pycache__/**",
+          "!Lib/**/*.pyc",
+          "!Lib/**/*.pyo"
+        ]
+      },
+      {
+        "from": "../.venv_lite",
+        "to": "lite-venv",
+        "filter": [
+          "pyvenv.cfg",
+          "Scripts/**",
+          "Lib/**",
+          "!Lib/**/__pycache__/**",
+          "!Lib/**/*.pyc",
+          "!Lib/**/*.pyo"
+        ]
       },
       {
         "from": "../smart_forgetting_rf.joblib",

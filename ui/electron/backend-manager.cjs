@@ -1,7 +1,7 @@
 // ui/electron/backend-manager.cjs
 "use strict";
 
-const { spawn, execSync } = require("child_process");
+const { spawn, exec } = require("child_process");
 const path = require("path");
 const fs = require("fs");
 const { app, dialog } = require("electron");
@@ -30,7 +30,7 @@ function _logStream(name) {
  * @param {{ pythonExecutable: string, workDir: string }} config
  */
 function _spawnOne(label, args, config) {
-  const { pythonExecutable, workDir } = config;
+  const { pythonExecutable, workDir, extraEnv = {} } = config;
 
   const proc = spawn(pythonExecutable, args, {
     cwd: workDir,
@@ -40,6 +40,8 @@ function _spawnOne(label, args, config) {
       PYTHONPATH: workDir,
       // Disable Python's output buffering so log lines appear in real-time.
       PYTHONUNBUFFERED: "1",
+      // Caller-supplied overrides (e.g. DB paths pointing to userData).
+      ...extraEnv,
     },
     stdio: ["ignore", "pipe", "pipe"],
   });
@@ -91,9 +93,11 @@ function _spawnOne(label, args, config) {
     const idx = _procs.findIndex((e) => e.proc === proc);
     if (idx !== -1) _procs.splice(idx, 1);
 
-    // Only show the generic crash dialog if the process started successfully
-    // and then exited on its own (not due to a spawn error or intentional stop).
-    if (!_stopping && !_spawnFailed) {
+    // Only show crash dialog for the backend — if the orchestrator or
+    // smart-forgetting runner exit (e.g. missing deps on system Python),
+    // log it silently rather than popping a dialog that kills the whole app.
+    const isCritical = label === "backend";
+    if (!_stopping && !_spawnFailed && isCritical) {
       dialog.showMessageBox({
         type: "warning",
         title: "Recall — Backend process stopped",
@@ -129,9 +133,11 @@ function _kill(entry) {
     const timer = setTimeout(() => {
       try {
         if (process.platform === "win32") {
-          // execSync waits for taskkill to complete before resolving, ensuring
-          // the process tree is confirmed dead (not just the shell exited).
-          execSync(`taskkill /F /T /PID ${proc.pid}`, { stdio: "ignore" });
+          // async exec so we don't block the Electron main-process event loop
+          // during shutdown. We resolve immediately after firing the command —
+          // taskkill is fast and the 4-second ceiling in stopAll() covers any
+          // residual delay.
+          exec(`taskkill /F /T /PID ${proc.pid}`, { stdio: "ignore" });
         } else {
           proc.kill("SIGKILL");
         }
@@ -161,22 +167,23 @@ function _kill(entry) {
 
 /**
  * Start all three backend processes.
- * @param {{ pythonExecutable: string, workDir: string }} config
+ * @param {{ pythonExecutable: string, sfPythonExecutable: string, workDir: string, extraEnv: object }} config
  */
 function startAll(config) {
   _stopping = false;
 
-  _spawnOne(
-    "backend",
-    ["-m", "uvicorn", "backend.app.main:app", "--port", "8000"],
-    config
-  );
-  _spawnOne("orchestrator", ["-m", "memory.orchestrator"], config);
-  _spawnOne(
-    "smart-forgetting",
-    ["-m", "memory.smart_forgetting.runner"],
-    config
-  );
+  const { pythonExecutable, sfPythonExecutable, orchestratorPythonExecutable, workDir, extraEnv } = config;
+  const sfPython = sfPythonExecutable || pythonExecutable;
+  const orchPython = orchestratorPythonExecutable || pythonExecutable;
+  const orchCfg = { pythonExecutable: orchPython, workDir, extraEnv };
+
+  _spawnOne("backend", ["-m", "uvicorn", "backend.app.main:app", "--port", "8000", "--no-access-log", "--timeout-keep-alive", "120"], orchCfg);
+  _spawnOne("orchestrator", ["-m", "memory.orchestrator"], orchCfg);
+  _spawnOne("smart-forgetting", ["-m", "memory.smart_forgetting.runner"], {
+    pythonExecutable: sfPython,
+    workDir,
+    extraEnv,
+  });
 }
 
 /**
