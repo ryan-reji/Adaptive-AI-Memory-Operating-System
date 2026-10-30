@@ -99,3 +99,68 @@ export const mockPermissionMode = { mode: "allow_all" };
 // real API's {path} object shape when returning them in mock mode.
 export const mockAllowedFolders = [];
 export const mockExclusions = [];
+
+// ---- Smart Forgetting mock data ----
+// Mirrors the recommendations table in recommendations.db.
+// Smart Forgetting is FILE-based: it scans file paths from activity_evidence,
+// extracts features (size, age, access frequency), and classifies each file
+// as "keep" or "review" using a Random Forest model with Ollama LLM fallback.
+//
+// IMPORTANT: "review" never means "delete". These are files the system thinks
+// are worth the user inspecting — nothing is ever auto-deleted.
+// These are files that PASSED relevance filtering (they were retained as
+// memories) but may now be stale based on usage patterns.
+
+export const mockForgettingCandidates = [
+  {
+    id: 1,
+    file_name: "old_draft_v2.py",
+    file_path: "C:\\Users\\Nathan\\projects\\ai-memory\\old_draft_v2.py",
+    label: "review",
+    reason: "File has not been accessed in 45 days and contains a draft version number, suggesting it may be a superseded copy.",
+    confidence: 0.82,
+    prediction_source: "random_forest",
+    file_size_bytes: 4096,
+    last_scanned_at: "2026-10-28T10:00:00",
+  },
+  {
+    id: 2,
+    file_name: "notes_temp.md",
+    file_path: "C:\\Users\\Nathan\\Documents\\notes_temp.md",
+    label: "review",
+    reason: "Temporary file naming pattern and no access activity recorded in the last 30 days.",
+    confidence: 0.75,
+    prediction_source: "random_forest",
+    file_size_bytes: 1024,
+    last_scanned_at: "2026-10-28T10:00:00",
+  },
+  {
+    id: 3,
+    file_name: "experiment_results_old.csv",
+    file_path: "C:\\Users\\Nathan\\projects\\research\\experiment_results_old.csv",
+    label: "review",
+    reason: "Large data file with no recent access; an older version may have been superseded by newer experiment output.",
+    confidence: 0.68,
+    prediction_source: "ollama",
+    file_size_bytes: 524288,
+    last_scanned_at: "2026-10-28T10:00:00",
+  },
+  {
+    id: 4,
+    file_name: "test_backup_config.json",
+    file_path: "C:\\Users\\Nathan\\projects\\ai-memory\\test_backup_config.json",
+    label: "review",
+    reason: "Backup configuration file not referenced by any active project session in the last 60 days.",
+    confidence: 0.71,
+    prediction_source: "random_forest",
+    file_size_bytes: 2048,
+    last_scanned_at: "2026-10-28T10:00:00",
+  },
+];
+
+export const mockForgettingStats = {
+  total_files_scanned: 87,
+  review_candidates: 4,
+  kept: 83,
+  last_scan: "2026-10-28T10:00:00",
+};

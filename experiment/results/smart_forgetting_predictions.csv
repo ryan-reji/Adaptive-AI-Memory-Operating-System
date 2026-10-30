@@ -1,0 +1,11 @@
+case,expected,rf_prediction,rf_confidence,rf_needs_llm,llm_called,hybrid_prediction,hybrid_confidence,prediction_source,fallback_error
+old_project_code,keep,keep,0.57,True,True,keep,0.57,ollama,
+critical_document,keep,keep,0.9,False,False,keep,0.9,random_forest,
+rarely_used_database,keep,keep,0.61,True,True,keep,0.61,ollama,
+old_project_backup,keep,keep,0.79,False,False,keep,0.79,random_forest,
+important_sql,keep,keep,0.665,True,True,keep,0.665,ollama,
+temporary_recent_log,review,keep,0.645,True,True,review,0.645,ollama,
+unused_old_installer,review,review,0.68,True,True,review,0.68,ollama,
+unimportant_project_image,review,review,0.53,True,True,keep,0.53,ollama,
+old_temp_archive,review,review,0.82,False,False,review,0.82,random_forest,
+recently_opened_installer,review,review,0.81,False,False,review,0.81,random_forest,

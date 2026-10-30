@@ -31,6 +31,8 @@ def answer_query(query: str, top_k: int = 3) -> dict:
             top_k=top_k,
         )
     except Exception as error:
+        import traceback
+        traceback.print_exc()
         raise RAGServiceUnavailable(
             "The AI query service is currently unavailable."
         ) from error

@@ -1,0 +1,3 @@
+method,accuracy,important_file_preservation_rate,review_detection_rate
+Random Forest,0.9,1.0,0.8
+RF + Ollama,0.9,1.0,0.8

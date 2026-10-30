@@ -5,6 +5,7 @@ import Dashboard from "./pages/Dashboard";
 import SearchPage from "./pages/SearchPage";
 import TimelinePage from "./pages/TimelinePage";
 import SettingsPage from "./pages/SettingsPage";
+import SmartForgettingPage from "./pages/SmartForgettingPage";
 import { ToastProvider } from "./components/Toast";
 import ContourBackground from "./components/ContourBackground";
 
@@ -36,6 +37,7 @@ export default function App() {
               <Route path="/" element={<Dashboard />} />
               <Route path="/search" element={<SearchPage />} />
               <Route path="/timeline" element={<TimelinePage />} />
+              <Route path="/forgetting" element={<SmartForgettingPage />} />
               <Route path="/settings" element={<SettingsPage />} />
             </Routes>
           </main>
