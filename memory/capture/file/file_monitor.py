@@ -1,3 +1,4 @@
+
 from pathlib import Path
 import os
 import threading
@@ -10,77 +11,90 @@ from watchdog.events import FileSystemEventHandler
 from memory.capture.common.activity_event import create_activity_event
 from memory.capture.common.permissions import (
     is_allowed,
-    get_permission_mode
+    get_permission_mode,
 )
 from memory.capture.common.deduplicator import ActivityDeduplicator
-
 from memory.capture.foreground_activity import (
     get_recent_foreground_activity,
-    start_foreground_monitor
+    start_foreground_monitor,
 )
-
 from memory.capture.user_interaction_filter import (
-    is_user_interacting_with_file
+    is_user_interacting_with_file,
 )
-
 from memory.capture.file.universal_extractor import get_chunk
 from memory.capture.file.file_snapshot import create_snapshot
 from memory.capture.file.file_evidence import create_file_evidence
 from memory.database.activity_evidence_db import save_activity_evidence
 
 
+# Allow correlation with recent foreground samples.
+VSCODE_MAX_TIME_DIFFERENCE = 5.0
+
+
 def is_vscode_file_activity(
     file_path,
     foreground_history,
-    event_timestamp=None
+    event_timestamp=None,
 ):
     """
-    Identify a file event caused by editing the file in VS Code.
-
-    Only inspect the latest foreground sample to avoid suppressing
-    file activity because VS Code appeared earlier in the history.
+    Match a filesystem event against a recent VS Code
+    foreground window containing the same filename.
     """
+
     if not foreground_history:
         return False
 
-    activity = foreground_history[0]
-
-    process_name = (
-        activity.get("process_name") or ""
-    ).casefold()
-
-    if process_name not in {
-        "code.exe",
-        "code-insiders.exe",
-    }:
-        return False
-
-    # Ignore a stale foreground sample when timestamps are available.
-    sample_timestamp = activity.get("timestamp")
-
-    if event_timestamp is not None and sample_timestamp is not None:
-        try:
-            if isinstance(sample_timestamp, str):
-                sample_timestamp = datetime.fromisoformat(
-                    sample_timestamp
-                ).timestamp()
-
-            if abs(
-                float(event_timestamp) - float(sample_timestamp)
-            ) > 2.0:
-                return False
-
-        except (TypeError, ValueError, OverflowError):
-            pass
-
-    title = (
-        activity.get("window_title") or ""
-    ).casefold()
-
     filename = Path(file_path).name.casefold()
 
-    return bool(filename and filename in title)
+    if not filename:
+        return False
 
+    closest_match = None
+    smallest_difference = float("inf")
+
+    for activity in foreground_history:
+
+        process_name = (
+            activity.get("process_name") or ""
+        ).casefold()
+
+        if process_name not in {
+            "code.exe",
+            "code-insiders.exe",
+        }:
+            continue
+
+        title = (
+            activity.get("window_title") or ""
+        ).casefold()
+
+        # The active VS Code title must contain this filename.
+        if filename not in title:
+            continue
+
+        timestamp = activity.get("timestamp")
+
+        if event_timestamp is not None and timestamp is not None:
+            try:
+                difference = abs(
+                    float(event_timestamp) - float(timestamp)
+                )
+            except (TypeError, ValueError):
+                continue
+        else:
+            difference = 0.0
+
+        if difference < smallest_difference:
+            smallest_difference = difference
+            closest_match = activity
+
+    if closest_match is None:
+        return False
+
+    if smallest_difference > VSCODE_MAX_TIME_DIFFERENCE:
+        return False
+
+    return True
 
 
 class FileActivityHandler(FileSystemEventHandler):
@@ -89,28 +103,23 @@ class FileActivityHandler(FileSystemEventHandler):
         super().__init__()
         self.deduplicator = ActivityDeduplicator()
 
-    def process_activity(self, activity, event_timestamp=None):
-        """
-        Process a filesystem activity event.
-        """
+    def process_activity(
+        self,
+        activity,
+        event_timestamp=None,
+    ):
+        """Process a filesystem activity event."""
 
         if self.deduplicator.is_duplicate(activity):
             return
 
-        # -------------------------------------------------
-        # Permission check
-        # -------------------------------------------------
+        path = activity.get("path")
 
-        if not is_allowed(activity["path"]):
-            print(
-                "Ignoring file outside allowed permissions:",
-                activity["path"]
-            )
+        if not path:
             return
 
-        # -------------------------------------------------
-        # Exact filesystem event timestamp
-        # -------------------------------------------------
+        if not is_allowed(path):
+            return
 
         if event_timestamp is None:
             try:
@@ -120,81 +129,65 @@ class FileActivityHandler(FileSystemEventHandler):
             except Exception:
                 event_timestamp = time.time()
 
-        # -------------------------------------------------
-        # Foreground activity correlation
-        # -------------------------------------------------
-
         foreground_history = get_recent_foreground_activity()
 
-
-        if not is_user_interacting_with_file(
-            activity["path"],
+        normal_interaction = is_user_interacting_with_file(
+            path,
             foreground_history,
-            event_timestamp
-        ):
-            #print(
-                #"Ignoring background file activity:",
-                #activity["path"]
-            #)
-            return
-
-        # -------------------------------------------------
-        # User-driven activity detected
-        # -------------------------------------------------
-
-        print("\nUser-driven file activity detected:")
-        print(activity)
-
-        # Deleted files cannot be extracted.
-        if activity["action"] == "deleted":
-            return
-
-        file_path = Path(activity["path"])
-
-        if not file_path.exists():
-            return
-
-        # -------------------------------------------------
-        # Extract content
-        # -------------------------------------------------
-
-        result = get_chunk(
-            activity["path"],
-            chunk_number=0
+            event_timestamp,
         )
 
-        # -------------------------------------------------
-        # Create snapshot
-        # -------------------------------------------------
+        vscode_interaction = False
 
-        snapshot = create_snapshot(
-            activity,
-            result
-        )
+        if not normal_interaction:
+            vscode_interaction = is_vscode_file_activity(
+                path,
+                foreground_history,
+                event_timestamp,
+            )
 
-        print("Activity Snapshot:")
-        print(snapshot)
+        if not normal_interaction and not vscode_interaction:
+            return
 
-        # -------------------------------------------------
-        # Create evidence
-        # -------------------------------------------------
+        if vscode_interaction:
+            print("\nVS Code file activity detected:")
+        else:
+            print("\nUser-driven file activity detected:")
 
-        evidence = create_file_evidence(snapshot)
+        print("Action:", activity.get("action"))
+        print("Full path:", Path(path).resolve())
 
-        print("Activity Evidence:")
-        print(evidence)
+        if activity.get("action") == "deleted":
+            return
 
-        # -------------------------------------------------
-        # Save evidence
-        # -------------------------------------------------
+        file_path = Path(path)
 
-        evidence_id = save_activity_evidence(evidence)
+        if not file_path.is_file():
+            return
 
-        print("Saved Evidence ID:", evidence_id)
+        try:
+            result = get_chunk(
+                str(file_path),
+                chunk_number=0,
+            )
 
-    # =====================================================
-    # CREATED
-    # =====================================================
+            snapshot = create_snapshot(
+                activity,
+                result,
+            )
+
+            evidence = create_file_evidence(snapshot)
+
+            evidence_id = save_activity_evidence(evidence)
+
+            print("Saved file evidence ID:", evidence_id)
+            print("Captured full path:", str(file_path.resolve()))
+
+        except Exception as exc:
+            print(
+                f"File evidence processing error for "
+                f"{file_path}: {exc}"
+            )
 
     def on_created(self, event):
 
@@ -203,22 +196,19 @@ class FileActivityHandler(FileSystemEventHandler):
 
         event_timestamp = time.time()
 
-        if is_allowed(event.src_path):
+        if not is_allowed(event.src_path):
+            return
 
-            activity = create_activity_event(
-                source_type="file",
-                action="created",
-                path=event.src_path
-            )
+        activity = create_activity_event(
+            source_type="file",
+            action="created",
+            path=event.src_path,
+        )
 
-            self.process_activity(
-                activity,
-                event_timestamp
-            )
-
-    # =====================================================
-    # MODIFIED
-    # =====================================================
+        self.process_activity(
+            activity,
+            event_timestamp,
+        )
 
     def on_modified(self, event):
 
@@ -227,22 +217,19 @@ class FileActivityHandler(FileSystemEventHandler):
 
         event_timestamp = time.time()
 
-        if is_allowed(event.src_path):
+        if not is_allowed(event.src_path):
+            return
 
-            activity = create_activity_event(
-                source_type="file",
-                action="modified",
-                path=event.src_path
-            )
+        activity = create_activity_event(
+            source_type="file",
+            action="modified",
+            path=event.src_path,
+        )
 
-            self.process_activity(
-                activity,
-                event_timestamp
-            )
-
-    # =====================================================
-    # MOVED
-    # =====================================================
+        self.process_activity(
+            activity,
+            event_timestamp,
+        )
 
     def on_moved(self, event):
 
@@ -251,25 +238,22 @@ class FileActivityHandler(FileSystemEventHandler):
 
         event_timestamp = time.time()
 
-        if is_allowed(event.dest_path):
+        if not is_allowed(event.dest_path):
+            return
 
-            activity = create_activity_event(
-                source_type="file",
-                action="moved",
-                path=event.dest_path,
-                metadata={
-                    "old_path": event.src_path
-                }
-            )
+        activity = create_activity_event(
+            source_type="file",
+            action="moved",
+            path=event.dest_path,
+            metadata={
+                "old_path": event.src_path,
+            },
+        )
 
-            self.process_activity(
-                activity,
-                event_timestamp
-            )
-
-    # =====================================================
-    # DELETED
-    # =====================================================
+        self.process_activity(
+            activity,
+            event_timestamp,
+        )
 
     def on_deleted(self, event):
 
@@ -278,34 +262,22 @@ class FileActivityHandler(FileSystemEventHandler):
 
         event_timestamp = time.time()
 
-        if is_allowed(event.src_path):
+        if not is_allowed(event.src_path):
+            return
 
-            activity = create_activity_event(
-                source_type="file",
-                action="deleted",
-                path=event.src_path
-            )
+        activity = create_activity_event(
+            source_type="file",
+            action="deleted",
+            path=event.src_path,
+        )
 
-            self.process_activity(
-                activity,
-                event_timestamp
-            )
+        self.process_activity(
+            activity,
+            event_timestamp,
+        )
 
-
-# =========================================================
-# MONITORING SCOPE
-# =========================================================
 
 def get_monitoring_folder():
-    """
-    Determine the Watchdog monitoring scope.
-
-    allow_all:
-        C:\\Users\\<username>
-
-    allow_only:
-        memory\\tests\\test_data
-    """
 
     permission_mode = get_permission_mode()
 
@@ -319,14 +291,10 @@ def get_monitoring_folder():
             )
 
         return Path(
-            os.path.join(
-                r"C:\Users",
-                username
-            )
+            os.path.join(r"C:\Users", username)
         ).resolve()
 
     if permission_mode == "allow_only":
-
         return Path(
             "memory/tests/test_data"
         ).resolve()
@@ -336,23 +304,7 @@ def get_monitoring_folder():
     )
 
 
-# =========================================================
-# START FILE MONITOR
-# =========================================================
-
 def start_file_monitor(start_foreground=True):
-    """
-    Start the filesystem monitor.
-
-    The monitoring scope is determined here.
-
-    start_foreground=True:
-        Used when running this module directly.
-
-    start_foreground=False:
-        Used by activity_manager, which already owns
-        the shared foreground monitor.
-    """
 
     folder = get_monitoring_folder()
     permission_mode = get_permission_mode()
@@ -363,57 +315,42 @@ def start_file_monitor(start_foreground=True):
         )
 
     event_handler = FileActivityHandler()
-
     observer = Observer()
 
     observer.schedule(
         event_handler,
         str(folder),
-        recursive=True
+        recursive=True,
     )
-
-    # -----------------------------------------------------
-    # Foreground monitor
-    # -----------------------------------------------------
 
     if start_foreground:
 
         foreground_thread = threading.Thread(
             target=start_foreground_monitor,
-            daemon=True
+            daemon=True,
         )
 
         foreground_thread.start()
 
         print("Foreground activity monitor started.")
 
-    # -----------------------------------------------------
-    # Watchdog
-    # -----------------------------------------------------
-
     observer.start()
 
     print("\nFile monitor started.")
-    print(f"Permission mode: {permission_mode}")
-    print(f"Monitoring: {folder}")
+    print("Permission mode:", permission_mode)
+    print("Monitoring:", folder)
+    print("VS Code path correlation enabled.")
     print("Press Ctrl+C to stop.\n")
 
     try:
-
         while True:
             time.sleep(1)
 
     except KeyboardInterrupt:
-
         print("\nStopping file monitor...")
         observer.stop()
+        observer.join()
 
-    observer.join()
-
-
-# =========================================================
-# STANDALONE
-# =========================================================
 
 if __name__ == "__main__":
     start_file_monitor()
