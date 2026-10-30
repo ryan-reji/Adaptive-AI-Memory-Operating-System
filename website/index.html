@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recall — Your AI Memory, Kept Local</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #080e0c;
+      --surface:   #0f1614;
+      --border:    #1e2d28;
+      --glow:      #4ade80;
+      --gold:      #f0b429;
+      --text:      #d4e8df;
+      --muted:     #6b8f7e;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', 'Fira Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Topography background ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -20%, rgba(74,222,128,.08) 0%, transparent 60%),
+        repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(74,222,128,.03) 40px),
+        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(74,222,128,.03) 40px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 2.5rem;
+      height: 60px;
+      background: rgba(8,14,12,.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      text-decoration: none;
+    }
+
+    .nav-brand img {
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+    }
+
+    .nav-brand span {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text);
+      letter-spacing: .02em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: .875rem;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--glow); }
+
+    .nav-cta {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .45rem 1.1rem;
+      background: var(--glow);
+      color: #080e0c;
+      font-size: .875rem;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity .2s;
+    }
+
+    .nav-cta:hover { opacity: .85; }
+
+    /* ── Hero ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 6rem 1.5rem 5rem;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .3rem .9rem;
+      border: 1px solid rgba(74,222,128,.3);
+      border-radius: 999px;
+      font-size: .78rem;
+      color: var(--glow);
+      background: rgba(74,222,128,.06);
+      margin-bottom: 1.75rem;
+      letter-spacing: .04em;
+    }
+
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--glow);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: .3; }
+    }
+
+    .hero img.logo {
+      width: 110px;
+      height: 110px;
+      border-radius: 24px;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 60px rgba(74,222,128,.2), 0 0 120px rgba(74,222,128,.08);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-weight: 700;
+      line-height: 1.15;
+      color: #fff;
+      max-width: 700px;
+      letter-spacing: -.02em;
+    }
+
+    .hero h1 .accent { color: var(--glow); }
+
+    .hero p.sub {
+      margin-top: 1.25rem;
+      font-size: 1.1rem;
+      color: var(--muted);
+      max-width: 520px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      margin-top: 2.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .75rem 1.75rem;
+      background: var(--glow);
+      color: #080e0c;
+      font-weight: 700;
+      font-size: .95rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: opacity .2s, transform .15s;
+    }
+
+    .btn-primary:hover { opacity: .88; transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .75rem 1.75rem;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-size: .95rem;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: border-color .2s, transform .15s;
+    }
+
+    .btn-secondary:hover { border-color: var(--glow); transform: translateY(-1px); }
+
+    .hero-note {
+      margin-top: 1.25rem;
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    /* ── Section wrapper ── */
+    .section {
+      position: relative;
+      z-index: 1;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 5rem 1.5rem;
+    }
+
+    .section-label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--glow);
+      margin-bottom: .75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.7rem, 3vw, 2.4rem);
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -.02em;
+      line-height: 1.2;
+    }
+
+    .section-sub {
+      margin-top: .75rem;
+      color: var(--muted);
+      max-width: 540px;
+    }
+
+    /* ── Feature grid ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.75rem;
+      transition: border-color .2s, transform .2s;
+    }
+
+    .feature-card:hover {
+      border-color: rgba(74,222,128,.25);
+      transform: translateY(-2px);
+    }
+
+    .feature-icon {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: .5rem;
+    }
+
+    .feature-card p {
+      font-size: .875rem;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    /* ── How it works ── */
+    .steps {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 3rem;
+      max-width: 680px;
+    }
+
+    .step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(74,222,128,.12);
+      border: 1px solid rgba(74,222,128,.3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: .8rem;
+      font-weight: 700;
+      color: var(--glow);
+      font-family: var(--font-mono);
+    }
+
+    .step-body h3 {
+      font-size: .95rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: .3rem;
+    }
+
+    .step-body p {
+      font-size: .875rem;
+      color: var(--muted);
+    }
+
+    /* ── Privacy callout ── */
+    .privacy-box {
+      margin-top: 3rem;
+      background: rgba(74,222,128,.05);
+      border: 1px solid rgba(74,222,128,.2);
+      border-radius: 14px;
+      padding: 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .privacy-box .shield {
+      font-size: 2.5rem;
+    }
+
+    .privacy-box h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--glow);
+      margin-bottom: .4rem;
+    }
+
+    .privacy-box p {
+      font-size: .875rem;
+      color: var(--muted);
+    }
+
+    /* ── Download section ── */
+    .download-box {
+      margin-top: 3rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .download-info h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: .4rem;
+    }
+
+    .download-info p {
+      font-size: .875rem;
+      color: var(--muted);
+    }
+
+    .download-meta {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .meta-item {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    .meta-item .tag {
+      padding: .2rem .55rem;
+      background: rgba(74,222,128,.1);
+      border: 1px solid rgba(74,222,128,.2);
+      border-radius: 5px;
+      font-size: .72rem;
+      color: var(--glow);
+      font-family: var(--font-mono);
+    }
+
+    /* ── Team ── */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2.5rem;
+    }
+
+    .team-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .team-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(74,222,128,.3), rgba(240,180,41,.3));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      margin: 0 auto .9rem;
+      border: 1px solid var(--border);
+    }
+
+    .team-card h4 {
+      font-size: .9rem;
+      font-weight: 600;
+      color: #fff;
+      margin-bottom: .25rem;
+    }
+
+    .team-card p {
+      font-size: .78rem;
+      color: var(--muted);
+    }
+
+    /* ── Footer ── */
+    footer {
+      position: relative;
+      z-index: 1;
+      border-top: 1px solid var(--border);
+      padding: 2rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    footer p {
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    footer a {
+      color: var(--glow);
+      text-decoration: none;
+    }
+
+    footer a:hover { text-decoration: underline; }
+
+    /* ── Divider ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1.25rem; }
+      .nav-links { display: none; }
+      .hero { padding: 4rem 1.25rem 3rem; }
+      .privacy-box { grid-template-columns: 1fr; text-align: center; }
+      .download-box { flex-direction: column; align-items: flex-start; }
+      footer { flex-direction: column; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Nav ── -->
+<nav>
+  <a href="#" class="nav-brand">
+    <img src="logo.png" alt="Recall logo" />
+    <span>Recall</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#how">How it works</a></li>
+    <li><a href="#privacy">Privacy</a></li>
+    <li><a href="#download">Download</a></li>
+    <li><a href="https://github.com/ryan-reji/Adaptive-AI-Memory-Operating-System" target="_blank">GitHub</a></li>
+  </ul>
+  <a href="#download" class="nav-cta">
+    ↓ Download
+  </a>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-badge"><span class="dot"></span> B.Tech Major Project · 2026</div>
+  <img src="logo.png" alt="Recall" class="logo" />
+  <h1>Your memory,<br><span class="accent">kept local.</span></h1>
+  <p class="sub">Recall captures what you work on, understands it with local AI, and lets you search your own history — privately, on your device.</p>
+  <div class="hero-actions">
+    <a href="#download" class="btn-primary">⬇ Download for Windows</a>
+    <a href="https://github.com/ryan-reji/Adaptive-AI-Memory-Operating-System" target="_blank" class="btn-secondary">View on GitHub →</a>
+  </div>
+  <p class="hero-note">Windows 10/11 · Python required · ~420 MB</p>
+</section>
+
+<hr class="divider" />
+
+<!-- ── Features ── -->
+<section class="section" id="features">
+  <p class="section-label">What it does</p>
+  <h2 class="section-title">Everything you've worked on,<br>searchable in seconds.</h2>
+  <p class="section-sub">Recall passively captures your activity and builds a personal, searchable memory — no cloud, no tracking.</p>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">🌐</div>
+      <h3>Browser Activity</h3>
+      <p>Captures pages you visit in Chrome, Brave, and Edge. Filters out irrelevant content automatically.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">💻</div>
+      <h3>VS Code Activity</h3>
+      <p>Tracks files and projects you edit in VS Code — tied to your permission settings, not a separate system.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">📁</div>
+      <h3>File Activity</h3>
+      <p>Monitors folders you allow, capturing file reads and edits. Protected system locations are always blocked.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🧠</div>
+      <h3>AI Relevance Filter</h3>
+      <p>Uses a local Ollama LLM to classify each activity as relevant, uncertain, or irrelevant before storing.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🔍</div>
+      <h3>Semantic Search</h3>
+      <p>Ask anything about your past work in natural language. Powered by embeddings and RAG — all local.</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🗑</div>
+      <h3>Smart Forgetting</h3>
+      <p>A Random Forest model flags stale files for review. You decide what stays — nothing is ever auto-deleted.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ── How it works ── -->
+<section class="section" id="how">
+  <p class="section-label">Under the hood</p>
+  <h2 class="section-title">How Recall works</h2>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-body">
+        <h3>Activity monitoring starts automatically</h3>
+        <p>When you open Recall, the orchestrator starts monitoring your browser, VS Code, and permitted folders in the background.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-body">
+        <h3>Every 60 seconds — relevance classification</h3>
+        <p>Captured activity is sent to a local LLM (qwen3.5:4b via Ollama) which decides if each item is worth remembering.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-body">
+        <h3>Relevant items become memories</h3>
+        <p>Relevant and uncertain items are stored as memory records in a local SQLite database — irrelevant activity is discarded.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-body">
+        <h3>Embeddings → ChromaDB → RAG</h3>
+        <p>Memories are chunked, embedded with sentence-transformers, and stored in ChromaDB for semantic retrieval.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">05</div>
+      <div class="step-body">
+        <h3>Ask anything</h3>
+        <p>Use the Search page to ask natural language questions. The RAG pipeline retrieves relevant memories and generates a grounded answer.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="privacy-box" id="privacy">
+    <div class="shield">🛡</div>
+    <div>
+      <h3>Everything stays on your device</h3>
+      <p>No data leaves your machine. The LLM runs locally via Ollama, embeddings are stored locally in ChromaDB, and all databases live in your user profile. No accounts, no cloud sync, no telemetry.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ── Download ── -->
+<section class="section" id="download">
+  <p class="section-label">Get started</p>
+  <h2 class="section-title">Download Recall</h2>
+  <p class="section-sub">One installer. All processes start automatically when you open the app.</p>
+
+  <div class="download-box">
+    <div class="download-info">
+      <h3>Recall Setup 0.0.0 · Windows</h3>
+      <p>Includes the full AI stack — backend, orchestrator, ChromaDB, Smart Forgetting, and Ollama auto-start.</p>
+      <div class="download-meta">
+        <div class="meta-item"><span class="tag">Windows 10/11</span></div>
+        <div class="meta-item"><span class="tag">x64</span></div>
+        <div class="meta-item"><span class="tag">~420 MB</span></div>
+        <div class="meta-item"><span class="tag">Python 3.10+ required</span></div>
+      </div>
+    </div>
+    <a href="https://github.com/ryan-reji/Adaptive-AI-Memory-Operating-System/releases" target="_blank" class="btn-primary" style="white-space:nowrap;">
+      ⬇ Download .exe
+    </a>
+  </div>
+
+  <div style="margin-top:2rem; background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:1.5rem;">
+    <p style="font-size:.85rem; color:var(--muted); margin-bottom:.75rem;">Prerequisites before installing:</p>
+    <ol style="font-size:.85rem; color:var(--muted); padding-left:1.25rem; line-height:2;">
+      <li>Install <a href="https://python.org" target="_blank" style="color:var(--glow);">Python 3.10+</a> and add it to PATH</li>
+      <li>Install <a href="https://ollama.com/download" target="_blank" style="color:var(--glow);">Ollama</a> and pull the model: <code style="font-family:var(--font-mono); color:var(--gold);">ollama pull qwen3.5:4b</code></li>
+      <li>Run the installer and open Recall — everything else starts automatically</li>
+    </ol>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ── Team ── -->
+<section class="section" id="team">
+  <p class="section-label">The team</p>
+  <h2 class="section-title">Built by</h2>
+  <p class="section-sub">B.Tech Major Project — Adaptive AI Memory Operating System</p>
+
+  <div class="team-grid">
+    <div class="team-card">
+      <div class="team-avatar">🤖</div>
+      <h4>Member 1</h4>
+      <p>AI Engine · Embeddings · ChromaDB · RAG · Ollama</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">📡</div>
+      <h4>Member 2</h4>
+      <p>Activity Monitoring · Relevance Pipeline · Smart Forgetting</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">🎨</div>
+      <h4>Nathan</h4>
+      <p>Desktop UI · Electron App · Smart Forgetting UI</p>
+    </div>
+    <div class="team-card">
+      <div class="team-avatar">⚙️</div>
+      <h4>Member 4</h4>
+      <p>Backend API · FastAPI · Integration Layer</p>
+    </div>
+  </div>
+</section>
+
+<hr class="divider" />
+
+<!-- ── Footer ── -->
+<footer>
+  <p>© 2026 Recall · B.Tech Major Project</p>
+  <p>
+    <a href="https://github.com/ryan-reji/Adaptive-AI-Memory-Operating-System" target="_blank">GitHub</a>
+    &nbsp;·&nbsp;
+    <a href="#download">Download</a>
+    &nbsp;·&nbsp;
+    <a href="#privacy">Privacy</a>
+  </p>
+</footer>
+
+</body>
+</html>
